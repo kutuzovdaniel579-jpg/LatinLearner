@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caput — Woorden</title>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .woord {
+      padding: 10px;
+      margin: 10px 0;
+      background: #f0f0f0;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Woorden Leren</h1>
+
+  <div id="lijst">Laden...</div>
+
+  <script>
+    async function loadWords() {
+      const res = await fetch("woorden.json");
+      const data = await res.json();
+
+      const lijst = document.getElementById("lijst");
+      lijst.innerHTML = "";
+
+      data.woorden.forEach((w, i) => {
+        const div = document.createElement("div");
+        div.className = "woord";
+
+        div.innerHTML = `
+          <b>${w.nl}</b><br>
+          <input id="input-${i}" placeholder="Latijn..." />
+          <button onclick="check(${i}, '${w.la}')">Check</button>
+          <p id="result-${i}"></p>
+        `;
+
+        lijst.appendChild(div);
+      });
+    }
+
+    function check(i, correct) {
+      const val = document.getElementById("input-" + i).value.trim().toLowerCase();
+      const result = document.getElementById("result-" + i);
+
+      if (val === correct.toLowerCase()) {
+        result.textContent = "✔️ Correct!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Fout — juiste antwoord: " + correct;
+        result.style.color = "red";
+      }
+    }
+
+    loadWords();
+  </script>
+</body>
+</html>
