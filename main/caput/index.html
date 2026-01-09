@@ -7,62 +7,102 @@
 
   <style>
     body { font-family: Arial; padding: 20px; }
+    h1 { margin-bottom: 10px; }
+
+    #hoofdstukken {
+      margin-bottom: 20px;
+    }
+
+    .hoofdstuk-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      background: #eee;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
     .woord {
       padding: 10px;
       margin: 10px 0;
       background: #f0f0f0;
       border-radius: 6px;
     }
-    button {
-      margin-top: 10px;
+
+    #quizBtn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
       padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
       font-size: 16px;
+      cursor: pointer;
+      display: none;
     }
   </style>
 </head>
 
 <body>
-  <h1>Woorden Leren</h1>
+  <button id="quizBtn">🎯 Quiz</button>
 
-  <div id="lijst">Laden...</div>
+  <h1>Woorden per Caput</h1>
+
+  <div id="hoofdstukken">Hoofdstukken laden...</div>
+
+  <h2 id="caputTitel"></h2>
+  <div id="woordenLijst"></div>
 
   <script>
-    async function loadWords() {
-      const res = await fetch("woorden.json");
-      const data = await res.json();
+    let woordenData = {};
+    let huidigCaput = null;
 
-      const lijst = document.getElementById("lijst");
+    async function loadJSON() {
+      const res = await fetch("caput.json");
+      woordenData = await res.json();
+
+      const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+      hoofdstukkenDiv.innerHTML = "";
+
+      Object.keys(woordenData).forEach(caput => {
+        const btn = document.createElement("button");
+        btn.className = "hoofdstuk-btn";
+        btn.textContent = caput;
+        btn.onclick = () => laadCaput(caput);
+        hoofdstukkenDiv.appendChild(btn);
+      });
+    }
+
+    function laadCaput(caput) {
+      huidigCaput = caput;
+
+      document.getElementById("quizBtn").style.display = "block";
+      document.getElementById("caputTitel").textContent = "Hoofdstuk " + caput;
+
+      const lijst = document.getElementById("woordenLijst");
       lijst.innerHTML = "";
 
-      data.woorden.forEach((w, i) => {
+      const woorden = woordenData[caput];
+
+      Object.keys(woorden).forEach(nl => {
+        const la = woorden[nl];
+
         const div = document.createElement("div");
         div.className = "woord";
-
-        div.innerHTML = `
-          <b>${w.nl}</b><br>
-          <input id="input-${i}" placeholder="Latijn..." />
-          <button onclick="check(${i}, '${w.la}')">Check</button>
-          <p id="result-${i}"></p>
-        `;
-
+        div.innerHTML = `<b>${nl}</b> → ${la}`;
         lijst.appendChild(div);
       });
     }
 
-    function check(i, correct) {
-      const val = document.getElementById("input-" + i).value.trim().toLowerCase();
-      const result = document.getElementById("result-" + i);
+    document.getElementById("quizBtn").onclick = () => {
+      if (!huidigCaput) return;
+      window.location.href = `quiz.html?caput=${huidigCaput}`;
+    };
 
-      if (val === correct.toLowerCase()) {
-        result.textContent = "✔️ Correct!";
-        result.style.color = "green";
-      } else {
-        result.textContent = "❌ Fout — juiste antwoord: " + correct;
-        result.style.color = "red";
-      }
-    }
-
-    loadWords();
+    loadJSON();
   </script>
 </body>
 </html>
