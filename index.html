@@ -10,35 +10,75 @@
       margin: 0;
       background: #f4e4c1;
       overflow: hidden;
-      font-family: Arial;
+    }
+
+    /* Grond */
+    #ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #c2a878;
+      border-top: 4px solid #000;
+    }
+
+    /* Paard + Caesar container */
+    #horse {
+      position: absolute;
+      bottom: 80px;
+      left: -200px;
+      width: 180px;
+      height: 120px;
+      animation: ride 5s linear forwards;
+    }
+
+    /* Paard lichaam */
+    .horse-body {
+      position: absolute;
+      width: 140px;
+      height: 60px;
+      background: #5c3b1e;
+      border: 3px solid #000;
+      border-radius: 20px;
+      top: 40px;
+      left: 20px;
+    }
+
+    /* Paard kop */
+    .horse-head {
+      position: absolute;
+      width: 50px;
+      height: 40px;
+      background: #5c3b1e;
+      border: 3px solid #000;
+      border-radius: 10px;
+      top: 30px;
+      left: -10px;
     }
 
     /* Caesar */
     #caesar {
       position: absolute;
-      bottom: 20px;
-      left: -80px;
-      width: 60px;
-      height: 100px;
+      width: 40px;
+      height: 60px;
       background: #f7d7a8;
-      border-radius: 10px;
       border: 3px solid #000;
-      animation: walk 4s linear forwards;
+      border-radius: 10px;
+      top: -10px;
+      left: 70px;
     }
 
-    /* Caesar toga */
     #caesar::after {
       content: "";
       position: absolute;
-      width: 60px;
-      height: 100px;
+      width: 40px;
+      height: 60px;
       background: white;
       border-left: 3px solid #000;
       border-right: 3px solid #000;
       border-bottom: 3px solid #000;
       border-radius: 10px;
-      top: 0;
-      left: 0;
       opacity: 0.9;
     }
 
@@ -46,8 +86,8 @@
     #building {
       position: absolute;
       top: -300px;
-      right: 20px;
-      width: 180px;
+      right: 40px;
+      width: 200px;
       height: 140px;
       background: #fff;
       border: 4px solid #000;
@@ -56,43 +96,44 @@
       animation-delay: 1s;
     }
 
-    /* Zuilen */
-    .pillar {
-      position: absolute;
-      bottom: 0;
-      width: 20px;
-      height: 100px;
-      background: #eee;
-      border: 3px solid #000;
-    }
-
-    .pillar:nth-child(1) { left: 15px; }
-    .pillar:nth-child(2) { left: 55px; }
-    .pillar:nth-child(3) { left: 95px; }
-    .pillar:nth-child(4) { left: 135px; }
-
     /* Dak */
     #roof {
       position: absolute;
       top: -40px;
       left: -10px;
-      width: 200px;
+      width: 220px;
       height: 40px;
       background: #c0392b;
       border: 4px solid #000;
       clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
     }
 
+    /* Zuilen */
+    .pillar {
+      position: absolute;
+      bottom: 0;
+      width: 25px;
+      height: 100px;
+      background: #eee;
+      border: 3px solid #000;
+    }
+
+    .pillar:nth-child(2) { left: 20px; }
+    .pillar:nth-child(3) { left: 60px; }
+    .pillar:nth-child(4) { left: 100px; }
+    .pillar:nth-child(5) { left: 140px; }
+    .pillar:nth-child(6) { left: 180px; }
+
     /* Animaties */
-    @keyframes walk {
-      0% { left: -80px; }
-      100% { left: 140px; }
+    @keyframes ride {
+      0% { left: -200px; }
+      100% { left: 200px; }
     }
 
     @keyframes drop {
       0% { top: -300px; }
-      80% { top: 40px; }
-      100% { top: 20px; }
+      80% { top: 80px; }
+      100% { top: 60px; }
     }
 
     /* Fade-out */
@@ -103,7 +144,7 @@
       opacity: 0;
       pointer-events: none;
       animation: fadeout 1s forwards;
-      animation-delay: 4.5s;
+      animation-delay: 5s;
     }
 
     @keyframes fadeout {
@@ -115,16 +156,23 @@
   <script>
     setTimeout(() => {
       window.location.href = "main/";
-    }, 5500);
+    }, 6000);
   </script>
 </head>
 
 <body>
 
-  <div id="caesar"></div>
+  <div id="ground"></div>
+
+  <div id="horse">
+    <div class="horse-body"></div>
+    <div class="horse-head"></div>
+    <div id="caesar"></div>
+  </div>
 
   <div id="building">
     <div id="roof"></div>
+    <div class="pillar"></div>
     <div class="pillar"></div>
     <div class="pillar"></div>
     <div class="pillar"></div>
