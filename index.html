@@ -38,8 +38,10 @@
     <h1>LatinLearner</h1>
     <p>Maak een foto → OCR → Vertaling NL → Latijn</p>
 
-    <video id="camera" autoplay></video>
+    <video id="camera" autoplay playsinline></video>
     <br />
+
+    <button id="switchBtn">🔄 Wissel camera</button>
     <button id="captureBtn">📸 Maak foto</button>
 
     <canvas id="snapshot"></canvas>
@@ -58,25 +60,49 @@
       const recognizedText = document.getElementById("recognizedText");
       const latinText = document.getElementById("latinText");
 
-      // Camera starten
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => video.srcObject = stream)
-        .catch(err => alert("Camera toegang geweigerd: " + err));
+      let currentFacing = "environment"; // start met achtercamera
+      let stream;
 
+      async function startCamera() {
+        if (stream) {
+          stream.getTracks().forEach(t => t.stop());
+        }
+
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { exact: currentFacing } }
+          });
+        } catch (e) {
+          // fallback als exact niet werkt
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: currentFacing }
+          });
+        }
+
+        video.srcObject = stream;
+      }
+
+      // Start met achtercamera
+      startCamera();
+
+      // Wissel tussen voor/achter
+      document.getElementById("switchBtn").onclick = () => {
+        currentFacing = currentFacing === "environment" ? "user" : "environment";
+        startCamera();
+      };
+
+      // Foto maken
       document.getElementById("captureBtn").onclick = async () => {
-        // Foto maken
         const ctx = canvas.getContext("2d");
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         ctx.drawImage(video, 0, 0);
 
-        // OCR uitvoeren
         recognizedText.textContent = "Bezig met tekst herkennen...";
         const result = await Tesseract.recognize(canvas, "nld");
         const text = result.data.text.trim();
         recognizedText.textContent = text || "Geen tekst gevonden.";
 
-        // Vertalen NL → Latijn
         latinText.textContent = "Bezig met vertalen...";
         const translation = await fetch(
           "https://api.mymemory.translated.net/get?q=" +
