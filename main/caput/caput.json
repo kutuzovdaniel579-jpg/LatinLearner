@@ -1,0 +1,46 @@
+{
+  "C1.2": {
+    "de vriend": "amicus",
+    "de god": "deus",
+    "de meester": "dominus",
+    "het paard": "equus",
+    "de zoon": "filius",
+    "de slaaf": "servus",
+    "het water": "aqua",
+    "het gezin": "familia",
+    "de weg": "via",
+    "het monument": "monumentum",
+    "de tempel": "templum",
+    "de wijn": "vinum",
+    "vader": "pater",
+    "de oude man": "senex",
+    "het meisje": "virgo",
+    "de stem": "vox",
+    "de rivier": "flumen",
+    "de ster": "sidus"
+  },
+
+  "C3.9": {
+    "het bos": "silva",
+    "het leven": "vita",
+    "de leeuw": "leo",
+    "het deel;de kant": "pars",
+    "vermoorden": "necare",
+    "vechten": "pugnare",
+    "zwijgen": "tacere",
+    "(vast)houden": "tenere",
+    "waarom": "quare"
+},
+
+  "C3.11": {
+    "vroeger": "ante(a)",
+    "dagelijks": "cottidie",
+    "morgen": "cras",
+    "gisteren": "heri",
+    "vandaag": "hodie",
+    "´s morgens": "mane",
+    "later": "post(ea)",
+    "de volgende dag": "postero die",
+    "op een dag": "quodam die"
+  }
+}
