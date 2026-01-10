@@ -1,46 +1,2419 @@
 {
-  "C1.2": {
-    "de vriend": "amicus",
-    "de god": "deus",
-    "de meester": "dominus",
-    "het paard": "equus",
-    "de zoon": "filius",
-    "de slaaf": "servus",
-    "het water": "aqua",
-    "het gezin": "familia",
-    "de weg": "via",
-    "het monument": "monumentum",
-    "de tempel": "templum",
-    "de wijn": "vinum",
-    "vader": "pater",
-    "de oude man": "senex",
-    "het meisje": "virgo",
-    "de stem": "vox",
-    "de rivier": "flumen",
-    "de ster": "sidus"
-  },
-
-  "C3.9": {
-    "het bos": "silva",
-    "het leven": "vita",
-    "de leeuw": "leo",
-    "het deel;de kant": "pars",
-    "vermoorden": "necare",
-    "vechten": "pugnare",
-    "zwijgen": "tacere",
-    "(vast)houden": "tenere",
-    "waarom": "quare"
-},
-
-  "C3.11": {
-    "vroeger": "ante(a)",
-    "dagelijks": "cottidie",
-    "morgen": "cras",
-    "gisteren": "heri",
-    "vandaag": "hodie",
-    "´s morgens": "mane",
-    "later": "post(ea)",
-    "de volgende dag": "postero die",
-    "op een dag": "quodam die"
+  "C1": {
+    "C1.2": {
+      "amicus": {
+        "NL": "de vriend",
+        "LA": "amicus",
+        "Gen": "amicī"
+      },
+      "deus": {
+        "NL": "de god",
+        "LA": "deus",
+        "Gen": "deī"
+      },
+      "dominus": {
+        "NL": "de meester",
+        "LA": "dominus",
+        "Gen": "dominī"
+      },
+      "equus": {
+        "NL": "het paard",
+        "LA": "equus",
+        "Gen": "equī"
+      },
+      "filius": {
+        "NL": "de zoon",
+        "LA": "filius",
+        "Gen": "filiī"
+      },
+      "servus": {
+        "NL": "de slaaf",
+        "LA": "servus",
+        "Gen": "servī"
+      },
+      "aqua": {
+        "NL": "het water",
+        "LA": "aqua",
+        "Gen": "aquae"
+      },
+      "familia": {
+        "NL": "het gezin",
+        "LA": "familia",
+        "Gen": "familiae"
+      },
+      "via": {
+        "NL": "de weg",
+        "LA": "via",
+        "Gen": "viae"
+      },
+      "monumentum": {
+        "NL": "het monument",
+        "LA": "monumentum",
+        "Gen": "monumentī"
+      },
+      "templum": {
+        "NL": "de tempel",
+        "LA": "templum",
+        "Gen": "templī"
+      },
+      "vinum": {
+        "NL": "de wijn",
+        "LA": "vinum",
+        "Gen": "vinī"
+      },
+      "pater": {
+        "NL": "vader",
+        "LA": "pater",
+        "Gen": "patris"
+      },
+      "senex": {
+        "NL": "de oude man",
+        "LA": "senex",
+        "Gen": "senis"
+      },
+      "virgo": {
+        "NL": "het meisje",
+        "LA": "virgo",
+        "Gen": "virginis"
+      },
+      "vox": {
+        "NL": "de stem",
+        "LA": "vox",
+        "Gen": "vocis"
+      },
+      "flumen": {
+        "NL": "de rivier",
+        "LA": "flumen",
+        "Gen": "fluminis"
+      },
+      "sidus": {
+        "NL": "de ster",
+        "LA": "sidus",
+        "Gen": "sideris"
+      }
+    },
+    "C1.3": {
+      "fēmina": {
+        "NL": "de vrouw",
+        "LA": "fēmina",
+        "Gen": "fēminae"
+      },
+      "canis": {
+        "NL": "de hond",
+        "LA": "canis",
+        "Gen": "canis"
+      },
+      "iuvenis": {
+        "NL": "de jongeman",
+        "LA": "iuvenis",
+        "Gen": "iuvenis"
+      },
+      "mercātor": {
+        "NL": "de handelaar",
+        "LA": "mercātor",
+        "Gen": "mercātōris"
+      },
+      "mīles": {
+        "NL": "de soldaat",
+        "LA": "mīles",
+        "Gen": "mīlitis"
+      },
+      "senātor": {
+        "NL": "de senator",
+        "LA": "senātor",
+        "Gen": "senātōris"
+      },
+      "nox": {
+        "NL": "de nacht",
+        "LA": "nox",
+        "Gen": "noctis"
+      },
+      "caput": {
+        "NL": "het hoofd; het hoofdstuk",
+        "LA": "caput",
+        "Gen": "capitis"
+      },
+      "est": {
+        "NL": "(hij, zij, het) is",
+        "LA": "est",
+        "Gen": "werkwoordsvorm van esse"
+      },
+      "sunt": {
+        "NL": "(zij) zijn",
+        "LA": "sunt",
+        "Gen": "werkwoordsvorm van esse"
+      },
+      "ibi": {
+        "NL": "daar",
+        "LA": "ibi",
+        "Gen": "bijwoord"
+      },
+      "saepe": {
+        "NL": "dikwijls",
+        "LA": "saepe",
+        "Gen": "bijwoord"
+      },
+      "aut": {
+        "NL": "of",
+        "LA": "aut",
+        "Gen": "voegwoord"
+      },
+      "et": {
+        "NL": "en; ook",
+        "LA": "et",
+        "Gen": "voegwoord"
+      },
+      "que": {
+        "NL": "en",
+        "LA": "que",
+        "Gen": "voegwoord"
+      },
+      "sed": {
+        "NL": "maar",
+        "LA": "sed",
+        "Gen": "voegwoord"
+      }
+    },
+    "C1.4": {
+      "avus": {
+        "NL": "de grootvader",
+        "LA": "avus",
+        "Gen": "avī"
+      },
+      "rosa": {
+        "NL": "de roos",
+        "LA": "rosa",
+        "Gen": "rosae"
+      },
+      "dōnum": {
+        "NL": "het geschenk",
+        "LA": "dōnum",
+        "Gen": "dōnī"
+      },
+      "dux": {
+        "NL": "de leider",
+        "LA": "dux",
+        "Gen": "ducis"
+      },
+      "māter": {
+        "NL": "de moeder",
+        "LA": "māter",
+        "Gen": "mātris"
+      },
+      "corpus": {
+        "NL": "het lichaam",
+        "LA": "corpus",
+        "Gen": "corporis"
+      },
+      "iam": {
+        "NL": "al; dadelijk",
+        "LA": "iam",
+        "Gen": "bijwoord"
+      },
+      "interdum": {
+        "NL": "soms",
+        "LA": "interdum",
+        "Gen": "bijwoord"
+      },
+      "quoque": {
+        "NL": "ook",
+        "LA": "quoque",
+        "Gen": "bijwoord"
+      },
+      "enim": {
+        "NL": "want",
+        "LA": "enim",
+        "Gen": "voegwoord"
+      }
+    },
+    "C1.5": {
+      "cūria": {
+        "NL": "de curia (het Romeinse senaatsgebouw)",
+        "LA": "cūria",
+        "Gen": "cūriae"
+      },
+      "fābula": {
+        "NL": "het verhaal; het toneelstuk",
+        "LA": "fābula",
+        "Gen": "fābulae"
+      },
+      "lūna": {
+        "NL": "de maan",
+        "LA": "lūna",
+        "Gen": "lūnae"
+      },
+      "forum": {
+        "NL": "het forum (het Romeinse marktplein)",
+        "LA": "forum",
+        "Gen": "forī"
+      },
+      "iūdex": {
+        "NL": "de rechter",
+        "LA": "iūdex",
+        "Gen": "iūdicis"
+      },
+      "onus": {
+        "NL": "de last",
+        "LA": "onus",
+        "Gen": "oneris"
+      },
+      "tempus": {
+        "NL": "de tijd; het moment",
+        "LA": "tempus",
+        "Gen": "temporis"
+      },
+      "corpus": {
+        "NL": "het lichaam",
+        "LA": "corpus",
+        "Gen": "corporis"
+      },
+      "sidus": {
+        "NL": "de ster; het sterrenbeeld",
+        "LA": "sidus",
+        "Gen": "sideris"
+      },
+      "nōn": {
+        "NL": "niet",
+        "LA": "nōn",
+        "Gen": "ontkenning"
+      },
+      "semper": {
+        "NL": "altijd",
+        "LA": "semper",
+        "Gen": "bijwoord"
+      }
+    },
+    "C1.6": {
+      "statua": {
+        "NL": "het standbeeld",
+        "LA": "statua",
+        "Gen": "statuae"
+      },
+      "eques": {
+        "NL": "de ruiter; de ridder",
+        "LA": "eques",
+        "Gen": "equitis"
+      },
+      "labōrāre": {
+        "NL": "werken; lijden",
+        "LA": "labōrāre",
+        "Gen": "labōrō"
+      },
+      "appārēre": {
+        "NL": "verschijnen; blijken",
+        "LA": "appārēre",
+        "Gen": "appāreō"
+      },
+      "dormīre": {
+        "NL": "slapen",
+        "LA": "dormīre",
+        "Gen": "dormiō"
+      },
+      "nōn": {
+        "NL": "niet",
+        "LA": "nōn",
+        "Gen": "bijwoord"
+      },
+      "etiam": {
+        "NL": "ook; zelfs",
+        "LA": "etiam",
+        "Gen": "bijwoord"
+      },
+      "nōndum": {
+        "NL": "nog niet",
+        "LA": "nōndum",
+        "Gen": "bijwoord"
+      },
+      "iam": {
+        "NL": "nu; reeds",
+        "LA": "iam",
+        "Gen": "bijwoord"
+      },
+      "tum": {
+        "NL": "toen; dan",
+        "LA": "tum",
+        "Gen": "bijwoord"
+      }
+    },
+    "C1.7": {
+      "theātrum": {
+        "NL": "het theater",
+        "LA": "theātrum",
+        "Gen": "theātrī"
+      },
+      "mulier": {
+        "NL": "de vrouw",
+        "LA": "mulier",
+        "Gen": "mulieris"
+      },
+      "uxor": {
+        "NL": "de echtgenote",
+        "LA": "uxor",
+        "Gen": "uxoris"
+      },
+      "cōgitāre": {
+        "NL": "(na)denken",
+        "LA": "cōgitāre",
+        "Gen": "cōgitō"
+      },
+      "dare": {
+        "NL": "geven",
+        "LA": "dare",
+        "Gen": "dō"
+      },
+      "narrāre": {
+        "NL": "vertellen",
+        "LA": "narrāre",
+        "Gen": "narrō"
+      },
+      "properāre": {
+        "NL": "zich haasten",
+        "LA": "properāre",
+        "Gen": "properō"
+      },
+      "rogāre": {
+        "NL": "vragen",
+        "LA": "rogāre",
+        "Gen": "rogō"
+      },
+      "spectāre": {
+        "NL": "(be)kijken; op het oog hebben",
+        "LA": "spectāre",
+        "Gen": "spectō"
+      },
+      "stāre": {
+        "NL": "staan; blijven staan",
+        "LA": "stāre",
+        "Gen": "stō"
+      },
+      "gaudēre": {
+        "NL": "blij zijn",
+        "LA": "gaudēre",
+        "Gen": "gaudeō"
+      },
+      "habēre": {
+        "NL": "hebben; beschouwen als",
+        "LA": "habēre",
+        "Gen": "habeō"
+      },
+      "respondēre": {
+        "NL": "antwoorden",
+        "LA": "respondēre",
+        "Gen": "respondeō"
+      },
+      "sedēre": {
+        "NL": "zitten",
+        "LA": "sedēre",
+        "Gen": "sedeō"
+      },
+      "vidēre": {
+        "NL": "zien",
+        "LA": "vidēre",
+        "Gen": "videō"
+      },
+      "aperīre": {
+        "NL": "openen; onthullen",
+        "LA": "aperīre",
+        "Gen": "aperiō"
+      },
+      "venīre": {
+        "NL": "komen",
+        "LA": "venīre",
+        "Gen": "veniō"
+      },
+      "esse": {
+        "NL": "zijn; bestaan",
+        "LA": "esse",
+        "Gen": "sum"
+      },
+      "cūr": {
+        "NL": "waarom?",
+        "LA": "cūr",
+        "Gen": "bijwoord"
+      },
+      "domum": {
+        "NL": "naar huis",
+        "LA": "domum",
+        "Gen": "bijwoord"
+      },
+      "ideō": {
+        "NL": "daarom",
+        "LA": "ideō",
+        "Gen": "bijwoord"
+      },
+      "intereā": {
+        "NL": "intussen",
+        "LA": "intereā",
+        "Gen": "bijwoord"
+      }
+    },
+    "C1.8": {
+      "pecūnia": {
+        "NL": "het geld",
+        "LA": "pecūnia",
+        "Gen": "pecūniae"
+      },
+      "aedificium": {
+        "NL": "het gebouw",
+        "LA": "aedificium",
+        "Gen": "aedificiī"
+      },
+      "spectāculum": {
+        "NL": "het schouwspel",
+        "LA": "spectāculum",
+        "Gen": "spectāculī"
+      },
+      "fīnis": {
+        "NL": "de grens; het einde; het doel",
+        "LA": "fīnis",
+        "Gen": "fīnis"
+      },
+      "iter": {
+        "NL": "de reis; de weg",
+        "LA": "iter",
+        "Gen": "itineris"
+      },
+      "laetus": {
+        "NL": "vrolijk",
+        "LA": "laetus",
+        "Gen": "~a, ~um"
+      },
+      "lātus": {
+        "NL": "breed; uitgestrekt",
+        "LA": "lātus",
+        "Gen": "~a, ~um"
+      },
+      "longus": {
+        "NL": "lang",
+        "LA": "longus",
+        "Gen": "~a, ~um"
+      },
+      "magnus": {
+        "NL": "groot; belangrijk",
+        "LA": "magnus",
+        "Gen": "~a, ~um"
+      },
+      "optimus": {
+        "NL": "beste; zeer goed",
+        "LA": "optimus",
+        "Gen": "~a, ~um"
+      },
+      "timidus": {
+        "NL": "bang",
+        "LA": "timidus",
+        "Gen": "~a, ~um"
+      },
+      "clāmāre": {
+        "NL": "roepen",
+        "LA": "clāmāre",
+        "Gen": "clāmō"
+      },
+      "invenīre": {
+        "NL": "vinden; ontdekken",
+        "LA": "invenīre",
+        "Gen": "inveniō"
+      },
+      "tum": {
+        "NL": "op dat moment",
+        "LA": "tum",
+        "Gen": "bijwoord"
+      },
+      "tunc": {
+        "NL": "op dat moment",
+        "LA": "tunc",
+        "Gen": "bijwoord"
+      },
+      "dum": {
+        "NL": "terwijl",
+        "LA": "dum",
+        "Gen": "voegwoord"
+      }
+    },
+    "C1.9": {
+      "amāre": {
+        "NL": "beminnen; houden van",
+        "LA": "amāre",
+        "Gen": "amō"
+      },
+      "monēre": {
+        "NL": "waarschuwen",
+        "LA": "monēre",
+        "Gen": "moneō"
+      },
+      "audīre": {
+        "NL": "horen; luisteren naar",
+        "LA": "audīre",
+        "Gen": "audiō"
+      },
+      "altus": {
+        "NL": "hoog; diep",
+        "LA": "altus",
+        "Gen": "~a, ~um"
+      },
+      "magnificus": {
+        "NL": "prachtig",
+        "LA": "magnificus",
+        "Gen": "~a, ~um"
+      },
+      "multī": {
+        "NL": "veel",
+        "LA": "multī",
+        "Gen": "~ae, ~a"
+      },
+      "novus": {
+        "NL": "nieuw",
+        "LA": "novus",
+        "Gen": "~a, ~um"
+      },
+      "Rōmānus": {
+        "NL": "Romeins",
+        "LA": "Rōmānus",
+        "Gen": "~a, ~um"
+      },
+      "subitō": {
+        "NL": "plotseling",
+        "LA": "subitō",
+        "Gen": "bijwoord"
+      }
+    },
+    "C1.10": {
+      "antīquus": {
+        "NL": "oud",
+        "LA": "antīquus",
+        "Gen": "~a, ~um"
+      },
+      "malus": {
+        "NL": "slecht",
+        "LA": "malus",
+        "Gen": "~a, ~um"
+      },
+      "tōtus": {
+        "NL": "geheel",
+        "LA": "tōtus",
+        "Gen": "~a, ~um"
+      },
+      "nam": {
+        "NL": "want",
+        "LA": "nam",
+        "Gen": "voegwoord"
+      },
+      "quod": {
+        "NL": "omdat",
+        "LA": "quod",
+        "Gen": "voegwoord"
+      }
+    },
+    "C1.11": {
+      "bonus": {
+        "NL": "goed",
+        "LA": "bonus",
+        "Gen": "~a, ~um"
+      },
+      "īrātus": {
+        "NL": "woedend",
+        "LA": "īrātus",
+        "Gen": "~a, ~um"
+      },
+      "stultus": {
+        "NL": "dwaas",
+        "LA": "stultus",
+        "Gen": "~a, ~um"
+      },
+      "bene": {
+        "NL": "goed",
+        "LA": "bene",
+        "Gen": "bijwoord"
+      }
+    },
+    "C1.12": {
+    "ūnus": {
+      "NL": "één; enig",
+      "LA": "ūnus",
+      "Gen": "~a, ~um",
+      "Tel": "I"
+    },
+    "duo": {
+      "NL": "twee",
+      "LA": "duo",
+      "Gen": "~ae, ~o",
+      "Tel": "II"
+    },
+    "trēs": {
+      "NL": "drie",
+      "LA": "trēs",
+      "Gen": "~, tria; trium",
+      "Tel": "III"
+    },
+    "quattuor": {
+      "NL": "vier",
+      "LA": "quattuor",
+      "Gen": "telwoord",
+      "Tel": "IV"
+    },
+    "quinque": {
+      "NL": "vijf",
+      "LA": "quinque",
+      "Gen": "telwoord",
+      "Tel": "V"
+    },
+    "sex": {
+      "NL": "zes",
+      "LA": "sex",
+      "Gen": "telwoord",
+      "Tel": "VI"
+    },
+    "septem": {
+      "NL": "zeven",
+      "LA": "septem",
+      "Gen": "telwoord",
+      "Tel": "VII"
+    },
+    "octō": {
+      "NL": "acht",
+      "LA": "octō",
+      "Gen": "telwoord",
+      "Tel": "VIII"
+    },
+    "novem": {
+      "NL": "negen",
+      "LA": "novem",
+      "Gen": "telwoord",
+      "Tel": "IX"
+    },
+    "decem": {
+      "NL": "tien",
+      "LA": "decem",
+      "Gen": "telwoord",
+      "Tel": "X"
+    },
+    "centum": {
+      "NL": "honderd",
+      "LA": "centum",
+      "Gen": "telwoord",
+      "Tel": "C"
+    },
+    "mille": {
+      "NL": "duizend",
+      "LA": "mille",
+      "Gen": "telwoord",
+      "Tel": "M"
+    },
+    "milia": {
+      "NL": "... duizend",
+      "LA": "milia",
+      "Gen": "milium",
+      "Tel": ""
+    }
   }
+},
+  "C2": {
+    "C2.2": {
+      "mūrus": {
+        "NL": "de muur",
+        "LA": "mūrus",
+        "Gen": "mūrī"
+      },
+      "cūra": {
+        "NL": "de zorg",
+        "LA": "cūra",
+        "Gen": "cūrae"
+      },
+      "tergum": {
+        "NL": "de rug",
+        "LA": "tergum",
+        "Gen": "tergī"
+      },
+      "princeps": {
+        "NL": "de voornaamste; de keizer",
+        "LA": "princeps",
+        "Gen": "principis"
+      },
+      "appellāre": {
+        "NL": "aanspreken; noemen",
+        "LA": "appellāre",
+        "Gen": "appellō"
+      },
+      "interrogāre": {
+        "NL": "(onder)vragen",
+        "LA": "interrogāre",
+        "Gen": "interrogō"
+      },
+      "intrāre": {
+        "NL": "binnengaan",
+        "LA": "intrāre",
+        "Gen": "intrō"
+      },
+      "ōrnāre": {
+        "NL": "versieren; in orde brengen",
+        "LA": "ōrnāre",
+        "Gen": "ōrnō"
+      },
+      "dēbēre": {
+        "NL": "moeten; verschuldigd zijn",
+        "LA": "dēbēre",
+        "Gen": "dēbeō"
+      },
+      "inquit": {
+        "NL": "zegt hij, zij",
+        "LA": "inquit",
+        "Gen": "onregelmatig werkwoord"
+      },
+      "iterum": {
+        "NL": "opnieuw",
+        "LA": "iterum",
+        "Gen": "bijwoord"
+      },
+      "sic": {
+        "NL": "zo",
+        "LA": "sic",
+        "Gen": "bijwoord"
+      },
+      "autem": {
+        "NL": "maar",
+        "LA": "autem",
+        "Gen": "voegwoord"
+      },
+      "ne": {
+        "NL": "(wordt niet vertaald)",
+        "LA": "ne",
+        "Gen": "vraagpartikel"
+      }
+    },
+    "C2.3": {
+      "abesse": {
+        "NL": "afwezig zijn; verwijderd zijn",
+        "LA": "abesse",
+        "Gen": "absum"
+      },
+      "adesse": {
+        "NL": "aanwezig zijn; helpen",
+        "LA": "adesse",
+        "Gen": "adsum"
+      },
+      "superesse": {
+        "NL": "overblijven",
+        "LA": "superesse",
+        "Gen": "supersum"
+      },
+      "posse": {
+        "NL": "kunnen",
+        "LA": "posse",
+        "Gen": "possum"
+      },
+      "calidus": {
+        "NL": "warm",
+        "LA": "calidus",
+        "Gen": "~a, ~um"
+      },
+      "certus": {
+        "NL": "zeker",
+        "LA": "certus",
+        "Gen": "~a, ~um"
+      },
+      "dignus": {
+        "NL": "waardig; passend",
+        "LA": "dignus",
+        "Gen": "~a, ~um"
+      },
+      "fessus": {
+        "NL": "vermoeid",
+        "LA": "fessus",
+        "Gen": "~a, ~um"
+      },
+      "frigidus": {
+        "NL": "koud; koel",
+        "LA": "frigidus",
+        "Gen": "~a, ~um"
+      },
+      "Graecus": {
+        "NL": "Grieks",
+        "LA": "Graecus",
+        "Gen": "~a, ~um"
+      },
+      "grātus": {
+        "NL": "dankbaar; aangenaam",
+        "LA": "grātus",
+        "Gen": "~a, ~um"
+      },
+      "iūcundus": {
+        "NL": "aangenaam",
+        "LA": "iūcundus",
+        "Gen": "~a, ~um"
+      },
+      "iūstus": {
+        "NL": "rechtvaardig",
+        "LA": "iūstus",
+        "Gen": "~a, ~um"
+      },
+      "sānus": {
+        "NL": "gezond",
+        "LA": "sānus",
+        "Gen": "~a, ~um"
+      },
+      "dolēre": {
+        "NL": "lijden; betreuren",
+        "LA": "dolēre",
+        "Gen": "doleō"
+      }
+    },
+    "C2.4": {
+      "annus": {
+        "NL": "het jaar",
+        "LA": "annus",
+        "Gen": "annī"
+      },
+      "hortus": {
+        "NL": "de tuin",
+        "LA": "hortus",
+        "Gen": "hortī"
+      },
+      "taurus": {
+        "NL": "de stier",
+        "LA": "taurus",
+        "Gen": "taurī"
+      },
+      "insula": {
+        "NL": "het eiland",
+        "LA": "insula",
+        "Gen": "insulae"
+      },
+      "regia": {
+        "NL": "het paleis",
+        "LA": "regia",
+        "Gen": "regiae"
+      },
+      "caelum": {
+        "NL": "de hemel",
+        "LA": "caelum",
+        "Gen": "caelī"
+      },
+      "monstrum": {
+        "NL": "het wonder; het monster",
+        "LA": "monstrum",
+        "Gen": "monstrī"
+      },
+      "periculum": {
+        "NL": "het gevaar",
+        "LA": "periculum",
+        "Gen": "periculī"
+      },
+      "homō": {
+        "NL": "de mens",
+        "LA": "homō",
+        "Gen": "hominis"
+      },
+      "rēx": {
+        "NL": "de koning",
+        "LA": "rēx",
+        "Gen": "rēgis"
+      },
+      "urbs": {
+        "NL": "de stad",
+        "LA": "urbs",
+        "Gen": "urbis"
+      },
+      "exspectāre": {
+        "NL": "opwachten; verwachten",
+        "LA": "exspectāre",
+        "Gen": "exspectō"
+      },
+      "habitāre": {
+        "NL": "wonen",
+        "LA": "habitāre",
+        "Gen": "habitō"
+      },
+      "parāre": {
+        "NL": "klaarmaken; verwerven",
+        "LA": "parāre",
+        "Gen": "parō"
+      },
+      "postulāre": {
+        "NL": "eisen",
+        "LA": "postulāre",
+        "Gen": "postulō"
+      },
+      "servāre": {
+        "NL": "bewaren; redden",
+        "LA": "servāre",
+        "Gen": "servō"
+      },
+      "vocāre": {
+        "NL": "roepen; noemen",
+        "LA": "vocāre",
+        "Gen": "vocō"
+      },
+      "manēre": {
+        "NL": "blijven",
+        "LA": "manēre",
+        "Gen": "maneō"
+      },
+      "possidēre": {
+        "NL": "bezitten; beheersen",
+        "LA": "possidēre",
+        "Gen": "possideō"
+      },
+      "rīdēre": {
+        "NL": "(uit)lachen",
+        "LA": "rīdēre",
+        "Gen": "rīdeō"
+      },
+      "reperīre": {
+        "NL": "vinden; te weten komen",
+        "LA": "reperīre",
+        "Gen": "reperiō"
+      },
+      "scīre": {
+        "NL": "weten",
+        "LA": "scīre",
+        "Gen": "sciō"
+      },
+      "nescīre": {
+        "NL": "niet weten",
+        "LA": "nescīre",
+        "Gen": "nesciō"
+      },
+      "nēmō": {
+        "NL": "niemand",
+        "LA": "nēmō",
+        "Gen": "onbepaald vnw."
+      },
+      "nihil": {
+        "NL": "niets",
+        "LA": "nihil",
+        "Gen": "onbepaald vnw."
+      },
+      "maximē": {
+        "NL": "zeer; het meest",
+        "LA": "maximē",
+        "Gen": "bijwoord"
+      },
+      "sī": {
+        "NL": "als",
+        "LA": "sī",
+        "Gen": "voegwoord"
+      },
+      "ecce": {
+        "NL": "kijk!",
+        "LA": "ecce",
+        "Gen": "tussenwerpsel"
+      }
+    },
+    "C2.7": {
+      "capillus": {
+        "NL": "het haar",
+        "LA": "capillus",
+        "Gen": "capillī"
+      },
+      "porta": {
+        "NL": "de poort",
+        "LA": "porta",
+        "Gen": "portae"
+      },
+      "prōvincia": {
+        "NL": "de provincie",
+        "LA": "prōvincia",
+        "Gen": "prōvinciae"
+      },
+      "terra": {
+        "NL": "de aarde; het land",
+        "LA": "terra",
+        "Gen": "terrae"
+      },
+      "fōns": {
+        "NL": "de bron",
+        "LA": "fōns",
+        "Gen": "fontis"
+      },
+      "pēs": {
+        "NL": "de voet",
+        "LA": "pēs",
+        "Gen": "pedis"
+      },
+      "vigilāre": {
+        "NL": "waken",
+        "LA": "vigilāre",
+        "Gen": "vigilō"
+      },
+      "terrēre": {
+        "NL": "bang maken",
+        "LA": "terrēre",
+        "Gen": "terreō"
+      },
+      "timēre": {
+        "NL": "vrezen; bang zijn",
+        "LA": "timēre",
+        "Gen": "timeō"
+      },
+      "prīmum": {
+        "NL": "eerst; voor het eerst",
+        "LA": "prīmum",
+        "Gen": "bijwoord"
+      },
+      "deinde": {
+        "NL": "daarna",
+        "LA": "deinde",
+        "Gen": "bijwoord"
+      },
+      "dēnique": {
+        "NL": "ten slotte",
+        "LA": "dēnique",
+        "Gen": "bijwoord"
+      },
+      "numquam": {
+        "NL": "nooit",
+        "LA": "numquam",
+        "Gen": "bijwoord"
+      },
+      "tandem": {
+        "NL": "uiteindelijk",
+        "LA": "tandem",
+        "Gen": "bijwoord"
+      },
+      "at": {
+        "NL": "maar",
+        "LA": "at",
+        "Gen": "voegwoord"
+      },
+      "cum": {
+        "NL": "toen; wanneer",
+        "LA": "cum",
+        "Gen": "voegwoord"
+      }
+    },
+    "C2.8": {
+      "sōlus": {
+        "NL": "alleen; eenzaam",
+        "LA": "sōlus",
+        "Gen": "~a, ~um"
+      },
+      "superbus": {
+        "NL": "trots; prachtig",
+        "LA": "superbus",
+        "Gen": "~a, ~um"
+      },
+      "ego": {
+        "NL": "ik",
+        "LA": "ego",
+        "Gen": "persoonlijk vnw."
+      },
+      "tū": {
+        "NL": "jij",
+        "LA": "tū",
+        "Gen": "persoonlijk vnw."
+      },
+      "is": {
+        "NL": "hij",
+        "LA": "is",
+        "Gen": "persoonlijk vnw."
+      },
+      "ea": {
+        "NL": "zij",
+        "LA": "ea",
+        "Gen": "persoonlijk vnw."
+      },
+      "id": {
+        "NL": "het",
+        "LA": "id",
+        "Gen": "persoonlijk vnw."
+      },
+      "nōs": {
+        "NL": "wij",
+        "LA": "nōs",
+        "Gen": "persoonlijk vnw."
+      },
+      "vōs": {
+        "NL": "jullie",
+        "LA": "vōs",
+        "Gen": "persoonlijk vnw."
+      },
+      "ii": {
+        "NL": "zij",
+        "LA": "ii",
+        "Gen": "persoonlijk vnw."
+      },
+      "eae": {
+        "NL": "zij",
+        "LA": "eae",
+        "Gen": "persoonlijk vnw."
+      },
+      "ea": {
+        "NL": "zij",
+        "LA": "ea",
+        "Gen": "persoonlijk vnw."
+      },
+      "magis": {
+        "NL": "meer",
+        "LA": "magis",
+        "Gen": "bijwoord"
+      },
+      "tantum": {
+        "NL": "zoveel; alleen maar",
+        "LA": "tantum",
+        "Gen": "bijwoord"
+      },
+      "nōnne": {
+        "NL": "toch wel?",
+        "LA": "nōnne",
+        "Gen": "vraagpartikel"
+      }
+    }
+},
+  "C3": {
+    "C3.2": {
+      "nūntius": {
+        "NL": "de bode; het bericht",
+        "LA": "nūntius",
+        "Gen": "nūntiī"
+      },
+      "sapientia": {
+        "NL": "de wijsheid",
+        "LA": "sapientia",
+        "Gen": "sapientiae"
+      },
+      "unda": {
+        "NL": "de golf",
+        "LA": "unda",
+        "Gen": "undae"
+      },
+      "bellum": {
+        "NL": "de oorlog",
+        "LA": "bellum",
+        "Gen": "bellī"
+      },
+      "amor": {
+        "NL": "de liefde",
+        "LA": "amor",
+        "Gen": "amōris"
+      },
+      "auctor": {
+        "NL": "de dader",
+        "LA": "auctor",
+        "Gen": "auctōris"
+      },
+      "frāter": {
+        "NL": "de broer",
+        "LA": "frāter",
+        "Gen": "frātris"
+      },
+      "ignis": {
+        "NL": "het vuur",
+        "LA": "ignis",
+        "Gen": "ignis"
+      },
+      "Iuppiter": {
+        "NL": "Jupiter",
+        "LA": "Iuppiter",
+        "Gen": "Iovis"
+      },
+      "mōns": {
+        "NL": "de berg",
+        "LA": "mōns",
+        "Gen": "montis"
+      },
+      "lūx": {
+        "NL": "het licht",
+        "LA": "lūx",
+        "Gen": "lūcis"
+      },
+      "soror": {
+        "NL": "de zus",
+        "LA": "soror",
+        "Gen": "sorōris"
+      },
+      "nōmen": {
+        "NL": "de naam",
+        "LA": "nōmen",
+        "Gen": "nōminis"
+      },
+      "Venus": {
+        "NL": "Venus",
+        "LA": "Venus",
+        "Gen": "Veneris"
+      },
+      "scelus": {
+        "NL": "de misdaad",
+        "LA": "scelus",
+        "Gen": "sceleris"
+      },
+      "adiuvāre": {
+        "NL": "helpen",
+        "LA": "adiuvāre",
+        "Gen": "adiuvō"
+      },
+      "cūrāre": {
+        "NL": "zorgen voor",
+        "LA": "cūrāre",
+        "Gen": "cūrō"
+      },
+      "mōnstrāre": {
+        "NL": "(een) andere",
+        "LA": "mōnstrāre",
+        "Gen": "mōnstrō"
+      },
+      "alia": {
+        "NL": "de overige",
+        "LA": "alia",
+        "Gen": "alia, aliud"
+      },
+      "cēterī": {
+        "NL": "de overige",
+        "LA": "cēterī",
+        "Gen": "meervoud"
+      },
+      "sicut": {
+        "NL": "zoals",
+        "LA": "sicut",
+        "Gen": "voegwoord"
+      }
+    },
+    "C3.4": {
+    "umbra": {
+      "NL": "de schaduw; de schim",
+      "LA": "umbra",
+      "Gen": "umbrae"
+    },
+    "clārus": {
+      "NL": "helder; beroemd",
+      "LA": "clārus",
+      "Gen": "~a, ~um"
+    },
+    "aedificāre": {
+      "NL": "bouwen",
+      "LA": "aedificāre",
+      "Gen": "aedificō"
+    },
+    "eius": {
+      "NL": "zijn, haar",
+      "LA": "eius",
+      "Gen": "bezittelijk vnw."
+    },
+    "eōrum": {
+      "NL": "hun",
+      "LA": "eōrum",
+      "Gen": "bezittelijk vnw."
+    },
+    "eārum": {
+      "NL": "hun",
+      "LA": "eārum",
+      "Gen": "bezittelijk vnw."
+    },
+    "meus": {
+      "NL": "mijn",
+      "LA": "meus",
+      "Gen": "~a, ~um"
+    },
+    "tuus": {
+      "NL": "jouw",
+      "LA": "tuus",
+      "Gen": "~a, ~um"
+    },
+    "suus": {
+      "NL": "zijn, haar, hun (eigen)",
+      "LA": "suus",
+      "Gen": "~a, ~um"
+    }
+  },
+    "C3.5": {
+      "gladius": {
+        "NL": "het zwaard",
+        "LA": "gladius",
+        "Gen": "gladiī"
+      },
+      "hasta": {
+        "NL": "de lans",
+        "LA": "hasta",
+        "Gen": "hastae"
+      },
+      "sagitta": {
+        "NL": "de pijl",
+        "LA": "sagitta",
+        "Gen": "sagittae"
+      },
+      "parvus": {
+        "NL": "klein",
+        "LA": "parvus",
+        "Gen": "~a, ~um"
+      },
+      "ita": {
+        "NL": "zo",
+        "LA": "ita",
+        "Gen": "bijwoord"
+      },
+      "tamen": {
+        "NL": "toch",
+        "LA": "tamen",
+        "Gen": "bijwoord"
+      },
+      "itaque": {
+        "NL": "daarom; en zo",
+        "LA": "itaque",
+        "Gen": "voegwoord"
+      }
+    },
+    "C3.6": {
+      "civis": {
+        "NL": "de burger",
+        "LA": "civis",
+        "Gen": "civis"
+      },
+      "comes": {
+        "NL": "de kameraad",
+        "LA": "comes",
+        "Gen": "comitis"
+      },
+      "lapis": {
+        "NL": "de steen",
+        "LA": "lapis",
+        "Gen": "lapidis"
+      },
+      "mors": {
+        "NL": "de dood",
+        "LA": "mors",
+        "Gen": "mortis"
+      },
+      "primus": {
+        "NL": "eerste; de eerste van",
+        "LA": "primus",
+        "Gen": "~a, ~um"
+      },
+      "capere": {
+        "NL": "(in)nemen",
+        "LA": "capere",
+        "Gen": "capiō"
+      },
+      "accipere": {
+        "NL": "ontvangen; vernemen",
+        "LA": "accipere",
+        "Gen": "accipiō"
+      },
+      "incipere": {
+        "NL": "beginnen",
+        "LA": "incipere",
+        "Gen": "incipiō"
+      },
+      "cupere": {
+        "NL": "verlangen; (graag) willen",
+        "LA": "cupere",
+        "Gen": "cupiō"
+      },
+      "facere": {
+        "NL": "maken; doen",
+        "LA": "facere",
+        "Gen": "faciō"
+      },
+      "interficere": {
+        "NL": "doden",
+        "LA": "interficere",
+        "Gen": "interficiō"
+      },
+      "fugere": {
+        "NL": "(ont)vluchten",
+        "LA": "fugere",
+        "Gen": "fugiō"
+      },
+      "iacere": {
+        "NL": "werpen",
+        "LA": "iacere",
+        "Gen": "iaciō"
+      },
+      "abicere": {
+        "NL": "wegwerpen; neerwerpen",
+        "LA": "abicere",
+        "Gen": "abiciō"
+      },
+      "rapere": {
+        "NL": "grijpen; roven",
+        "LA": "rapere",
+        "Gen": "rapiō"
+      },
+      "corripere": {
+        "NL": "vastgrijpen; meesleuren",
+        "LA": "corripere",
+        "Gen": "corripiō"
+      },
+      "ēripere": {
+        "NL": "ontrukken",
+        "LA": "ēripere",
+        "Gen": "ēripiō"
+      },
+      "aspicere": {
+        "NL": "aankijken",
+        "LA": "aspicere",
+        "Gen": "aspiciō"
+      },
+      "conspicere": {
+        "NL": "bekijken; bemerken",
+        "LA": "conspicere",
+        "Gen": "cōnspiciō"
+      },
+      "respicere": {
+        "NL": "omkijken; rekening houden met",
+        "LA": "respicere",
+        "Gen": "respiciō"
+      },
+      "satis": {
+        "NL": "genoeg; nogal",
+        "LA": "satis",
+        "Gen": "bijwoord"
+      },
+      "statim": {
+        "NL": "dadelijk",
+        "LA": "statim",
+        "Gen": "bijwoord"
+      }
+    },
+    "C3.7": {
+    "arma": {
+      "NL": "de wapens",
+      "LA": "arma",
+      "Gen": "armōrum"
+    },
+    "castra": {
+      "NL": "het kamp",
+      "LA": "castra",
+      "Gen": "castrōrum"
+    },
+    "parentēs": {
+      "NL": "de ouders",
+      "LA": "parentēs",
+      "Gen": "parentum"
+    },
+    "fierī": {
+      "NL": "worden; gebeuren; gemaakt worden",
+      "LA": "fierī",
+      "Gen": "fiō"
+    },
+    "īre": {
+      "NL": "gaan",
+      "LA": "īre",
+      "Gen": "eō"
+    },
+    "abīre": {
+      "NL": "weggaan",
+      "LA": "abīre",
+      "Gen": "abeō"
+    },
+    "adīre": {
+      "NL": "gaan naar; bezoeken",
+      "LA": "adīre",
+      "Gen": "adeō"
+    },
+    "exīre": {
+      "NL": "buitengaan; eindigen",
+      "LA": "exīre",
+      "Gen": "exeō"
+    },
+    "inīre": {
+      "NL": "binnengaan; beginnen",
+      "LA": "inīre",
+      "Gen": "ineō"
+    },
+    "praeterīre": {
+      "NL": "voorbijgaan",
+      "LA": "praeterīre",
+      "Gen": "praetereō"
+    },
+    "redīre": {
+      "NL": "terugkeren",
+      "LA": "redīre",
+      "Gen": "redeō"
+    },
+    "trānsīre": {
+      "NL": "oversteken",
+      "LA": "trānsīre",
+      "Gen": "trānseō"
+    }
+  },
+    "C3.9": {
+      "silva": {
+        "NL": "het bos",
+        "LA": "silva",
+        "Gen": "silvae"
+      },
+      "vita": {
+        "NL": "het leven",
+        "LA": "vita",
+        "Gen": "vitae"
+      },
+      "leo": {
+        "NL": "de leeuw",
+        "LA": "leo",
+        "Gen": "leonis"
+      },
+      "pars": {
+        "NL": "het deel; de kant",
+        "LA": "pars",
+        "Gen": "partis"
+      },
+      "necare": {
+        "NL": "vermoorden",
+        "LA": "necare",
+        "Gen": "neco"
+      },
+      "pugnare": {
+        "NL": "vechten",
+        "LA": "pugnare",
+        "Gen": "pugno"
+      },
+      "tacere": {
+        "NL": "zwijgen",
+        "LA": "tacere",
+        "Gen": "taceo"
+      },
+      "tenere": {
+        "NL": "(vast)houden",
+        "LA": "tenere",
+        "Gen": "teneo"
+      },
+      "quare": {
+        "NL": "waarom",
+        "LA": "quare",
+        "Gen": "bijwoord"
+      }
+    },
+    "C3.11": {
+      "antea": {
+        "NL": "vroeger",
+        "LA": "antea",
+        "Gen": "bijwoord"
+      },
+      "cottidie": {
+        "NL": "dagelijks",
+        "LA": "cottidie",
+        "Gen": "bijwoord"
+      },
+      "cras": {
+        "NL": "morgen",
+        "LA": "cras",
+        "Gen": "bijwoord"
+      },
+      "heri": {
+        "NL": "gisteren",
+        "LA": "heri",
+        "Gen": "bijwoord"
+      },
+      "hodie": {
+        "NL": "vandaag",
+        "LA": "hodie",
+        "Gen": "bijwoord"
+      },
+      "mane": {
+        "NL": "’s morgens",
+        "LA": "mane",
+        "Gen": "bijwoord"
+      },
+      "postea": {
+        "NL": "later",
+        "LA": "postea",
+        "Gen": "bijwoord"
+      },
+      "postero die": {
+        "NL": "de volgende dag",
+        "LA": "postero die",
+        "Gen": "uitdrukking"
+      },
+      "quodam die": {
+        "NL": "op een dag",
+        "LA": "quodam die",
+        "Gen": "uitdrukking"
+      }
+    }
+  },
+  "C4": {
+    "C4.2": {
+      "lēgātus": {
+        "NL": "de gezant; de onderbevelhebber",
+        "LA": "lēgātus",
+        "Gen": "lēgātī"
+      },
+      "lūdus": {
+        "NL": "het spel; de school",
+        "LA": "lūdus",
+        "Gen": "lūdī"
+      },
+      "populus": {
+        "NL": "het volk",
+        "LA": "populus",
+        "Gen": "populī"
+      },
+      "sōl": {
+        "NL": "de zon",
+        "LA": "sōl",
+        "Gen": "sōlis"
+      },
+      "imperātor": {
+        "NL": "de opperbevelhebber",
+        "LA": "imperātor",
+        "Gen": "imperātōris"
+      },
+      "lēgiō": {
+        "NL": "het legioen",
+        "LA": "lēgiō",
+        "Gen": "lēgiōnis"
+      },
+      "pāx": {
+        "NL": "de vrede",
+        "LA": "pāx",
+        "Gen": "pācis"
+      },
+      "iūs": {
+        "NL": "het recht",
+        "LA": "iūs",
+        "Gen": "iūris"
+      },
+      "mūnus": {
+        "NL": "de taak; het geschenk",
+        "LA": "mūnus",
+        "Gen": "mūneris"
+      },
+      "nūdus": {
+        "NL": "naakt; beroofd van",
+        "LA": "nūdus",
+        "Gen": "~a, ~um"
+      },
+      "excitāre": {
+        "NL": "(op)wekken",
+        "LA": "excitāre",
+        "Gen": "excitō"
+      },
+      "imperāre": {
+        "NL": "bevelen; opeisen",
+        "LA": "imperāre",
+        "Gen": "imperō"
+      },
+      "mandāre": {
+        "NL": "toevertrouwen; opdragen",
+        "LA": "mandāre",
+        "Gen": "mandō"
+      },
+      "portāre": {
+        "NL": "dragen",
+        "LA": "portāre",
+        "Gen": "portō"
+      },
+      "solēre": {
+        "NL": "gewoon zijn",
+        "LA": "solēre",
+        "Gen": "soleō"
+      },
+      "vincīre": {
+        "NL": "binden; boeien",
+        "LA": "vincīre",
+        "Gen": "vincīō"
+      },
+      "ferē": {
+        "NL": "bijna; meestal",
+        "LA": "ferē",
+        "Gen": "bijwoord"
+      },
+      "ubi": {
+        "NL": "toen; wanneer",
+        "LA": "ubi",
+        "Gen": "voegwoord"
+      },
+      "puer": {
+        "NL": "de jongen",
+        "LA": "puer",
+        "Gen": "puerī"
+      },
+      "liberī": {
+        "NL": "de kinderen",
+        "LA": "liberī",
+        "Gen": "liberōrum"
+      },
+      "vir": {
+        "NL": "de man",
+        "LA": "vir",
+        "Gen": "virī"
+      },
+      "ager": {
+        "NL": "het veld",
+        "LA": "ager",
+        "Gen": "agrī"
+      },
+      "liber": {
+        "NL": "het boek",
+        "LA": "liber",
+        "Gen": "librī"
+      },
+      "magister": {
+        "NL": "de meester",
+        "LA": "magister",
+        "Gen": "magistrī"
+      },
+      "liber": {
+        "NL": "vrij",
+        "LA": "liber",
+        "Gen": "libera, liberum"
+      },
+      "miser": {
+        "NL": "ongelukkig",
+        "LA": "miser",
+        "Gen": "misera, miserum"
+      },
+      "aeger": {
+        "NL": "ziek",
+        "LA": "aeger",
+        "Gen": "aegra, aegrum"
+      },
+      "niger": {
+        "NL": "zwart",
+        "LA": "niger",
+        "Gen": "nigra, nigrum"
+      },
+      "pulcher": {
+        "NL": "mooi",
+        "LA": "pulcher",
+        "Gen": "pulchra, pulchrum"
+      },
+      "sacer": {
+        "NL": "heilig",
+        "LA": "sacer",
+        "Gen": "sacra, sacrum"
+      },
+      "noster": {
+        "NL": "ons; onze",
+        "LA": "noster",
+        "Gen": "nostra, nostrum"
+      },
+      "vester": {
+        "NL": "jullie",
+        "LA": "vester",
+        "Gen": "vestra, vestrum"
+      }
+    },
+    "C4.4": {
+      "cibus": {
+        "NL": "het voedsel",
+        "LA": "cibus",
+        "Gen": "cibi"
+      },
+      "glōria": {
+        "NL": "de roem",
+        "LA": "glōria",
+        "Gen": "glōriae"
+      },
+      "pugna": {
+        "NL": "het gevecht",
+        "LA": "pugna",
+        "Gen": "pugnae"
+      },
+      "victōria": {
+        "NL": "de overwinning",
+        "LA": "victōria",
+        "Gen": "victōriae"
+      },
+      "beneficium": {
+        "NL": "de weldaad",
+        "LA": "beneficium",
+        "Gen": "beneficiī"
+      },
+      "praemium": {
+        "NL": "de beloning",
+        "LA": "praemium",
+        "Gen": "praemiī"
+      },
+      "maximus": {
+        "NL": "zeer groot; grootste",
+        "LA": "maximus",
+        "Gen": "~a, ~um"
+      },
+      "laudāre": {
+        "NL": "prijzen",
+        "LA": "laudāre",
+        "Gen": "laudō"
+      },
+      "nūntiāre": {
+        "NL": "melden",
+        "LA": "nūntiāre",
+        "Gen": "nūntiō"
+      },
+      "optāre": {
+        "NL": "wensen",
+        "LA": "optāre",
+        "Gen": "optō"
+      },
+      "pārēre": {
+        "NL": "gehoorzamen",
+        "LA": "pārēre",
+        "Gen": "pāreō"
+      },
+      "praebēre": {
+        "NL": "aanbieden",
+        "LA": "praebēre",
+        "Gen": "praebeō"
+      },
+      "quis": {
+        "NL": "wie?",
+        "LA": "quis",
+        "Gen": "vragend vnw."
+      },
+      "quid": {
+        "NL": "wat?",
+        "LA": "quid",
+        "Gen": "vragend vnw."
+      }
+    },
+    "C4.5": {
+      "puella": {
+        "NL": "het meisje",
+        "LA": "puella",
+        "Gen": "puellae"
+      },
+      "nōtus": {
+        "NL": "bekend",
+        "LA": "nōtus",
+        "Gen": "~a, ~um"
+      },
+      "vērus": {
+        "NL": "waar; echt",
+        "LA": "vērus",
+        "Gen": "~a, ~um"
+      },
+      "temptāre": {
+        "NL": "proberen; op de proef stellen",
+        "LA": "temptāre",
+        "Gen": "temptō"
+      },
+      "ārdēre": {
+        "NL": "branden",
+        "LA": "ārdēre",
+        "Gen": "ārdeō"
+      },
+      "iacēre": {
+        "NL": "liggen",
+        "LA": "iacēre",
+        "Gen": "iaceō"
+      },
+      "placēre": {
+        "NL": "bevallen; aanstaan",
+        "LA": "placēre",
+        "Gen": "placeō"
+      },
+      "citō": {
+        "NL": "snel",
+        "LA": "citō",
+        "Gen": "bijwoord"
+      },
+      "quō": {
+        "NL": "waarheen?",
+        "LA": "quō",
+        "Gen": "bijwoord"
+      },
+      "ergō": {
+        "NL": "dus",
+        "LA": "ergō",
+        "Gen": "voegwoord"
+      }
+    },
+    "C4.6": {
+      "oculus": {
+        "NL": "het oog",
+        "LA": "oculus",
+        "Gen": "oculī"
+      },
+      "auxilium": {
+        "NL": "de hulp",
+        "LA": "auxilium",
+        "Gen": "auxiliī"
+      },
+      "brachium": {
+        "NL": "de arm",
+        "LA": "brachium",
+        "Gen": "brachiī"
+      },
+      "verbum": {
+        "NL": "het woord",
+        "LA": "verbum",
+        "Gen": "verbī"
+      },
+      "auris": {
+        "NL": "het oor",
+        "LA": "auris",
+        "Gen": "auris"
+      },
+      "dūrus": {
+        "NL": "hard",
+        "LA": "dūrus",
+        "Gen": "~a, ~um"
+      },
+      "maestus": {
+        "NL": "treurig",
+        "LA": "maestus",
+        "Gen": "~a, ~um"
+      },
+      "vīvus": {
+        "NL": "levend",
+        "LA": "vīvus",
+        "Gen": "~a, ~um"
+      },
+      "ōrāre": {
+        "NL": "bidden; smeken",
+        "LA": "ōrāre",
+        "Gen": "ōrō"
+      },
+      "maerēre": {
+        "NL": "treuren",
+        "LA": "maerēre",
+        "Gen": "maereō"
+      }
+    },
+    "C4.10": {
+      "locus": {
+        "NL": "de plaats; de gelegenheid",
+        "LA": "locus",
+        "Gen": "locī"
+      },
+      "rāmus": {
+        "NL": "de tak",
+        "LA": "rāmus",
+        "Gen": "rāmī"
+      },
+      "causa": {
+        "NL": "de oorzaak; de reden; het proces",
+        "LA": "causa",
+        "Gen": "causae"
+      },
+      "cēna": {
+        "NL": "het avondmaal",
+        "LA": "cēna",
+        "Gen": "cēnae"
+      },
+      "hōra": {
+        "NL": "het uur",
+        "LA": "hōra",
+        "Gen": "hōrae"
+      },
+      "villa": {
+        "NL": "de villa; het landgoed",
+        "LA": "villa",
+        "Gen": "villae"
+      },
+      "consilium": {
+        "NL": "het overleg; de raad; het plan",
+        "LA": "consilium",
+        "Gen": "consiliī"
+      },
+      "pretium": {
+        "NL": "de prijs",
+        "LA": "pretium",
+        "Gen": "pretiī"
+      },
+      "flōs": {
+        "NL": "de bloem",
+        "LA": "flōs",
+        "Gen": "flōris"
+      },
+      "arbor": {
+        "NL": "de boom",
+        "LA": "arbor",
+        "Gen": "arboris"
+      },
+      "plēnus": {
+        "NL": "vol",
+        "LA": "plēnus",
+        "Gen": "~a, ~um"
+      },
+      "invītāre": {
+        "NL": "uitnodigen",
+        "LA": "invītāre",
+        "Gen": "invītō"
+      },
+      "haerēre": {
+        "NL": "vastzitten",
+        "LA": "haerēre",
+        "Gen": "haereō"
+      }
+    }
+},
+  "C5": {
+    "C5.2": {
+      "mēnsa": {
+        "NL": "de tafel",
+        "LA": "mēnsa",
+        "Gen": "mēnsae"
+      },
+      "nāvis": {
+        "NL": "het schip",
+        "LA": "nāvis",
+        "Gen": "nāvis"
+      },
+      "cupidus": {
+        "NL": "vol verlangen naar",
+        "LA": "cupidus",
+        "Gen": "~a, ~um"
+      },
+      "mīrus": {
+        "NL": "wonderlijk",
+        "LA": "mīrus",
+        "Gen": "~a, ~um"
+      },
+      "nūllus": {
+        "NL": "geen",
+        "LA": "nūllus",
+        "Gen": "~a, ~um"
+      },
+      "paucī": {
+        "NL": "weinig; enkele",
+        "LA": "paucī",
+        "Gen": "~ae, ~a"
+      },
+      "agere": {
+        "NL": "(voort)drijven; doen",
+        "LA": "agere",
+        "Gen": "agō"
+      },
+      "bibere": {
+        "NL": "drinken",
+        "LA": "bibere",
+        "Gen": "bibō"
+      },
+      "cognōscere": {
+        "NL": "leren kennen; vernemen",
+        "LA": "cognōscere",
+        "Gen": "cognōscō"
+      },
+      "dēsīnere": {
+        "NL": "ophouden",
+        "LA": "dēsīnere",
+        "Gen": "dēsīnō"
+      },
+      "dīcere": {
+        "NL": "zeggen; spreken; noemen",
+        "LA": "dīcere",
+        "Gen": "dīcō"
+      },
+      "emere": {
+        "NL": "kopen",
+        "LA": "emere",
+        "Gen": "emō"
+      },
+      "intellegere": {
+        "NL": "begrijpen",
+        "LA": "intellegere",
+        "Gen": "intellegō"
+      },
+      "legere": {
+        "NL": "lezen; kiezen; verzamelen",
+        "LA": "legere",
+        "Gen": "legō"
+      },
+      "ostendere": {
+        "NL": "tonen",
+        "LA": "ostendere",
+        "Gen": "ostendō"
+      },
+      "quaerere": {
+        "NL": "zoeken; vragen",
+        "LA": "quaerere",
+        "Gen": "quaerō"
+      },
+      "sūmere": {
+        "NL": "nemen",
+        "LA": "sūmere",
+        "Gen": "sūmō"
+      },
+      "vendere": {
+        "NL": "verkopen",
+        "LA": "vendere",
+        "Gen": "vendō"
+      },
+      "vīvere": {
+        "NL": "leven",
+        "LA": "vīvere",
+        "Gen": "vīvō"
+      }
+    },
+    "C5.3": {
+      "hospes": {
+        "NL": "de gast; de gastheer",
+        "LA": "hospes",
+        "Gen": "hospitis"
+      },
+      "pōns": {
+        "NL": "de brug",
+        "LA": "pōns",
+        "Gen": "pontis"
+      },
+      "aestās": {
+        "NL": "de zomer",
+        "LA": "aestās",
+        "Gen": "aestātis"
+      },
+      "audēre": {
+        "NL": "durven",
+        "LA": "audēre",
+        "Gen": "audeō"
+      },
+      "docēre": {
+        "NL": "onderwijzen",
+        "LA": "docēre",
+        "Gen": "doceō"
+      },
+      "tegere": {
+        "NL": "bedekken; beschermen",
+        "LA": "tegere",
+        "Gen": "tegō"
+      },
+      "metuere": {
+        "NL": "vrezen",
+        "LA": "metuere",
+        "Gen": "metuō"
+      },
+      "cōnsīdere": {
+        "NL": "gaan zitten",
+        "LA": "cōnsīdere",
+        "Gen": "cōnsīdō"
+      },
+      "dēpōnere": {
+        "NL": "neerleggen",
+        "LA": "dēpōnere",
+        "Gen": "dēpōnō"
+      },
+      "discere": {
+        "NL": "leren",
+        "LA": "discere",
+        "Gen": "discō"
+      },
+      "dūcere": {
+        "NL": "leiden",
+        "LA": "dūcere",
+        "Gen": "dūcō"
+      },
+      "lūdere": {
+        "NL": "spelen",
+        "LA": "lūdere",
+        "Gen": "lūdō"
+      },
+      "mittere": {
+        "NL": "zenden; laten gaan",
+        "LA": "mittere",
+        "Gen": "mittō"
+      },
+      "pōnere": {
+        "NL": "plaatsen; neerleggen",
+        "LA": "pōnere",
+        "Gen": "pōnō"
+      },
+      "relinquere": {
+        "NL": "achterlaten; verlaten",
+        "LA": "relinquere",
+        "Gen": "relinquō"
+      },
+      "vertere": {
+        "NL": "omkeren; veranderen in",
+        "LA": "vertere",
+        "Gen": "vertō"
+      },
+      "vidēre": {
+        "NL": "zien",
+        "LA": "vidēre",
+        "Gen": "videō"
+      },
+      "vīsere": {
+        "NL": "bezoeken",
+        "LA": "vīsere",
+        "Gen": "vīsō"
+      },
+      "recipere": {
+        "NL": "ontvangen",
+        "LA": "recipere",
+        "Gen": "recipiō"
+      },
+      "hic": {
+        "NL": "hier",
+        "LA": "hic",
+        "Gen": "bijwoord"
+      }
+    },
+    "C5.4": {
+    "ira": {
+      "NL": "de woede",
+      "LA": "ira",
+      "Gen": "irae"
+    },
+    "poena": {
+      "NL": "de boete; de straf",
+      "LA": "poena",
+      "Gen": "poenae"
+    },
+    "studium": {
+      "NL": "de studie; de sympathie; de ijver",
+      "LA": "studium",
+      "Gen": "studiī"
+    },
+    "famēs": {
+      "NL": "de honger",
+      "LA": "famēs",
+      "Gen": "famis"
+    },
+    "fraus": {
+      "NL": "het bedrog",
+      "LA": "fraus",
+      "Gen": "fraudis"
+    },
+    "iubēre": {
+      "NL": "bevelen",
+      "LA": "iubēre",
+      "Gen": "iubeō"
+    },
+    "surgere": {
+      "NL": "opstaan",
+      "LA": "surgere",
+      "Gen": "surgō"
+    },
+    "sentīre": {
+      "NL": "voelen; merken; menen",
+      "LA": "sentīre",
+      "Gen": "sentiō"
+    }
+  },
+    "C5.6": {
+    "audācia": {
+      "NL": "de moed",
+      "LA": "audācia",
+      "Gen": "audāciae"
+    },
+    "cōnstantia": {
+      "NL": "de volharding",
+      "LA": "cōnstantia",
+      "Gen": "cōnstantiae"
+    },
+    "silentium": {
+      "NL": "de stilte",
+      "LA": "silentium",
+      "Gen": "silentiī"
+    },
+    "hiems": {
+      "NL": "de winter",
+      "LA": "hiems",
+      "Gen": "hiemis"
+    },
+    "virtūs": {
+      "NL": "de kwaliteit; de dapperheid",
+      "LA": "virtūs",
+      "Gen": "virtūtis"
+    },
+    "angustus": {
+      "NL": "smal",
+      "LA": "angustus",
+      "Gen": "~a, ~um"
+    },
+    "tūtus": {
+      "NL": "veilig",
+      "LA": "tūtus",
+      "Gen": "~a, ~um"
+    },
+    "cadere": {
+      "NL": "vallen",
+      "LA": "cadere",
+      "Gen": "cadō"
+    },
+    "currere": {
+      "NL": "lopen",
+      "LA": "currere",
+      "Gen": "currō"
+    },
+    "petere": {
+      "NL": "gaan naar; vragen",
+      "LA": "petere",
+      "Gen": "petō"
+    },
+    "poscere": {
+      "NL": "eisen",
+      "LA": "poscere",
+      "Gen": "poscō"
+    }
+  },
+    "C5.7": {
+    "errāre": {
+      "NL": "zwerven; zich vergissen",
+      "LA": "errāre",
+      "Gen": "errō"
+    },
+    "flēre": {
+      "NL": "wenen; bewenen",
+      "LA": "flēre",
+      "Gen": "fleō"
+    },
+    "canere": {
+      "NL": "zingen; bezingen",
+      "LA": "canere",
+      "Gen": "canō"
+    },
+    "fingere": {
+      "NL": "vormen; verzinnen",
+      "LA": "fingere",
+      "Gen": "fingō"
+    },
+    "fluere": {
+      "NL": "vloeien",
+      "LA": "fluere",
+      "Gen": "fluō"
+    },
+    "ubi": {
+      "NL": "waar?",
+      "LA": "ubi",
+      "Gen": "bijwoord"
+    }
+  },
+    "C5.8": {
+    "saxum": {
+      "NL": "het rotsblok",
+      "LA": "saxum",
+      "Gen": "saxī"
+    },
+    "celeritās": {
+      "NL": "de snelheid",
+      "LA": "celeritās",
+      "Gen": "celeritātis"
+    },
+    "hūmānus": {
+      "NL": "menselijk; beschaafd",
+      "LA": "hūmānus",
+      "Gen": "~a, ~um"
+    },
+    "līberāre": {
+      "NL": "bevrijden",
+      "LA": "līberāre",
+      "Gen": "līberō"
+    },
+    "volāre": {
+      "NL": "vliegen",
+      "LA": "volāre",
+      "Gen": "volō"
+    },
+    "caedere": {
+      "NL": "hakken; doden",
+      "LA": "caedere",
+      "Gen": "caedō"
+    },
+    "dēscendere": {
+      "NL": "afdalen",
+      "LA": "dēscendere",
+      "Gen": "dēscendō"
+    },
+    "haurīre": {
+      "NL": "uitscheppen; opslokken",
+      "LA": "haurīre",
+      "Gen": "hauriō"
+    },
+    "dēicere": {
+      "NL": "naar beneden werpen; verdrijven",
+      "LA": "dēicere",
+      "Gen": "dēiciō"
+    },
+    "sē": {
+      "NL": "zich",
+      "LA": "sē",
+      "Gen": "persoonlijk vnw."
+    },
+    "ūnā": {
+      "NL": "samen",
+      "LA": "ūnā",
+      "Gen": "bijwoord"
+    }
+  }
+
+}
 }
