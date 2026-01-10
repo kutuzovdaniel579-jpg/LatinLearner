@@ -57,57 +57,57 @@
   <div id="woordenLijst"></div>
 
   <script>
-  let woordenData = {};
-  let huidigCaput = null;
+    let woordenData = {};
+    let huidigCaput = null;
 
-  async function loadJSON() {
-    const res = await fetch("caput.json");
-    woordenData = await res.json();
+    async function loadJSON() {
+      const res = await fetch("caput.json");
+      woordenData = await res.json();
 
-    const hoofdstukkenDiv = document.getElementById("hoofdstukken");
-    hoofdstukkenDiv.innerHTML = "";
+      const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+      hoofdstukkenDiv.innerHTML = "";
 
-    Object.keys(woordenData).forEach(caput => {
-      const btn = document.createElement("button");
-      btn.className = "hoofdstuk-btn";
-      btn.textContent = caput;
-      btn.onclick = () => laadCaput(caput);
-      hoofdstukkenDiv.appendChild(btn);
-    });
-  }
+      Object.keys(woordenData).forEach(caput => {
+        const btn = document.createElement("button");
+        btn.className = "hoofdstuk-btn";
+        btn.textContent = caput;
+        btn.onclick = () => laadCaput(caput);
+        hoofdstukkenDiv.appendChild(btn);
+      });
+    }
 
-  function laadCaput(caput) {
-    huidigCaput = caput;
+    function laadCaput(caput) {
+      huidigCaput = caput;
 
-    document.getElementById("quizBtn").style.display = "block";
-    document.getElementById("caputTitel").textContent = "Hoofdstuk " + caput;
+      document.getElementById("quizBtn").style.display = "block";
+      document.getElementById("caputTitel").textContent = "Hoofdstuk " + caput;
 
-    const lijst = document.getElementById("woordenLijst");
-    lijst.innerHTML = "";
+      const lijst = document.getElementById("woordenLijst");
+      lijst.innerHTML = "";
 
-    const woorden = woordenData[caput];
+      const woorden = woordenData[caput];
 
-    Object.keys(woorden).forEach(key => {
-      const item = woorden[key];
+      Object.keys(woorden).forEach(key => {
+        const item = woorden[key];
 
-      const div = document.createElement("div");
-      div.className = "woord";
+        const div = document.createElement("div");
+        div.className = "woord";
 
-      div.innerHTML = `
-        <b>${item.NL}</b> → ${item.LA}
-        <br><small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
-      `;
+        div.innerHTML = `
+          <b>${item.NL}</b> → ${item.LA}
+          <br><small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
+        `;
 
-      lijst.appendChild(div);
-    });
-  }
+        lijst.appendChild(div);
+      });
+    }
 
-  document.getElementById("quizBtn").onclick = () => {
-    if (!huidigCaput) return;
-    window.location.href = `quiz.html?caput=${huidigCaput}`;
-  };
+    document.getElementById("quizBtn").onclick = () => {
+      if (!huidigCaput) return;
+      window.location.href = `quiz.html?caput=${huidigCaput}`;
+    };
 
-  loadJSON();
-</script>
+    loadJSON();
+  </script>
 </body>
 </html>
