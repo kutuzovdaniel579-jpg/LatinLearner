@@ -9,12 +9,13 @@
     body { font-family: Arial, sans-serif; padding: 20px; }
     h1 { margin-bottom: 10px; }
 
-    #hoofdstukken, #subHoofdstukken {
+    #hoofdstukken, #subHoofdstukken, #themaDiv {
       margin-bottom: 15px;
     }
 
     .hoofdstuk-btn,
-    .subhoofdstuk-btn {
+    .subhoofdstuk-btn,
+    .thema-btn {
       padding: 10px 15px;
       margin: 5px;
       background: #51A6E8;
@@ -27,16 +28,24 @@
     }
 
     .hoofdstuk-btn:hover,
-    .subhoofdstuk-btn:hover {
+    .subhoofdstuk-btn:hover,
+    .thema-btn:hover {
       border-width: 2px;
       border-color: #0b4f6d;
       box-shadow: 0 0 6px rgba(0,0,0,0.2);
       transform: translateY(-2px);
     }
 
-    #subHoofdstukken {
-      margin-top: 10px;
-      margin-bottom: 20px;
+    .quiz-btn {
+      background: #BF0D0D;
+      border-color: #8a0909;
+    }
+
+    .quiz-btn:hover {
+      border-width: 2px;
+      border-color: #5c0606;
+      box-shadow: 0 0 6px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -46,18 +55,20 @@
 
   <div id="hoofdstukken">Hoofdstukken laden...</div>
   <div id="subHoofdstukken"></div>
+  <div id="themaDiv"></div>
 
   <script>
     let data = {};
+    let huidigHoofdstuk = null;
+    let huidigSub = null;
 
     async function loadJSON() {
-      const res = await fetch("gram.json"); 
+      const res = await fetch("gram.json");
       data = await res.json();
 
       const hoofdstukkenDiv = document.getElementById("hoofdstukken");
       hoofdstukkenDiv.innerHTML = "";
 
-      // Hoofdstukken = C1, C2, C3, C5
       Object.keys(data).forEach(hoofdstuk => {
         const btn = document.createElement("button");
         btn.className = "hoofdstuk-btn";
@@ -68,18 +79,40 @@
     }
 
     function laadSubHoofdstukken(hoofdstuk) {
-      const subDiv = document.getElementById("subHoofdstukken");
-      subDiv.innerHTML = "";
+      huidigHoofdstuk = hoofdstuk;
+      huidigSub = null;
 
-      // Subhoofdstukken = C1.9, C2.3, C3.7, C3.8, C5.3
+      const subDiv = document.getElementById("subHoofdstukken");
+      const themaDiv = document.getElementById("themaDiv");
+
+      subDiv.innerHTML = "";
+      themaDiv.innerHTML = "";
+
       Object.keys(data[hoofdstuk]).forEach(sub => {
         const btn = document.createElement("button");
         btn.className = "subhoofdstuk-btn";
         btn.textContent = sub;
-        btn.onclick = () => {
-          window.location.href = `${hoofdstuk}/${sub}.html`;
-        };
+        btn.onclick = () => laadThema(hoofdstuk, sub);
         subDiv.appendChild(btn);
+      });
+    }
+
+    function laadThema(hoofdstuk, sub) {
+      huidigSub = sub;
+
+      const themaDiv = document.getElementById("themaDiv");
+      themaDiv.innerHTML = "";
+
+      const themaObject = data[hoofdstuk][sub];
+
+      Object.keys(themaObject).forEach(thema => {
+        const btn = document.createElement("button");
+        btn.className = "thema-btn";
+        btn.textContent = thema;
+        btn.onclick = () => {
+          window.location.href = `quiz.html?hoofdstuk=${hoofdstuk}&sub=${sub}&thema=${thema}`;
+        };
+        themaDiv.appendChild(btn);
       });
     }
 
