@@ -3,7 +3,8 @@
 
 ---
 # link to the website:
-https://github.com/kutuzovdaniel579-jpg/VIAEF/
+ 
+https://kutuzovdaniel579-jpg.github.io/VIAEF
 
 ---
 **VIÆF** (pronounced *VIAE*, using the classical **Æ** ligature) is an open, modular learning platform focused primarily on **Latin**, with structured support for **English, French, Dutch, and Russian**.  
