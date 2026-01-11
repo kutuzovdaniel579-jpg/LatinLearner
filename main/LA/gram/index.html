@@ -3,120 +3,226 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grammatica – Index</title>
+  <title>Quiz</title>
 
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { margin-bottom: 10px; }
+    body { font-family: Arial; padding: 20px; }
 
-    #hoofdstukken, #subHoofdstukken, #themaDiv {
-      margin-bottom: 15px;
-    }
-
-    .hoofdstuk-btn,
-    .subhoofdstuk-btn,
-    .thema-btn {
+    #subSelect button, #themaSelect button {
       padding: 10px 15px;
       margin: 5px;
-      background: #51A6E8;
-      color: white;
-      border-radius: 6px;
-      border: 1px solid #0f6f99;
-      cursor: pointer;
       font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      background: #51A6E8;
+      cursor: pointer;
+      transition: 0.2s;
+      color: white;
+    }
+
+    #subSelect button:hover, #themaSelect button:hover {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    #modeSelect button {
+      padding: 12px 18px;
+      margin: 10px;
+      font-size: 18px;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      background: white;
+      color: #51A6E8;
+      cursor: pointer;
       transition: 0.2s;
     }
 
-    .hoofdstuk-btn:hover,
-    .subhoofdstuk-btn:hover,
-    .thema-btn:hover {
-      border-width: 2px;
-      border-color: #0b4f6d;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
-      transform: translateY(-2px);
+    #modeSelect button:hover {
+      background: #007bff;
+      color: white;
+      border-width: 3px;
     }
 
-    .quiz-btn {
-      background: #BF0D0D;
-      border-color: #8a0909;
+    #progressContainer {
+      width: 100%;
+      background: #ddd;
+      height: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
     }
 
-    .quiz-btn:hover {
-      border-width: 2px;
-      border-color: #5c0606;
-      box-shadow: 0 0 6px rgba(0,0,0,0.25);
-      transform: translateY(-2px);
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: #007bff;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    #timer {
+      font-size: 20px;
+      font-weight: bold;
+      color: red;
+      display: none;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    button.checkBtn {
+      margin-top: 15px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #51A6E8;
+      color: white;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
     }
   </style>
 </head>
 
 <body>
-  <h1>Grammatica – Hoofdstukken</h1>
+  <h1>Quiz</h1>
 
-  <div id="hoofdstukken">Hoofdstukken laden...</div>
-  <div id="subHoofdstukken"></div>
-  <div id="themaDiv"></div>
+  <div id="modeSelect" style="display:none;">
+    <p>Kies een modus:</p>
+    <button onclick="startQuiz('Normal')">Normal</button>
+    <button onclick="startQuiz('Hard')">Hard</button>
+  </div>
+
+  <div id="quiz" style="display:none;">
+    <h2 id="vraag"></h2>
+
+    <div id="timer"></div>
+
+    <input id="antwoord" placeholder="Latijn..." />
+    <button class="checkBtn" onclick="check()">Check</button>
+
+    <div id="result"></div>
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <p id="scoreDisplay"></p>
+  </div>
 
   <script>
-    let data = {};
-    let huidigHoofdstuk = null;
-    let huidigSub = null;
+    const params = new URLSearchParams(window.location.search);
+    const hoofdstuk = params.get("hoofdstuk");
+    const sub = params.get("sub");
+    const thema = params.get("thema");
 
-    async function loadJSON() {
+    let data = {};
+    let woorden = {};
+    let keys = [];
+    let index = 0;
+    let score = 0;
+    let mode = "Normal";
+    let timerInterval;
+    let timeLeft = 10;
+
+    async function loadData() {
       const res = await fetch("gram.json");
       data = await res.json();
 
-      const hoofdstukkenDiv = document.getElementById("hoofdstukken");
-      hoofdstukkenDiv.innerHTML = "";
+      woorden = data[hoofdstuk][sub][thema];
+      keys = Object.keys(woorden);
 
-      Object.keys(data).forEach(hoofdstuk => {
-        const btn = document.createElement("button");
-        btn.className = "hoofdstuk-btn";
-        btn.textContent = hoofdstuk;
-        btn.onclick = () => laadSubHoofdstukken(hoofdstuk);
-        hoofdstukkenDiv.appendChild(btn);
-      });
+      document.getElementById("modeSelect").style.display = "block";
     }
 
-    function laadSubHoofdstukken(hoofdstuk) {
-      huidigHoofdstuk = hoofdstuk;
-      huidigSub = null;
-
-      const subDiv = document.getElementById("subHoofdstukken");
-      const themaDiv = document.getElementById("themaDiv");
-
-      subDiv.innerHTML = "";
-      themaDiv.innerHTML = "";
-
-      Object.keys(data[hoofdstuk]).forEach(sub => {
-        const btn = document.createElement("button");
-        btn.className = "subhoofdstuk-btn";
-        btn.textContent = sub;
-        btn.onclick = () => laadThema(hoofdstuk, sub);
-        subDiv.appendChild(btn);
-      });
+    function startQuiz(selectedMode) {
+      mode = selectedMode;
+      document.getElementById("modeSelect").style.display = "none";
+      document.getElementById("quiz").style.display = "block";
+      nextQuestion();
     }
 
-    function laadThema(hoofdstuk, sub) {
-      huidigSub = sub;
+    function nextQuestion() {
+      if (index >= keys.length) {
+        endQuiz();
+        return;
+      }
 
-      const themaDiv = document.getElementById("themaDiv");
-      themaDiv.innerHTML = "";
+      const vraag = keys[index]; 
+      document.getElementById("vraag").textContent = `Vertaal: ${vraag}`;
+      document.getElementById("antwoord").value = "";
+      document.getElementById("result").textContent = "";
 
-      const themaObject = data[hoofdstuk][sub];
+      updateProgress();
 
-      Object.keys(themaObject).forEach(thema => {
-        const btn = document.createElement("button");
-        btn.className = "thema-btn";
-        btn.textContent = thema;
-        btn.onclick = () => {
-          window.location.href = `quiz.html?hoofdstuk=${hoofdstuk}&sub=${sub}&thema=${thema}`;
-        };
-        themaDiv.appendChild(btn);
-      });
+      if (mode === "Hard") startTimer();
     }
 
-    loadJSON();
+    function startTimer() {
+      timeLeft = 10;
+      const timer = document.getElementById("timer");
+      timer.style.display = "block";
+      timer.textContent = `⏳ ${timeLeft}`;
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timer.textContent = `⏳ ${timeLeft}`;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          fout("Tijd is op!");
+        }
+      }, 1000);
+    }
+
+    function check() {
+      const user = document.getElementById("antwoord").value.trim().toLowerCase();
+      const correct = woorden[keys[index]].toLowerCase();
+
+      if (mode === "Hard") clearInterval(timerInterval);
+
+      if (user === correct) {
+        score++;
+        juist();
+      } else {
+        fout(`Fout — juiste antwoord: ${correct}`);
+      }
+    }
+
+    function juist() {
+      document.getElementById("result").textContent = "✔️ Correct!";
+      index++;
+      setTimeout(nextQuestion, 800);
+    }
+
+    function fout(msg) {
+      document.getElementById("result").textContent = msg;
+      index++;
+      setTimeout(nextQuestion, 1200);
+    }
+
+    function updateProgress() {
+      const bar = document.getElementById("progressBar");
+      const percentage = (index / keys.length) * 100;
+      bar.style.width = percentage + "%";
+      document.getElementById("scoreDisplay").textContent = `Score: ${score} / ${keys.length}`;
+    }
+
+    function endQuiz() {
+      document.getElementById("quiz").innerHTML = `
+        <h2>Klaar!</h2>
+        <p>Je score: ${score} / ${keys.length}</p>
+        <button onclick="location.href='index.html'">Terug</button>
+      `;
+    }
+
+    loadData();
   </script>
 </body>
 </html>
