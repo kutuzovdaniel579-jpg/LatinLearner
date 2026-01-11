@@ -1,0 +1,102 @@
+{
+  "C1": {
+    "C1.9": {
+      "Werkwoorden": {
+        "amāre": {
+          "1e": "amō",
+          "2e": "amās",
+          "3e": "amat",
+          "1m": "amāmus",
+          "2m": "amātis",
+          "3m": "amant"
+        },
+        "monēre": {
+          "1e": "moneō",
+          "2e": "monēs",
+          "3e": "monet",
+          "1m": "monēmus",
+          "2m": "monētis",
+          "3m": "monent"
+        },
+        "audīre": {
+          "1e": "audīō",
+          "2e": "audīs",
+          "3e": "audīt",
+          "1m": "audīmus",
+          "2m": "audītis",
+          "3m": "audīnt"
+        }
+      }
+    }
+  },
+  "C2": {
+    "C2.3": {
+      "Werkwoorden": {
+        "esse": {
+          "1e": "sum",
+          "2e": "es",
+          "3e": "est",
+          "1m": "sumus",
+          "2m": "estis",
+          "3m": "sunt"
+        },
+        "posse": {
+          "1e": "possum",
+          "2e": "potes",
+          "3e": "potest",
+          "1m": "possumus",
+          "2m": "potestis",
+          "3m": "possunt"
+        }
+      }
+    }
+  },
+  "C3": {
+    "C3.7": {
+      "Werkwoorden": {
+        "capere": {
+          "1e": "capiō",
+          "2e": "capis",
+          "3e": "capit",
+          "1m": "capimus",
+          "2m": "capitis",
+          "3m": "capiunt"
+        }
+      }
+    },
+    "C3.8": {
+      "Werkwoorden": {
+        "ire": {
+          "1e": "eō",
+          "2e": "īs",
+          "3e": "it",
+          "1m": "īmus",
+          "2m": "ītis",
+          "3m": "eunt"
+        },
+        "fieri": {
+          "1e": "fīō",
+          "2e": "fīs",
+          "3e": "fit",
+          "1m": "fīmus",
+          "2m": "fītis",
+          "3m": "fīunt"
+        }
+      }
+    }
+  },
+  "C5": {
+    "C5.3": {
+      "Werkwoorden": {
+        "tegēre": {
+          "1e": "tegō",
+          "2e": "tegis",
+          "3e": "tegit",
+          "1m": "tegimus",
+          "2m": "tegitis",
+          "3m": "tegunt"
+        }
+      }
+    }
+  }
+}
