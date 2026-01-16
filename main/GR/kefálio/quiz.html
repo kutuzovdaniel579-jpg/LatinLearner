@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz</title>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+
+    #subSelect button,
+    #translateSelect button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      background: #51A6E8;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #subSelect button:hover,
+    #translateSelect button:hover {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    #modeSelect button {
+      padding: 12px 18px;
+      margin: 10px;
+      font-size: 18px;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      background: white;
+      color: #51A6E8;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #modeSelect button:hover {
+      background: #007bff;
+      color: white;
+      border-width: 3px;
+    }
+
+    #progressContainer {
+      width: 100%;
+      background: #ddd;
+      height: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: #007bff;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    #timer {
+      font-size: 20px;
+      font-weight: bold;
+      color: red;
+      display: none;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    button.checkBtn {
+      margin-top: 15px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #51A6E8;
+      color: white;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Quiz</h1>
+
+  <div id="subSelect">
+    <p>Kies een subhoofdstuk:</p>
+    <div id="subButtons">Laden...</div>
+  </div>
+
+  <!-- VERTAALRICHTING -->
+  <div id="translateSelect" style="display:none;">
+    <p>Kies vertaalrichting:</p>
+    <button onclick="setTranslateMode('NL-GR')">NL → GR</button>
+    <button onclick="setTranslateMode('GR-NL')">GR → NL</button>
+  </div>
+
+  <div id="modeSelect" style="display:none;">
+    <p>Kies een modus:</p>
+    <button onclick="startQuiz('Normal')">Normal</button>
+    <button onclick="startQuiz('Hard')">Hard</button>
+  </div>
+
+  <div id="quiz" style="display:none;">
+    <h2 id="vraag"></h2>
+
+    <div id="timer"></div>
+
+    <input id="antwoord" placeholder="..." />
+    <button class="checkBtn" onclick="check()">Check</button>
+
+    <div id="result"></div>
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <p id="scoreDisplay"></p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const caput = urlParams.get("caput");
+
+    let woorden = {};
+    let keys = [];
+    let index = 0;
+    let score = 0;
+    let mode = "Normal";
+    let translateMode = "NL-GR"; // standaard
+    let timerInterval;
+    let timeLeft = 10;
+
+    async function loadWords() {
+      const res = await fetch("kefálio.json"); // jouw GR JSON
+      const data = await res.json();
+
+      const subhoofdstukken = data[caput];
+      const subButtons = document.getElementById("subButtons");
+      subButtons.innerHTML = "";
+
+      Object.keys(subhoofdstukken).forEach(sub => {
+        const btn = document.createElement("button");
+        btn.textContent = sub;
+        btn.onclick = () => selectSub(sub, subhoofdstukken[sub]);
+        subButtons.appendChild(btn);
+      });
+    }
+
+    function selectSub(sub, woordenSet) {
+      woorden = woordenSet;
+      keys = Object.keys(woorden);
+      document.getElementById("subSelect").style.display = "none";
+      document.getElementById("translateSelect").style.display = "block";
+    }
+
+    function setTranslateMode(mode) {
+      translateMode = mode;
+      document.getElementById("translateSelect").style.display = "none";
+      document.getElementById("modeSelect").style.display = "block";
+    }
+
+    function startQuiz(selectedMode) {
+      mode = selectedMode;
+      document.getElementById("modeSelect").style.display = "none";
+      document.getElementById("quiz").style.display = "block";
+      nextQuestion();
+    }
+
+    function nextQuestion() {
+      if (index >= keys.length) {
+        endQuiz();
+        return;
+      }
+
+      const item = woorden[keys[index]];
+      const vraag = translateMode === "NL-GR" ? item.NL : item.GR;
+
+      document.getElementById("vraag").textContent = `Vertaal: ${vraag}`;
+      document.getElementById("antwoord").value = "";
+      document.getElementById("result").textContent = "";
+
+      updateProgress();
+
+      if (mode === "Hard") startTimer();
+    }
+
+    function startTimer() {
+      timeLeft = 10;
+      const timer = document.getElementById("timer");
+      timer.style.display = "block";
+      timer.textContent = `⏳ ${timeLeft}`;
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timer.textContent = `⏳ ${timeLeft}`;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          fout("Tijd is op!");
+        }
+      }, 1000);
+    }
+
+    function check() {
+      const user = document.getElementById("antwoord").value.trim().toLowerCase();
+      const item = woorden[keys[index]];
+
+      const correct =
+        translateMode === "NL-GR"
+          ? item.GR.trim().toLowerCase()
+          : item.NL.trim().toLowerCase();
+
+      if (mode === "Hard") clearInterval(timerInterval);
+
+      if (user === correct) {
+        score++;
+        juist();
+      } else {
+        fout(`Fout — juiste antwoord: ${correct}`);
+      }
+    }
+
+    function juist() {
+      document.getElementById("result").textContent = "✔️ Correct!";
+      index++;
+      setTimeout(nextQuestion, 800);
+    }
+
+    function fout(msg) {
+      document.getElementById("result").textContent = msg;
+      index++;
+      setTimeout(nextQuestion, 1200);
+    }
+
+    function updateProgress() {
+      const bar = document.getElementById("progressBar");
+      const percentage = (index / keys.length) * 100;
+      bar.style.width = percentage + "%";
+      document.getElementById("scoreDisplay").textContent = `Score: ${score} / ${keys.length}`;
+    }
+
+    function endQuiz() {
+      document.getElementById("quiz").innerHTML = `
+        <h2>Klaar!</h2>
+        <p>Je score: ${score} / ${keys.length}</p>
+        <button onclick="location.href='index.html'">Terug</button>
+      `;
+    }
+
+    loadWords();
+  </script>
+</body>
+</html>
