@@ -57,7 +57,6 @@
       color: #555;
     }
 
-    /* TTS knop */
     .tts-btn {
       margin-left: 8px;
       padding: 4px 8px;
@@ -72,6 +71,12 @@
     .tts-btn:hover {
       background: #FFCA28;
       transform: translateY(-1px);
+    }
+
+    .latin {
+      color: #333;
+      font-style: italic;
+      margin-left: 5px;
     }
   </style>
 </head>
@@ -91,6 +96,43 @@
     let huidigCaput = null;
     let huidigSub = null;
 
+    /* ---------------------------
+       GRIEKS → LATIJNS ALFABET
+    --------------------------- */
+    function translit(gr) {
+      const map = {
+        "α":"a","ά":"a","ὰ":"a","ᾶ":"a","ἀ":"a","ἁ":"ha","ἄ":"a","ἂ":"a","ἆ":"a","ἅ":"ha","ἃ":"ha","ἇ":"ha",
+        "β":"b",
+        "γ":"g",
+        "δ":"d",
+        "ε":"e","έ":"e","ὲ":"e","ἐ":"e","ἑ":"he","ἔ":"e","ἒ":"e","ἕ":"he","ἓ":"he",
+        "ζ":"z",
+        "η":"ē","ή":"ē","ὴ":"ē","ῆ":"ē","ἠ":"ē","ἡ":"hē","ἤ":"ē","ἢ":"ē","ἦ":"ē","ἥ":"hē","ἣ":"hē","ἧ":"hē",
+        "θ":"th",
+        "ι":"i","ί":"i","ὶ":"i","ῖ":"i","ἰ":"i","ἱ":"hi","ἴ":"i","ἲ":"i","ἶ":"i","ἵ":"hi","ἳ":"hi","ἷ":"hi",
+        "κ":"k",
+        "λ":"l",
+        "μ":"m",
+        "ν":"n",
+        "ξ":"x",
+        "ο":"o","ό":"o","ὸ":"o","ὀ":"o","ὁ":"ho","ὄ":"o","ὂ":"o","ὅ":"ho","ὃ":"ho",
+        "π":"p",
+        "ρ":"r","ῥ":"hr",
+        "σ":"s","ς":"s",
+        "τ":"t",
+        "υ":"y","ύ":"y","ὺ":"y","ῦ":"y","ὐ":"y","ὑ":"hy","ὔ":"y","ὒ":"y","ὖ":"y","ὕ":"hy","ὓ":"hy","ὗ":"hy",
+        "φ":"ph",
+        "χ":"ch",
+        "ψ":"ps",
+        "ω":"ō","ώ":"ō","ὼ":"ō","ῶ":"ō","ὠ":"ō","ὡ":"hō","ὤ":"ō","ὢ":"ō","ὦ":"ō","ὥ":"hō","ὣ":"hō","ὧ":"hō"
+      };
+
+      return gr.split("").map(ch => map[ch] ?? ch).join("");
+    }
+
+    /* ---------------------------
+       JSON LADEN
+    --------------------------- */
     async function loadJSON() {
       const res = await fetch("kefálio.json");
       woordenData = await res.json();
@@ -149,6 +191,7 @@
 
       Object.keys(woorden).forEach(key => {
         const item = woorden[key];
+        const lat = translit(item.GR);
 
         const div = document.createElement("div");
         div.className = "woord";
@@ -156,17 +199,17 @@
         div.innerHTML = `
           <b>${item.NL}</b> → ${item.GR}
           <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
-          <small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
+          <span class="latin">${lat}</span><br>
+          <small>${item.Gen ?? ""}</small>
         `;
 
         lijst.appendChild(div);
       });
     }
 
-    /* TTS functie */
     function spreek(tekst) {
       const utter = new SpeechSynthesisUtterance(tekst);
-      utter.lang = "el-GR"; 
+      utter.lang = "el-GR";
       utter.rate = 0.9;
       speechSynthesis.speak(utter);
     }
