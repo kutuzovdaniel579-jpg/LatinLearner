@@ -1,163 +1,501 @@
 {
+  "K0": {
+    "thema": "Βασικές λέξεις",
+    "K0.1": {
+      "nai": { "NL": "ja", "GR": "ναι", "Gen": "" },
+      "ochi": { "NL": "nee", "GR": "όχι", "Gen": "" },
+      "ela": { "NL": "kom", "GR": "έλα", "Gen": "" },
+      "pame": { "NL": "laten we gaan", "GR": "πάμε", "Gen": "" },
+      "kala": { "NL": "goed", "GR": "καλά", "Gen": "" },
+      "kako": { "NL": "slecht", "GR": "κακό", "Gen": "" },
+      "edo": { "NL": "hier", "GR": "εδώ", "Gen": "" },
+      "ekei": { "NL": "daar", "GR": "εκεί", "Gen": "" },
+      "ti": { "NL": "wat", "GR": "τι", "Gen": "" },
+      "poios": { "NL": "wie", "GR": "ποιος", "Gen": "ποιου" }
+    },
+
+    "K0.2": {
+      "mama": { "NL": "mama", "GR": "μαμά", "Gen": "μαμάς" },
+      "babas": { "NL": "papa", "GR": "μπαμπάς", "Gen": "μπαμπά" },
+      "moro": { "NL": "baby", "GR": "μωρό", "Gen": "μωρού" },
+      "koritsi": { "NL": "meisje", "GR": "κορίτσι", "Gen": "κοριτσιού" },
+      "agori": { "NL": "jongen", "GR": "αγόρι", "Gen": "αγοριού" },
+      "filos": { "NL": "vriend", "GR": "φίλος", "Gen": "φίλου" },
+      "filia": { "NL": "kus", "GR": "φιλί", "Gen": "φιλιού" },
+      "agapi": { "NL": "liefde", "GR": "αγάπη", "Gen": "αγάπης" },
+      "zoi": { "NL": "leven", "GR": "ζωή", "Gen": "ζωής" },
+      "spiti": { "NL": "huis", "GR": "σπίτι", "Gen": "σπιτιού" }
+    },
+
+    "K0.3": {
+      "nero": { "NL": "water", "GR": "νερό", "Gen": "νερού" },
+      "gala": { "NL": "melk", "GR": "γάλα", "Gen": "γάλακτος" },
+      "fagito": { "NL": "eten", "GR": "φαγητό", "Gen": "φαγητού" },
+      "psomi": { "NL": "brood", "GR": "ψωμί", "Gen": "ψωμιού" },
+      "milo": { "NL": "appel", "GR": "μήλο", "Gen": "μήλου" },
+      "portokali": { "NL": "sinaasappel", "GR": "πορτοκάλι", "Gen": "πορτοκαλιού" },
+      "gliko": { "NL": "zoet", "GR": "γλυκό", "Gen": "γλυκού" },
+      "almiro": { "NL": "zout", "GR": "αλμυρό", "Gen": "αλμυρού" },
+      "neroZesto": { "NL": "warm water", "GR": "ζεστό νερό", "Gen": "" },
+      "neroKrio": { "NL": "koud water", "GR": "κρύο νερό", "Gen": "" }
+    },
+
+    "K0.4": {
+      "kathise": { "NL": "zit", "GR": "κάθισε", "Gen": "" },
+      "stathou": { "NL": "sta op", "GR": "σταθού", "Gen": "" },
+      "elaedo": { "NL": "kom hier", "GR": "έλα εδώ", "Gen": "" },
+      "min": { "NL": "niet", "GR": "μην", "Gen": "" },
+      "perimene": { "NL": "wacht", "GR": "περίμενε", "Gen": "" },
+      "trexe": { "NL": "ren", "GR": "τρέξε", "Gen": "" },
+      "piane": { "NL": "pak", "GR": "πιάσε", "Gen": "" },
+      "vale": { "NL": "doe erin", "GR": "βάλε", "Gen": "" },
+      "beta": { "NL": "ga naar binnen", "GR": "μπες", "Gen": "" },
+      "betaexo": { "NL": "ga naar buiten", "GR": "βγες", "Gen": "" }
+    },
+
+    "K0.5": {
+      "kreas": { "NL": "vlees", "GR": "κρέας", "Gen": "κρέατος" },
+      "psari": { "NL": "vis", "GR": "ψάρι", "Gen": "ψαριού" },
+      "avgo": { "NL": "ei", "GR": "αβγό", "Gen": "αβγού" },
+      "patata": { "NL": "aardappel", "GR": "πατάτα", "Gen": "πατάτας" },
+      "karoto": { "NL": "wortel", "GR": "καρότο", "Gen": "καρότου" },
+      "salata": { "NL": "salade", "GR": "σαλάτα", "Gen": "σαλάτας" },
+      "kafe": { "NL": "koffie", "GR": "καφές", "Gen": "καφέ" },
+      "tsai": { "NL": "thee", "GR": "τσάι", "Gen": "τσαγιού" },
+      "neroFizz": { "NL": "spuitwater", "GR": "ανθρακούχο νερό", "Gen": "" },
+      "pagoto": { "NL": "ijs", "GR": "παγωτό", "Gen": "παγωτού" }
+    }
+  },
+  
   "K1": {
+    "thema": "Familie & Personen",
+
     "K1.1": {
-      "anthropos": {
-        "NL": "de mens",
-        "GR": "ἄνθρωπος",
-        "Gen": "ἀνθρώπου"
-      },
-      "gune": {
-        "NL": "de vrouw",
-        "GR": "γυνή",
-        "Gen": "γυναικός"
-      },
-      "pais": {
-        "NL": "het kind",
-        "GR": "παῖς",
-        "Gen": "παιδός"
-      }
+      "anthropos": { "NL": "mens", "GR": "ἄνθρωπος", "Gen": "ἀνθρώπου" },
+      "gune": { "NL": "vrouw", "GR": "γυνή", "Gen": "γυναικός" },
+      "aner": { "NL": "man", "GR": "ἀνήρ", "Gen": "ἀνδρός" },
+      "pais": { "NL": "kind", "GR": "παῖς", "Gen": "παιδός" },
+      "neanias": { "NL": "jongeman", "GR": "νεανίας", "Gen": "νεανίου" },
+      "parthenos": { "NL": "meisje", "GR": "παρθένος", "Gen": "παρθένου" },
+      "geron": { "NL": "oud man", "GR": "γέρων", "Gen": "γέροντος" },
+      "presbys": { "NL": "oudere", "GR": "πρέσβυς", "Gen": "πρέσβεως" },
+      "despotes": { "NL": "meester", "GR": "δεσπότης", "Gen": "δεσπότου" },
+      "oiketēs": { "NL": "huisslaaf", "GR": "οἰκέτης", "Gen": "οἰκέτου" }
     },
+
     "K1.2": {
-      "logos": {
-        "NL": "woord, verhaal",
-        "GR": "λόγος",
-        "Gen": "λόγου"
-      },
-      "ergon": {
-        "NL": "werk, taak",
-        "GR": "ἔργον",
-        "Gen": "ἔργου"
-      },
-      "philos": {
-        "NL": "vriend",
-        "GR": "φίλος",
-        "Gen": "φίλου"
-      }
+      "patēr": { "NL": "vader", "GR": "πατήρ", "Gen": "πατρός" },
+      "mētēr": { "NL": "moeder", "GR": "μήτηρ", "Gen": "μητρός" },
+      "huios": { "NL": "zoon", "GR": "υἱός", "Gen": "υἱοῦ" },
+      "thygatēr": { "NL": "dochter", "GR": "θυγάτηρ", "Gen": "θυγατρός" },
+      "adelphos": { "NL": "broer", "GR": "ἀδελφός", "Gen": "ἀδελφοῦ" },
+      "adelphē": { "NL": "zus", "GR": "ἀδελφή", "Gen": "ἀδελφῆς" },
+      "pappos": { "NL": "grootvader", "GR": "πάππος", "Gen": "πάππου" },
+      "mammē": { "NL": "grootmoeder", "GR": "μάμμη", "Gen": "μάμμης" },
+      "syngenēs": { "NL": "verwant", "GR": "συγγενής", "Gen": "συγγενοῦς" },
+      "genos": { "NL": "geslacht", "GR": "γένος", "Gen": "γένους" }
     },
+
     "K1.3": {
-      "theos": {
-        "NL": "god",
-        "GR": "θεός",
-        "Gen": "θεοῦ"
-      },
-      "oikos": {
-        "NL": "huis",
-        "GR": "οἶκος",
-        "Gen": "οἴκου"
-      },
-      "hippos": {
-        "NL": "paard",
-        "GR": "ἵππος",
-        "Gen": "ἵππου"
-      }
+      "philos": { "NL": "vriend", "GR": "φίλος", "Gen": "φίλου" },
+      "philē": { "NL": "vriendin", "GR": "φίλη", "Gen": "φίλης" },
+      "hetairos": { "NL": "kameraad", "GR": "ἑταῖρος", "Gen": "ἑταίρου" },
+      "gnōstos": { "NL": "bekende", "GR": "γνωστός", "Gen": "γνωστοῦ" },
+      "xenos": { "NL": "vreemdeling", "GR": "ξένος", "Gen": "ξένου" },
+      "hostis": { "NL": "gast", "GR": "ὁστίς", "Gen": "ὁστίος" },
+      "echthros": { "NL": "vijand", "GR": "ἐχθρός", "Gen": "ἐχθροῦ" },
+      "misos": { "NL": "haatdragende", "GR": "μῖσος", "Gen": "μίσους" },
+      "philoxenos": { "NL": "gastvrij", "GR": "φιλόξενος", "Gen": "φιλοξένου" },
+      "philophrōn": { "NL": "vriendelijk", "GR": "φιλόφρων", "Gen": "φιλοφρόντος" }
+    },
+
+    "K1.4": {
+      "basileus": { "NL": "koning", "GR": "βασιλεύς", "Gen": "βασιλέως" },
+      "basilissa": { "NL": "koningin", "GR": "βασίλισσα", "Gen": "βασιλίσσης" },
+      "tyrannos": { "NL": "tirann", "GR": "τύραννος", "Gen": "τυράννου" },
+      "archōn": { "NL": "heerser", "GR": "ἄρχων", "Gen": "ἄρχοντος" },
+      "strategos": { "NL": "generaal", "GR": "στρατηγός", "Gen": "στρατηγοῦ" },
+      "polemarxos": { "NL": "oorlogsleider", "GR": "πολέμαρχος", "Gen": "πολεμάρχου" },
+      "nomothetēs": { "NL": "wetgever", "GR": "νομοθέτης", "Gen": "νομοθέτου" },
+      "presbys": { "NL": "oudste", "GR": "πρέσβυς", "Gen": "πρέσβεως" },
+      "dēmos": { "NL": "volk", "GR": "δῆμος", "Gen": "δήμου" },
+      "laos": { "NL": "menigte", "GR": "λαός", "Gen": "λαοῦ" }
+    },
+
+    "K1.5": {
+      "doulos": { "NL": "slaaf", "GR": "δοῦλος", "Gen": "δούλου" },
+      "doulē": { "NL": "slavin", "GR": "δούλη", "Gen": "δούλης" },
+      "therapōn": { "NL": "dienaar", "GR": "θεράπων", "Gen": "θεράποντος" },
+      "oiketēs": { "NL": "huisslaaf", "GR": "οἰκέτης", "Gen": "οἰκέτου" },
+      "paidiskē": { "NL": "dienstmeisje", "GR": "παιδίσκη", "Gen": "παιδίσκης" },
+      "misthōtos": { "NL": "huurling", "GR": "μισθωτός", "Gen": "μισθωτοῦ" },
+      "ergatēs": { "NL": "arbeider", "GR": "ἐργάτης", "Gen": "ἐργάτου" },
+      "technitēs": { "NL": "vakman", "GR": "τεχνίτης", "Gen": "τεχνίτου" },
+      "geōrgos": { "NL": "boer", "GR": "γεωργός", "Gen": "γεωργοῦ" },
+      "kēpouros": { "NL": "tuinier", "GR": "κηπουρός", "Gen": "κηπουροῦ" }
     }
   },
-
   "K2": {
+    "thema": "Natuur & Objecten",
+
     "K2.1": {
-      "agora": {
-        "NL": "markt",
-        "GR": "ἀγορά",
-        "Gen": "ἀγορᾶς"
-      },
-      "thalassa": {
-        "NL": "zee",
-        "GR": "θάλασσα",
-        "Gen": "θαλάσσης"
-      }
+      "dendron": { "NL": "boom", "GR": "δένδρον", "Gen": "δένδρου" },
+      "phyllon": { "NL": "blad", "GR": "φύλλον", "Gen": "φύλλου" },
+      "karpos": { "NL": "vrucht", "GR": "καρπός", "Gen": "καρποῦ" },
+      "rhiza": { "NL": "wortel", "GR": "ῥίζα", "Gen": "ῥίζης" },
+      "klados": { "NL": "tak", "GR": "κλάδος", "Gen": "κλάδου" },
+      "drus": { "NL": "eik", "GR": "δρῦς", "Gen": "δρυός" },
+      "elaia": { "NL": "olijfboom", "GR": "ἐλαία", "Gen": "ἐλαίας" },
+      "ampelos": { "NL": "wijnrank", "GR": "ἄμπελος", "Gen": "ἀμπέλου" },
+      "botanē": { "NL": "plant", "GR": "βοτάνη", "Gen": "βοτάνης" },
+      "chortos": { "NL": "gras", "GR": "χόρτος", "Gen": "χόρτου" }
     },
+
     "K2.2": {
-      "dendron": {
-        "NL": "boom",
-        "GR": "δένδρον",
-        "Gen": "δένδρου"
-      },
-      "zoon": {
-        "NL": "dier",
-        "GR": "ζῷον",
-        "Gen": "ζῴου"
-      }
+      "thalassa": { "NL": "zee", "GR": "θάλασσα", "Gen": "θαλάσσης" },
+      "potamos": { "NL": "rivier", "GR": "ποταμός", "Gen": "ποταμοῦ" },
+      "limnē": { "NL": "meer", "GR": "λίμνη", "Gen": "λίμνης" },
+      "pēgē": { "NL": "bron", "GR": "πηγή", "Gen": "πηγῆς" },
+      "hydōr": { "NL": "water", "GR": "ὕδωρ", "Gen": "ὕδατος" },
+      "kuma": { "NL": "golf", "GR": "κῦμα", "Gen": "κύματος" },
+      "nēsos": { "NL": "eiland", "GR": "νῆσος", "Gen": "νήσου" },
+      "kolpos": { "NL": "baai", "GR": "κόλπος", "Gen": "κόλπου" },
+      "pelagos": { "NL": "open zee", "GR": "πέλαγος", "Gen": "πέλαγους" },
+      "limēn": { "NL": "haven", "GR": "λιμήν", "Gen": "λιμένος" }
+    },
+
+    "K2.3": {
+      "oros": { "NL": "berg", "GR": "ὄρος", "Gen": "ὄρους" },
+      "bounos": { "NL": "heuvel", "GR": "βουνος", "Gen": "βουνου" },
+      "koilax": { "NL": "vallei", "GR": "κοίλαξ", "Gen": "κοίλακος" },
+      "petra": { "NL": "rots", "GR": "πέτρα", "Gen": "πέτρας" },
+      "lithos": { "NL": "steen", "GR": "λίθος", "Gen": "λίθου" },
+      "spēlaion": { "NL": "grot", "GR": "σπήλαιον", "Gen": "σπηλαίου" },
+      "akron": { "NL": "top", "GR": "ἄκρον", "Gen": "ἄκρου" },
+      "pedion": { "NL": "vlakte", "GR": "πεδίον", "Gen": "πεδίου" },
+      "chasma": { "NL": "kloof", "GR": "χάσμα", "Gen": "χάσματος" },
+      "ge": { "NL": "aarde", "GR": "γῆ", "Gen": "γῆς" }
+    },
+
+    "K2.4": {
+      "helios": { "NL": "zon", "GR": "ἥλιος", "Gen": "ἡλίου" },
+      "selēnē": { "NL": "maan", "GR": "σελήνη", "Gen": "σελήνης" },
+      "astron": { "NL": "ster", "GR": "ἄστρον", "Gen": "ἄστρου" },
+      "ouranos": { "NL": "hemel", "GR": "οὐρανός", "Gen": "οὐρανοῦ" },
+      "nephelē": { "NL": "wolk", "GR": "νεφέλη", "Gen": "νεφέλης" },
+      "aēr": { "NL": "lucht", "GR": "ἀήρ", "Gen": "ἀέρος" },
+      "anemos": { "NL": "wind", "GR": "ἄνεμος", "Gen": "ἀνέμου" },
+      "keraunos": { "NL": "bliksem", "GR": "κεραυνός", "Gen": "κεραυνοῦ" },
+      "brontē": { "NL": "donder", "GR": "βροντή", "Gen": "βροντῆς" },
+      "omichlē": { "NL": "mist", "GR": "ὁμίχλη", "Gen": "ὁμίχλης" }
+    },
+
+    "K2.5": {
+      "zōon": { "NL": "dier", "GR": "ζῷον", "Gen": "ζῴου" },
+      "kuōn": { "NL": "hond", "GR": "κύων", "Gen": "κυνός" },
+      "ailouros": { "NL": "kat", "GR": "αἴλουρος", "Gen": "αἰλούρου" },
+      "hippos": { "NL": "paard", "GR": "ἵππος", "Gen": "ἵππου" },
+      "bous": { "NL": "rund", "GR": "βοῦς", "Gen": "βοός" },
+      "probaton": { "NL": "schaap", "GR": "πρόβατον", "Gen": "προβάτου" },
+      "ornis": { "NL": "vogel", "GR": "ὄρνις", "Gen": "ὄρνιθος" },
+      "ichthus": { "NL": "vis", "GR": "ἰχθύς", "Gen": "ἰχθύος" },
+      "drakōn": { "NL": "slang", "GR": "δράκων", "Gen": "δράκοντος" },
+      "melissa": { "NL": "bij", "GR": "μέλισσα", "Gen": "μελίσσης" }
+    },
+
+    "K2.6": {
+      "oikos": { "NL": "huis", "GR": "οἶκος", "Gen": "οἴκου" },
+      "thura": { "NL": "deur", "GR": "θύρα", "Gen": "θύρας" },
+      "parathuron": { "NL": "raam", "GR": "παράθυρον", "Gen": "παραθύρου" },
+      "stegē": { "NL": "dak", "GR": "στέγη", "Gen": "στέγης" },
+      "domos": { "NL": "woning", "GR": "δόμος", "Gen": "δόμου" },
+      "trapeza": { "NL": "tafel", "GR": "τράπεζα", "Gen": "τραπέζης" },
+      "kliné": { "NL": "bed", "GR": "κλίνη", "Gen": "κλίνης" },
+      "hedra": { "NL": "stoel", "GR": "ἕδρα", "Gen": "ἕδρας" },
+      "lampas": { "NL": "lamp", "GR": "λαμπάς", "Gen": "λαμπάδος" },
+      "poterion": { "NL": "beker", "GR": "ποτήριον", "Gen": "ποτηρίου" }
+    },
+
+    "K2.7": {
+      "hoplon": { "NL": "wapen", "GR": "ὅπλον", "Gen": "ὅπλου" },
+      "xiphos": { "NL": "zwaard", "GR": "ξίφος", "Gen": "ξίφους" },
+      "aspis": { "NL": "schild", "GR": "ἀσπίς", "Gen": "ἀσπίδος" },
+      "doron": { "NL": "speer", "GR": "δόρυ", "Gen": "δόρατος" },
+      "toxos": { "NL": "boog", "GR": "τόξον", "Gen": "τόξου" },
+      "belos": { "NL": "pijl", "GR": "βέλος", "Gen": "βέλους" },
+      "kranos": { "NL": "helm", "GR": "κράνος", "Gen": "κράνους" },
+      "thorax": { "NL": "borstharnas", "GR": "θώραξ", "Gen": "θώρακος" },
+      "machaira": { "NL": "mes", "GR": "μάχαιρα", "Gen": "μαχαίρης" },
+      "sphyra": { "NL": "hamer", "GR": "σφῦρα", "Gen": "σφύρας" }
     }
   },
-
   "K3": {
+    "thema": "Acties & Werkwoorden",
+
     "K3.1": {
-      "phos": {
-        "NL": "licht",
-        "GR": "φῶς",
-        "Gen": "φωτός"
-      },
-      "hudor": {
-        "NL": "water",
-        "GR": "ὕδωρ",
-        "Gen": "ὕδατος"
-      }
+      "trechō": { "NL": "rennen", "GR": "τρέχω", "Gen": "" },
+      "badizō": { "NL": "wandelen", "GR": "βαδίζω", "Gen": "" },
+      "poreuomai": { "NL": "gaan", "GR": "πορεύομαι", "Gen": "" },
+      "pherō": { "NL": "dragen", "GR": "φέρω", "Gen": "" },
+      "lambanō": { "NL": "nemen", "GR": "λαμβάνω", "Gen": "" },
+      "didōmi": { "NL": "geven", "GR": "δίδωμι", "Gen": "" },
+      "ballō": { "NL": "werpen", "GR": "βάλλω", "Gen": "" },
+      "kruptō": { "NL": "verbergen", "GR": "κρύπτω", "Gen": "" },
+      "trepō": { "NL": "draaien", "GR": "τρέπω", "Gen": "" },
+      "kineō": { "NL": "bewegen", "GR": "κινέω", "Gen": "" }
     },
+
     "K3.2": {
-      "pater": {
-        "NL": "vader",
-        "GR": "πατήρ",
-        "Gen": "πατρός"
-      },
-      "meter": {
-        "NL": "moeder",
-        "GR": "μήτηρ",
-        "Gen": "μητρός"
-      }
+      "legō": { "NL": "zeggen", "GR": "λέγω", "Gen": "" },
+      "phēmi": { "NL": "spreken", "GR": "φημί", "Gen": "" },
+      "boāō": { "NL": "roepen", "GR": "βοάω", "Gen": "" },
+      "krazō": { "NL": "schreeuwen", "GR": "κράζω", "Gen": "" },
+      "akouō": { "NL": "horen", "GR": "ἀκούω", "Gen": "" },
+      "blepō": { "NL": "kijken", "GR": "βλέπω", "Gen": "" },
+      "theōreō": { "NL": "observeren", "GR": "θεωρέω", "Gen": "" },
+      "aisthanomai": { "NL": "waarnemen", "GR": "αἰσθάνομαι", "Gen": "" },
+      "noeō": { "NL": "begrijpen", "GR": "νοέω", "Gen": "" },
+      "manthanō": { "NL": "leren", "GR": "μανθάνω", "Gen": "" }
+    },
+
+    "K3.3": {
+      "graphō": { "NL": "schrijven", "GR": "γράφω", "Gen": "" },
+      "anaginōskō": { "NL": "lezen", "GR": "ἀναγιγνώσκω", "Gen": "" },
+      "didaskō": { "NL": "onderwijzen", "GR": "διδάσκω", "Gen": "" },
+      "arithmeō": { "NL": "tellen", "GR": "ἀριθμέω", "Gen": "" },
+      "logizomai": { "NL": "rekenen", "GR": "λογίζομαι", "Gen": "" },
+      "zētō": { "NL": "zoeken", "GR": "ζητέω", "Gen": "" },
+      "heuriskō": { "NL": "vinden", "GR": "εὑρίσκω", "Gen": "" },
+      "apokrinomai": { "NL": "antwoorden", "GR": "ἀποκρίνομαι", "Gen": "" },
+      "skopeō": { "NL": "onderzoeken", "GR": "σκοπέω", "Gen": "" },
+      "dokimazō": { "NL": "testen", "GR": "δοκιμάζω", "Gen": "" }
+    },
+
+    "K3.4": {
+      "ergazomai": { "NL": "werken", "GR": "ἐργάζομαι", "Gen": "" },
+      "kopiāō": { "NL": "zwoegen", "GR": "κοπιάω", "Gen": "" },
+      "speudō": { "NL": "haasten", "GR": "σπεύδω", "Gen": "" },
+      "oikodomeō": { "NL": "bouwen", "GR": "οἰκοδομέω", "Gen": "" },
+      "geōrgō": { "NL": "landbouwen", "GR": "γεωργέω", "Gen": "" },
+      "plēttō": { "NL": "slaan", "GR": "πλήττω", "Gen": "" },
+      "koptein": { "NL": "hakken", "GR": "κόπτω", "Gen": "" },
+      "helkō": { "NL": "trekken", "GR": "ἕλκω", "Gen": "" },
+      "elaunō": { "NL": "drijven", "GR": "ἐλαύνω", "Gen": "" },
+      "skeuazō": { "NL": "maken", "GR": "σκευάζω", "Gen": "" }
+    },
+
+    "K3.5": {
+      "phagō": { "NL": "eten", "GR": "ἐσθίω", "Gen": "" },
+      "pinō": { "NL": "drinken", "GR": "πίνω", "Gen": "" },
+      "koimōmai": { "NL": "slapen", "GR": "κοιμάομαι", "Gen": "" },
+      "anistēmi": { "NL": "opstaan", "GR": "ἀνίστημι", "Gen": "" },
+      "kathizō": { "NL": "zitten", "GR": "καθίζω", "Gen": "" },
+      "piptō": { "NL": "vallen", "GR": "πίπτω", "Gen": "" },
+      "bathō": { "NL": "gaan zitten", "GR": "βαίνω", "Gen": "" },
+      "trephō": { "NL": "voeden", "GR": "τρέφω", "Gen": "" },
+      "thermainō": { "NL": "verwarmen", "GR": "θερμαίνω", "Gen": "" },
+      "psychō": { "NL": "koelen", "GR": "ψύχω", "Gen": "" }
+    },
+
+    "K3.6": {
+      "agapō": { "NL": "liefhebben", "GR": "ἀγαπάω", "Gen": "" },
+      "miseō": { "NL": "haten", "GR": "μισέω", "Gen": "" },
+      "chairein": { "NL": "zich verheugen", "GR": "χαίρω", "Gen": "" },
+      "lypeomai": { "NL": "verdriet hebben", "GR": "λυπέομαι", "Gen": "" },
+      "phobeomai": { "NL": "bang zijn", "GR": "φοβέομαι", "Gen": "" },
+      "thymoomai": { "NL": "boos worden", "GR": "θυμόομαι", "Gen": "" },
+      "elpizō": { "NL": "hopen", "GR": "ἐλπίζω", "Gen": "" },
+      "pisteuō": { "NL": "geloven", "GR": "πιστεύω", "Gen": "" },
+      "aischynomai": { "NL": "schamen", "GR": "αἰσχύνομαι", "Gen": "" },
+      "zēlō": { "NL": "benijden", "GR": "ζηλόω", "Gen": "" }
+    },
+
+    "K3.7": {
+      "archō": { "NL": "heersen", "GR": "ἄρχω", "Gen": "" },
+      "kratō": { "NL": "overwinnen", "GR": "κρατέω", "Gen": "" },
+      "polemeō": { "NL": "oorlog voeren", "GR": "πολεμέω", "Gen": "" },
+      "machomai": { "NL": "vechten", "GR": "μάχομαι", "Gen": "" },
+      "sōzō": { "NL": "redden", "GR": "σῴζω", "Gen": "" },
+      "phylassō": { "NL": "bewaken", "GR": "φυλάσσω", "Gen": "" },
+      "diōkō": { "NL": "achtervolgen", "GR": "διώκω", "Gen": "" },
+      "katastrephō": { "NL": "vernietigen", "GR": "καταστρέφω", "Gen": "" },
+      "nikō": { "NL": "overwinnen", "GR": "νικάω", "Gen": "" },
+      "timaō": { "NL": "eren", "GR": "τιμάω", "Gen": "" }
+    },
+
+    "K3.8": {
+      "oikō": { "NL": "wonen", "GR": "οἰκέω", "Gen": "" },
+      "katoikō": { "NL": "bewonen", "GR": "κατοικέω", "Gen": "" },
+      "metoikō": { "NL": "verhuizen", "GR": "μετοικέω", "Gen": "" },
+      "naiein": { "NL": "leven", "GR": "ναίω", "Gen": "" },
+      "hēgeomai": { "NL": "leiden", "GR": "ἡγέομαι", "Gen": "" },
+      "dioikeō": { "NL": "besturen", "GR": "διοικέω", "Gen": "" },
+      "nomizō": { "NL": "menen", "GR": "νομίζω", "Gen": "" },
+      "bouleuō": { "NL": "beraadslagen", "GR": "βουλεύω", "Gen": "" },
+      "krinō": { "NL": "oordelen", "GR": "κρίνω", "Gen": "" },
+      "dikazō": { "NL": "rechtspreken", "GR": "δικάζω", "Gen": "" }
     }
   },
-
   "K4": {
+    "thema": "Lichaam & Gezondheid",
+
     "K4.1": {
-      "basileus": {
-        "NL": "koning",
-        "GR": "βασιλεύς",
-        "Gen": "βασιλέως"
-      },
-      "polis": {
-        "NL": "stad",
-        "GR": "πόλις",
-        "Gen": "πόλεως"
-      }
+      "kephalē": { "NL": "hoofd", "GR": "κεφαλή", "Gen": "κεφαλῆς" },
+      "prosōpon": { "NL": "gezicht", "GR": "πρόσωπον", "Gen": "προσώπου" },
+      "trachēlos": { "NL": "nek", "GR": "τράχηλος", "Gen": "τραχήλου" },
+      "stēthos": { "NL": "borst", "GR": "στῆθος", "Gen": "στήθους" },
+      "gaster": { "NL": "buik", "GR": "γαστήρ", "Gen": "γαστρός" },
+      "nōtos": { "NL": "rug", "GR": "νῶτος", "Gen": "νῶτου" },
+      "brachiōn": { "NL": "arm", "GR": "βραχίων", "Gen": "βραχίονος" },
+      "cheir": { "NL": "hand", "GR": "χείρ", "Gen": "χειρός" },
+      "daktylos": { "NL": "vinger", "GR": "δάκτυλος", "Gen": "δακτύλου" },
+      "pous": { "NL": "voet", "GR": "πούς", "Gen": "ποδός" }
     },
+
     "K4.2": {
-      "soma": {
-        "NL": "lichaam",
-        "GR": "σῶμα",
-        "Gen": "σώματος"
-      },
-      "onoma": {
-        "NL": "naam",
-        "GR": "ὄνομα",
-        "Gen": "ὀνόματος"
-      }
+      "kardia": { "NL": "hart", "GR": "καρδία", "Gen": "καρδίας" },
+      "pneumōn": { "NL": "long", "GR": "πνεύμων", "Gen": "πνεύμονος" },
+      "hēpar": { "NL": "lever", "GR": "ἧπαρ", "Gen": "ἥπατος" },
+      "splēn": { "NL": "milt", "GR": "σπλήν", "Gen": "σπληνός" },
+      "nephros": { "NL": "nier", "GR": "νεφρός", "Gen": "νεφροῦ" },
+      "stomachos": { "NL": "maag", "GR": "στόμαχος", "Gen": "στομάχου" },
+      "enteron": { "NL": "darm", "GR": "ἔντερον", "Gen": "ἐντέρου" },
+      "haima": { "NL": "bloed", "GR": "αἷμα", "Gen": "αἵματος" },
+      "mys": { "NL": "spier", "GR": "μῦς", "Gen": "μυός" },
+      "osteon": { "NL": "bot", "GR": "ὀστέον", "Gen": "ὀστέου" }
+    },
+
+    "K4.3": {
+      "ophthalmos": { "NL": "oog", "GR": "ὀφθαλμός", "Gen": "ὀφθαλμοῦ" },
+      "ous": { "NL": "oor", "GR": "οὖς", "Gen": "ὠτός" },
+      "rhīs": { "NL": "neus", "GR": "ῥίς", "Gen": "ῥινός" },
+      "stoma": { "NL": "mond", "GR": "στόμα", "Gen": "στόματος" },
+      "glōssa": { "NL": "tong", "GR": "γλῶσσα", "Gen": "γλώσσης" },
+      "odous": { "NL": "tand", "GR": "ὀδούς", "Gen": "ὀδόντος" },
+      "ousia": { "NL": "gehoor", "GR": "ἀκοή", "Gen": "ἀκοῆς" },
+      "opsis": { "NL": "zicht", "GR": "ὄψις", "Gen": "ὄψεως" },
+      "hēdonē": { "NL": "smaak", "GR": "ἡδονή", "Gen": "ἡδονῆς" },
+      "haphē": { "NL": "tastzin", "GR": "ἁφή", "Gen": "ἁφῆς" }
+    },
+
+    "K4.4": {
+      "nosos": { "NL": "ziekte", "GR": "νόσος", "Gen": "νόσου" },
+      "ponos": { "NL": "pijn", "GR": "πόνος", "Gen": "πόνου" },
+      "trauma": { "NL": "wonde", "GR": "τραῦμα", "Gen": "τραύματος" },
+      "therapeia": { "NL": "behandeling", "GR": "θεραπεία", "Gen": "θεραπείας" },
+      "iatros": { "NL": "arts", "GR": "ἰατρός", "Gen": "ἰατροῦ" },
+      "pharmakon": { "NL": "medicijn", "GR": "φάρμακον", "Gen": "φαρμάκου" },
+      "loimos": { "NL": "plaag", "GR": "λοιμός", "Gen": "λοιμοῦ" },
+      "pyretos": { "NL": "koorts", "GR": "πυρετός", "Gen": "πυρετοῦ" },
+      "astheneia": { "NL": "zwakte", "GR": "ἀσθένεια", "Gen": "ἀσθενείας" },
+      "iatreia": { "NL": "geneeskunde", "GR": "ἰατρεία", "Gen": "ἰατρείας" }
+    },
+
+    "K4.5": {
+      "zōē": { "NL": "leven", "GR": "ζωή", "Gen": "ζωῆς" },
+      "thanatos": { "NL": "dood", "GR": "θάνατος", "Gen": "θανάτου" },
+      "genesis": { "NL": "geboorte", "GR": "γένεσις", "Gen": "γενέσεως" },
+      "paidion": { "NL": "baby", "GR": "παιδίον", "Gen": "παιδίου" },
+      "hēlikia": { "NL": "leeftijd", "GR": "ἡλικία", "Gen": "ἡλικίας" },
+      "gēras": { "NL": "ouderdom", "GR": "γῆρας", "Gen": "γήρως" },
+      "bios": { "NL": "leven (manier)", "GR": "βίος", "Gen": "βίου" },
+      "psyche": { "NL": "ziel", "GR": "ψυχή", "Gen": "ψυχῆς" },
+      "pneuma": { "NL": "adem", "GR": "πνεῦμα", "Gen": "πνεύματος" },
+      "anapnoē": { "NL": "ademhaling", "GR": "ἀναπνοή", "Gen": "ἀναπνοῆς" }
+    },
+
+    "K4.6": {
+      "hygieia": { "NL": "gezondheid", "GR": "ὑγίεια", "Gen": "ὑγιείας" },
+      "katharotēs": { "NL": "reinheid", "GR": "καθαρότης", "Gen": "καθαρότητος" },
+      "rhythmos": { "NL": "ritme", "GR": "ῥυθμός", "Gen": "ῥυθμοῦ" },
+      "diatropē": { "NL": "voeding", "GR": "διατροπή", "Gen": "διατροφῆς" },
+      "gymnasia": { "NL": "oefening", "GR": "γυμνασία", "Gen": "γυμνασίας" },
+      "ischys": { "NL": "kracht", "GR": "ἰσχύς", "Gen": "ἰσχύος" },
+      "euexia": { "NL": "welzijn", "GR": "εὐεξία", "Gen": "εὐεξίας" },
+      "katharsis": { "NL": "zuivering", "GR": "κάθαρσις", "Gen": "καθάρσεως" },
+      "thermos": { "NL": "warmte", "GR": "θερμός", "Gen": "θερμοῦ" },
+      "psychros": { "NL": "koude", "GR": "ψυχρός", "Gen": "ψυχροῦ" }
     }
   },
-
   "K5": {
+    "thema": "Abstracte Begrippen",
+
     "K5.1": {
-      "chronos": {
-        "NL": "tijd",
-        "GR": "χρόνος",
-        "Gen": "χρόνου"
-      },
-      "thanatos": {
-        "NL": "dood",
-        "GR": "θάνατος",
-        "Gen": "θανάτου"
-      }
+      "chronos": { "NL": "tijd", "GR": "χρόνος", "Gen": "χρόνου" },
+      "kairos": { "NL": "geschikt moment", "GR": "καιρός", "Gen": "καιροῦ" },
+      "aiōn": { "NL": "eeuwigheid", "GR": "αἰών", "Gen": "αἰῶνος" },
+      "hēmera": { "NL": "dag", "GR": "ἡμέρα", "Gen": "ἡμέρας" },
+      "nyx": { "NL": "nacht", "GR": "νύξ", "Gen": "νυκτός" },
+      "mēn": { "NL": "maand", "GR": "μήν", "Gen": "μηνός" },
+      "eniautos": { "NL": "jaar", "GR": "ἐνιαυτός", "Gen": "ἐνιαυτοῦ" },
+      "stigma": { "NL": "moment", "GR": "στιγμή", "Gen": "στιγμῆς" },
+      "proōra": { "NL": "vroegte", "GR": "πρωΐα", "Gen": "πρωΐας" },
+      "hespera": { "NL": "avond", "GR": "ἑσπέρα", "Gen": "ἑσπέρας" }
     },
+
     "K5.2": {
-      "arete": {
-        "NL": "deugd",
-        "GR": "ἀρετή",
-        "Gen": "ἀρετῆς"
-      },
-      "dike": {
-        "NL": "recht, gerechtigheid",
-        "GR": "δίκη",
-        "Gen": "δίκης"
-      }
+      "aletheia": { "NL": "waarheid", "GR": "ἀλήθεια", "Gen": "ἀληθείας" },
+      "pseudos": { "NL": "leugen", "GR": "ψεῦδος", "Gen": "ψεύδους" },
+      "doxa": { "NL": "mening", "GR": "δόξα", "Gen": "δόξης" },
+      "epistēmē": { "NL": "kennis", "GR": "ἐπιστήμη", "Gen": "ἐπιστήμης" },
+      "sophia": { "NL": "wijsheid", "GR": "σοφία", "Gen": "σοφίας" },
+      "gnōsis": { "NL": "inzicht", "GR": "γνῶσις", "Gen": "γνώσεως" },
+      "mathēsis": { "NL": "leren", "GR": "μάθησις", "Gen": "μαθήσεως" },
+      "logos": { "NL": "rede", "GR": "λόγος", "Gen": "λόγου" },
+      "noēsis": { "NL": "begrip", "GR": "νόησις", "Gen": "νοήσεως" },
+      "phronēsis": { "NL": "bezonnenheid", "GR": "φρόνησις", "Gen": "φρονήσεως" }
+    },
+
+    "K5.3": {
+      "dikaiosynē": { "NL": "rechtvaardigheid", "GR": "δικαιοσύνη", "Gen": "δικαιοσύνης" },
+      "adikía": { "NL": "onrecht", "GR": "ἀδικία", "Gen": "ἀδικίας" },
+      "nomos": { "NL": "wet", "GR": "νόμος", "Gen": "νόμου" },
+      "krisis": { "NL": "oordeel", "GR": "κρίσις", "Gen": "κρίσεως" },
+      "dikē": { "NL": "recht", "GR": "δίκη", "Gen": "δίκης" },
+      "timōria": { "NL": "straf", "GR": "τιμωρία", "Gen": "τιμωρίας" },
+      "eleutheria": { "NL": "vrijheid", "GR": "ἐλευθερία", "Gen": "ἐλευθερίας" },
+      "despotia": { "NL": "tirannie", "GR": "δεσποτεία", "Gen": "δεσποτείας" },
+      "archē": { "NL": "heerschappij", "GR": "ἀρχή", "Gen": "ἀρχῆς" },
+      "isotēs": { "NL": "gelijkheid", "GR": "ἰσότης", "Gen": "ἰσότητος" }
+    },
+
+    "K5.4": {
+      "phobos": { "NL": "angst", "GR": "φόβος", "Gen": "φόβου" },
+      "thymos": { "NL": "woede", "GR": "θυμός", "Gen": "θυμοῦ" },
+      "lypē": { "NL": "verdriet", "GR": "λύπη", "Gen": "λύπης" },
+      "chara": { "NL": "vreugde", "GR": "χαρά", "Gen": "χαρᾶς" },
+      "erōs": { "NL": "liefde", "GR": "ἔρως", "Gen": "ἔρωτος" },
+      "elpis": { "NL": "hoop", "GR": "ἐλπίς", "Gen": "ἐλπίδος" },
+      "orgē": { "NL": "woede", "GR": "ὀργή", "Gen": "ὀργῆς" },
+      "aischynē": { "NL": "schaamte", "GR": "αἰσχύνη", "Gen": "αἰσχύνης" },
+      "zēlos": { "NL": "ijver", "GR": "ζῆλος", "Gen": "ζήλου" },
+      "pathos": { "NL": "gevoel", "GR": "πάθος", "Gen": "πάθους" }
+    },
+
+    "K5.5": {
+      "aretē": { "NL": "deugd", "GR": "ἀρετή", "Gen": "ἀρετῆς" },
+      "kakia": { "NL": "ondeugd", "GR": "κακία", "Gen": "κακίας" },
+      "sōphrosynē": { "NL": "zelfbeheersing", "GR": "σωφροσύνη", "Gen": "σωφροσύνης" },
+      "andreia": { "NL": "moed", "GR": "ἀνδρεία", "Gen": "ἀνδρείας" },
+      "philanthrōpia": { "NL": "menslievendheid", "GR": "φιλανθρωπία", "Gen": "φιλανθρωπίας" },
+      "eleos": { "NL": "medelijden", "GR": "ἔλεος", "Gen": "ἐλέους" },
+      "praotēs": { "NL": "zachtheid", "GR": "πραότης", "Gen": "πραότητος" },
+      "charis": { "NL": "genade", "GR": "χάρις", "Gen": "χάριτος" },
+      "pistis": { "NL": "vertrouwen", "GR": "πίστις", "Gen": "πίστεως" },
+      "eunoia": { "NL": "welwillendheid", "GR": "εὔνοια", "Gen": "εὐνοίας" }
+    },
+
+    "K5.6": {
+      "logos": { "NL": "woord / rede", "GR": "λόγος", "Gen": "λόγου" },
+      "mythos": { "NL": "verhaal", "GR": "μῦθος", "Gen": "μύθου" },
+      "pragma": { "NL": "zaak", "GR": "πρᾶγμα", "Gen": "πράγματος" },
+      "ergon": { "NL": "daad", "GR": "ἔργον", "Gen": "ἔργου" },
+      "telos": { "NL": "doel", "GR": "τέλος", "Gen": "τέλους" },
+      "archē": { "NL": "begin", "GR": "ἀρχή", "Gen": "ἀρχῆς" },
+      "dynamis": { "NL": "kracht", "GR": "δύναμις", "Gen": "δυνάμεως" },
+      "energeia": { "NL": "werking", "GR": "ἐνέργεια", "Gen": "ἐνεργείας" },
+      "tropos": { "NL": "wijze", "GR": "τρόπος", "Gen": "τρόπου" },
+      "skopos": { "NL": "doelwit", "GR": "σκοπός", "Gen": "σκοποῦ" }
     }
   }
 }
