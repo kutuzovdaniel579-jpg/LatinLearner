@@ -56,6 +56,23 @@
     .woord small {
       color: #555;
     }
+
+    /* TTS knop */
+    .tts-btn {
+      margin-left: 8px;
+      padding: 4px 8px;
+      background: #FFD54F;
+      border: 1px solid #C49B00;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .tts-btn:hover {
+      background: #FFCA28;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
@@ -75,7 +92,7 @@
     let huidigSub = null;
 
     async function loadJSON() {
-      const res = await fetch("kefálio.json");   // <-- AANGEPAST
+      const res = await fetch("kefálio.json");
       woordenData = await res.json();
 
       const hoofdstukkenDiv = document.getElementById("hoofdstukken");
@@ -137,12 +154,21 @@
         div.className = "woord";
 
         div.innerHTML = `
-          <b>${item.NL}</b> → ${item.GR}<br>   <!-- AANGEPAST -->
+          <b>${item.NL}</b> → ${item.GR}
+          <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
           <small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
         `;
 
         lijst.appendChild(div);
       });
+    }
+
+    /* TTS functie */
+    function spreek(tekst) {
+      const utter = new SpeechSynthesisUtterance(tekst);
+      utter.lang = "el-GR"; 
+      utter.rate = 0.9;
+      speechSynthesis.speak(utter);
     }
 
     loadJSON();
