@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kefálio — Woorden</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { margin-bottom: 10px; }
+
+    #hoofdstukken, #subHoofdstukken {
+      margin-bottom: 15px;
+    }
+
+    .hoofdstuk-btn,
+    .subhoofdstuk-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      background: #51A6E8;
+      color: white;
+      border-radius: 6px;
+      border: 1px solid #0f6f99;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .hoofdstuk-btn:hover,
+    .subhoofdstuk-btn:hover:not(.quiz-btn) {
+      border-width: 2px;
+      border-color: #0b4f6d;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    .quiz-btn {
+      background: #BF0D0D;
+      border-color: #8a0909;
+    }
+
+    .quiz-btn:hover {
+      border-width: 2px;
+      border-color: #5c0606;
+      box-shadow: 0 0 6px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+
+    .woord {
+      padding: 10px;
+      margin: 10px 0;
+      background: #f0f0f0;
+      border-radius: 6px;
+    }
+
+    .woord small {
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Woorden per Kefálio</h1>
+
+  <div id="hoofdstukken">Hoofdstukken laden...</div>
+  <div id="subHoofdstukken"></div>
+
+  <h2 id="caputTitel"></h2>
+  <h3 id="subTitel"></h3>
+  <div id="woordenLijst"></div>
+
+  <script>
+    let woordenData = {};
+    let huidigCaput = null;
+    let huidigSub = null;
+
+    async function loadJSON() {
+      const res = await fetch("kefálio.json");   // <-- AANGEPAST
+      woordenData = await res.json();
+
+      const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+      hoofdstukkenDiv.innerHTML = "";
+
+      Object.keys(woordenData).forEach(caput => {
+        const btn = document.createElement("button");
+        btn.className = "hoofdstuk-btn";
+        btn.textContent = caput;
+        btn.onclick = () => laadCaput(caput);
+        hoofdstukkenDiv.appendChild(btn);
+      });
+    }
+
+    function laadCaput(caput) {
+      huidigCaput = caput;
+      huidigSub = null;
+
+      document.getElementById("caputTitel").textContent = "Kefálio " + caput;
+      document.getElementById("subTitel").textContent = "";
+      document.getElementById("woordenLijst").innerHTML = "";
+
+      const subHoofdstukkenDiv = document.getElementById("subHoofdstukken");
+      subHoofdstukkenDiv.innerHTML = "";
+
+      const subhoofdstukken = woordenData[caput];
+
+      Object.keys(subhoofdstukken).forEach(sub => {
+        const btn = document.createElement("button");
+        btn.className = "subhoofdstuk-btn";
+        btn.textContent = sub;
+        btn.onclick = () => laadSubHoofdstuk(caput, sub);
+        subHoofdstukkenDiv.appendChild(btn);
+      });
+
+      const quizBtn = document.createElement("button");
+      quizBtn.className = "subhoofdstuk-btn quiz-btn";
+      quizBtn.textContent = "🎯 Quiz";
+      quizBtn.onclick = () => {
+        window.location.href = `quiz.html?caput=${huidigCaput}`;
+      };
+      subHoofdstukkenDiv.appendChild(quizBtn);
+    }
+
+    function laadSubHoofdstuk(caput, sub) {
+      huidigSub = sub;
+
+      const lijst = document.getElementById("woordenLijst");
+      lijst.innerHTML = "";
+
+      document.getElementById("subTitel").textContent = "Subhoofdstuk " + sub;
+
+      const woorden = woordenData[caput][sub];
+
+      Object.keys(woorden).forEach(key => {
+        const item = woorden[key];
+
+        const div = document.createElement("div");
+        div.className = "woord";
+
+        div.innerHTML = `
+          <b>${item.NL}</b> → ${item.GR}<br>   <!-- AANGEPAST -->
+          <small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
+        `;
+
+        lijst.appendChild(div);
+      });
+    }
+
+    loadJSON();
+  </script>
+</body>
+</html>
