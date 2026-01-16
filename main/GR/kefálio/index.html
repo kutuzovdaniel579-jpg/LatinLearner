@@ -91,130 +91,137 @@
   <h3 id="subTitel"></h3>
   <div id="woordenLijst"></div>
 
-  <script>
-    let woordenData = {};
-    let huidigCaput = null;
-    let huidigSub = null;
+<script>
+  let woordenData = {};
+  let huidigCaput = null;
+  let huidigSub = null;
 
-    /* ---------------------------
-       GRIEKS → LATIJNS ALFABET
-    --------------------------- */
-    function translit(gr) {
-      const map = {
-        "α":"a","ά":"a","ὰ":"a","ᾶ":"a","ἀ":"a","ἁ":"ha","ἄ":"a","ἂ":"a","ἆ":"a","ἅ":"ha","ἃ":"ha","ἇ":"ha",
-        "β":"b",
-        "γ":"g",
-        "δ":"d",
-        "ε":"e","έ":"e","ὲ":"e","ἐ":"e","ἑ":"he","ἔ":"e","ἒ":"e","ἕ":"he","ἓ":"he",
-        "ζ":"z",
-        "η":"ē","ή":"ē","ὴ":"ē","ῆ":"ē","ἠ":"ē","ἡ":"hē","ἤ":"ē","ἢ":"ē","ἦ":"ē","ἥ":"hē","ἣ":"hē","ἧ":"hē",
-        "θ":"th",
-        "ι":"i","ί":"i","ὶ":"i","ῖ":"i","ἰ":"i","ἱ":"hi","ἴ":"i","ἲ":"i","ἶ":"i","ἵ":"hi","ἳ":"hi","ἷ":"hi",
-        "κ":"k",
-        "λ":"l",
-        "μ":"m",
-        "ν":"n",
-        "ξ":"x",
-        "ο":"o","ό":"o","ὸ":"o","ὀ":"o","ὁ":"ho","ὄ":"o","ὂ":"o","ὅ":"ho","ὃ":"ho",
-        "π":"p",
-        "ρ":"r","ῥ":"hr",
-        "σ":"s","ς":"s",
-        "τ":"t",
-        "υ":"y","ύ":"y","ὺ":"y","ῦ":"y","ὐ":"y","ὑ":"hy","ὔ":"y","ὒ":"y","ὖ":"y","ὕ":"hy","ὓ":"hy","ὗ":"hy",
-        "φ":"ph",
-        "χ":"ch",
-        "ψ":"ps",
-        "ω":"ō","ώ":"ō","ὼ":"ō","ῶ":"ō","ὠ":"ō","ὡ":"hō","ὤ":"ō","ὢ":"ō","ὦ":"ō","ὥ":"hō","ὣ":"hō","ὧ":"hō"
-      };
+  function translit(gr) {
+    const map = {
+      "α":"a","ά":"a","ὰ":"a","ᾶ":"a","ἀ":"a","ἁ":"ha","ἄ":"a","ἂ":"a","ἆ":"a","ἅ":"ha","ἃ":"ha","ἇ":"ha",
+      "β":"b","γ":"g","δ":"d",
+      "ε":"e","έ":"e","ὲ":"e","ἐ":"e","ἑ":"he","ἔ":"e","ἒ":"e","ἕ":"he","ἓ":"he",
+      "ζ":"z",
+      "η":"ē","ή":"ē","ὴ":"ē","ῆ":"ē","ἠ":"ē","ἡ":"hē","ἤ":"ē","ἢ":"ē","ἦ":"ē","ἥ":"hē","ἣ":"hē","ἧ":"hē",
+      "θ":"th","ι":"i","ί":"i","ὶ":"i","ῖ":"i","ἰ":"i","ἱ":"hi","ἴ":"i","ἲ":"i","ἶ":"i","ἵ":"hi","ἳ":"hi","ἷ":"hi",
+      "κ":"k","λ":"l","μ":"m","ν":"n","ξ":"x",
+      "ο":"o","ό":"o","ὸ":"o","ὀ":"o","ὁ":"ho","ὄ":"o","ὂ":"o","ὅ":"ho","ὃ":"ho",
+      "π":"p","ρ":"r","ῥ":"hr","σ":"s","ς":"s","τ":"t",
+      "υ":"y","ύ":"y","ὺ":"y","ῦ":"y","ὐ":"y","ὑ":"hy","ὔ":"y","ὒ":"y","ὖ":"y","ὕ":"hy","ὓ":"hy","ὗ":"hy",
+      "φ":"ph","χ":"ch","ψ":"ps",
+      "ω":"ō","ώ":"ō","ὼ":"ō","ῶ":"ō","ὠ":"ō","ὡ":"hō","ὤ":"ō","ὢ":"ō","ὦ":"ō","ὥ":"hō","ὣ":"hō","ὧ":"hō"
+    };
+    return gr.split("").map(ch => map[ch] ?? ch).join("");
+  }
 
-      return gr.split("").map(ch => map[ch] ?? ch).join("");
-    }
+  async function loadJSON() {
+    const res = await fetch("kefálio.json");
+    woordenData = await res.json();
 
-    /* ---------------------------
-       JSON LADEN
-    --------------------------- */
-    async function loadJSON() {
-      const res = await fetch("kefálio.json");
-      woordenData = await res.json();
+    const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+    hoofdstukkenDiv.innerHTML = "";
 
-      const hoofdstukkenDiv = document.getElementById("hoofdstukken");
-      hoofdstukkenDiv.innerHTML = "";
+    Object.keys(woordenData).forEach(caput => {
+      const btn = document.createElement("button");
+      btn.className = "hoofdstuk-btn";
+      btn.textContent = caput;
+      btn.onclick = () => laadCaput(caput);
+      hoofdstukkenDiv.appendChild(btn);
+    });
+  }
 
-      Object.keys(woordenData).forEach(caput => {
-        const btn = document.createElement("button");
-        btn.className = "hoofdstuk-btn";
-        btn.textContent = caput;
-        btn.onclick = () => laadCaput(caput);
-        hoofdstukkenDiv.appendChild(btn);
-      });
-    }
+  function laadCaput(caput) {
+    huidigCaput = caput;
+    huidigSub = null;
 
-    function laadCaput(caput) {
-      huidigCaput = caput;
-      huidigSub = null;
+    document.getElementById("caputTitel").textContent = "Kefálio " + caput;
+    document.getElementById("subTitel").textContent = "";
+    document.getElementById("woordenLijst").innerHTML = "";
 
-      document.getElementById("caputTitel").textContent = "Kefálio " + caput;
-      document.getElementById("subTitel").textContent = "";
-      document.getElementById("woordenLijst").innerHTML = "";
+    const subHoofdstukkenDiv = document.getElementById("subHoofdstukken");
+    subHoofdstukkenDiv.innerHTML = "";
 
-      const subHoofdstukkenDiv = document.getElementById("subHoofdstukken");
-      subHoofdstukkenDiv.innerHTML = "";
+    const subhoofdstukken = woordenData[caput];
 
-      const subhoofdstukken = woordenData[caput];
+    // ⭐ THEMA-KNOP TOEVOEGEN
+    const themaBtn = document.createElement("button");
+    themaBtn.className = "subhoofdstuk-btn";
+    themaBtn.textContent = "thema";
+    themaBtn.onclick = () => toonThema(caput);
+    subHoofdstukkenDiv.appendChild(themaBtn);
 
-      Object.keys(subhoofdstukken).forEach(sub => {
-        const btn = document.createElement("button");
-        btn.className = "subhoofdstuk-btn";
-        btn.textContent = sub;
-        btn.onclick = () => laadSubHoofdstuk(caput, sub);
-        subHoofdstukkenDiv.appendChild(btn);
-      });
+    // ⭐ SUBHOOFDSTUKKEN
+    Object.keys(subhoofdstukken).forEach(sub => {
+      if (sub === "thema") return; // thema overslaan
+      const btn = document.createElement("button");
+      btn.className = "subhoofdstuk-btn";
+      btn.textContent = sub;
+      btn.onclick = () => laadSubHoofdstuk(caput, sub);
+      subHoofdstukkenDiv.appendChild(btn);
+    });
 
-      const quizBtn = document.createElement("button");
-      quizBtn.className = "subhoofdstuk-btn quiz-btn";
-      quizBtn.textContent = "🎯 Quiz";
-      quizBtn.onclick = () => {
-        window.location.href = `quiz.html?caput=${huidigCaput}`;
-      };
-      subHoofdstukkenDiv.appendChild(quizBtn);
-    }
+    // ⭐ QUIZ-KNOP
+    const quizBtn = document.createElement("button");
+    quizBtn.className = "subhoofdstuk-btn quiz-btn";
+    quizBtn.textContent = "🎯 Quiz";
+    quizBtn.onclick = () => {
+      window.location.href = `quiz.html?caput=${huidigCaput}`;
+    };
+    subHoofdstukkenDiv.appendChild(quizBtn);
+  }
 
-    function laadSubHoofdstuk(caput, sub) {
-      huidigSub = sub;
+  function toonThema(caput) {
+    const thema = woordenData[caput]?.thema;
 
-      const lijst = document.getElementById("woordenLijst");
-      lijst.innerHTML = "";
+    document.getElementById("subTitel").textContent = "Subhoofdstuk thema";
 
-      document.getElementById("subTitel").textContent = "Subhoofdstuk " + sub;
+    const lijst = document.getElementById("woordenLijst");
+    lijst.innerHTML = "";
 
-      const woorden = woordenData[caput][sub];
+    const div = document.createElement("div");
+    div.className = "woord";
+    div.innerHTML = `<b>Thema:</b> ${thema ?? "Geen thema gevonden."}`;
 
-      Object.keys(woorden).forEach(key => {
-        const item = woorden[key];
-        const lat = translit(item.GR);
+    lijst.appendChild(div);
+  }
 
-        const div = document.createElement("div");
-        div.className = "woord";
+  function laadSubHoofdstuk(caput, sub) {
+    huidigSub = sub;
 
-        div.innerHTML = `
-          <b>${item.NL}</b> → ${item.GR}
-          <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
-          <span class="latin">${lat}</span><br>
-          <small>${item.Gen ?? ""}</small>
-        `;
+    const lijst = document.getElementById("woordenLijst");
+    lijst.innerHTML = "";
 
-        lijst.appendChild(div);
-      });
-    }
+    document.getElementById("subTitel").textContent = "Subhoofdstuk " + sub;
 
-    function spreek(tekst) {
-      const utter = new SpeechSynthesisUtterance(tekst);
-      utter.lang = "el-GR";
-      utter.rate = 0.9;
-      speechSynthesis.speak(utter);
-    }
+    const woorden = woordenData[caput][sub];
 
-    loadJSON();
-  </script>
+    Object.keys(woorden).forEach(key => {
+      const item = woorden[key];
+      const lat = translit(item.GR);
+
+      const div = document.createElement("div");
+      div.className = "woord";
+
+      div.innerHTML = `
+        <b>${item.NL}</b> → ${item.GR}
+        <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
+        <span class="latin">${lat}</span><br>
+        <small>${item.Gen ?? ""}</small>
+      `;
+
+      lijst.appendChild(div);
+    });
+  }
+
+  function spreek(tekst) {
+    const utter = new SpeechSynthesisUtterance(tekst);
+    utter.lang = "el-GR";
+    utter.rate = 0.9;
+    speechSynthesis.speak(utter);
+  }
+
+  loadJSON();
+</script>
+
 </body>
 </html>
