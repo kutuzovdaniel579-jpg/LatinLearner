@@ -11,6 +11,7 @@ https://kutuzovdaniel579-jpg.github.io/VIAEF
 The project is developed under **FoL — OpenFluxLab**, emphasizing clean data design, consistency, and developer-friendly formats.
 
 ---
+## ‼️NEW‼️
 
 ## 🌐 Overview
 VIÆ provides a lightweight JSON-based vocabulary engine designed for:
