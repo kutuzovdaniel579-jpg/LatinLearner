@@ -20,7 +20,6 @@
       overflow: hidden;
     }
 
-    /* --- LOADING LOGO --- */
     .logo {
       width: 120px;
       height: 120px;
@@ -61,8 +60,7 @@
       50% { opacity: 1; }
     }
 
-    /* --- TAALKEUZE UI (identiek aan Caput UI) --- */
-    #taalKeuze {
+    #keuzeScherm, #taalKeuze {
       display: none;
       flex-direction: column;
       align-items: center;
@@ -110,6 +108,12 @@
     </div>
   </div>
 
+  <!-- CATEGORIE KEUZE -->
+  <div id="keuzeScherm">
+    <h1>Kies een categorie</h1>
+    <div id="categorieKnoppen"></div>
+  </div>
+
   <!-- TAAL KEUZE -->
   <div id="taalKeuze">
     <h1>Kies een taal</h1>
@@ -118,7 +122,16 @@
 
   <script>
     /* ------------------------------
-       Talen makkelijk aanpasbaar
+       Modulaire categorieën
+    ------------------------------ */
+    const categorieën = [
+      { naam: "Aardrijkskunde", link: "main/GEOG/index.html" },
+      { naam: "Geschiedenis", link: "main/HIST/index.html" },
+      { naam: "Talen", type: "talen" } // opent taalkeuze
+    ];
+
+    /* ------------------------------
+       Modulaire talen
     ------------------------------ */
     const talen = [
       { naam: "Latijn", link: "main/LA/index.html" },
@@ -126,24 +139,47 @@
     ];
 
     /* ------------------------------
-       Na loading → taalkeuze tonen
+       Na loading → categorie keuze
     ------------------------------ */
     setTimeout(() => {
       document.getElementById("loadingScreen").style.display = "none";
-      document.getElementById("taalKeuze").style.display = "flex";
+      document.getElementById("keuzeScherm").style.display = "flex";
 
-      const container = document.getElementById("taalKnoppen");
+      const container = document.getElementById("categorieKnoppen");
       container.innerHTML = "";
 
-      talen.forEach(t => {
+      categorieën.forEach(c => {
         const btn = document.createElement("button");
         btn.className = "taal-btn";
-        btn.textContent = t.naam;
-        btn.onclick = () => window.location.href = t.link;
+        btn.textContent = c.naam;
+
+        btn.onclick = () => {
+          if (c.type === "talen") {
+            // toon taalkeuze
+            document.getElementById("keuzeScherm").style.display = "none";
+            document.getElementById("taalKeuze").style.display = "flex";
+
+            const taalContainer = document.getElementById("taalKnoppen");
+            taalContainer.innerHTML = "";
+
+            talen.forEach(t => {
+              const tbtn = document.createElement("button");
+              tbtn.className = "taal-btn";
+              tbtn.textContent = t.naam;
+              tbtn.onclick = () => window.location.href = t.link;
+              taalContainer.appendChild(tbtn);
+            });
+
+          } else {
+            // directe link
+            window.location.href = c.link;
+          }
+        };
+
         container.appendChild(btn);
       });
 
-    }, 1800); // duur van loading
+    }, 1800);
   </script>
 
 </body>
