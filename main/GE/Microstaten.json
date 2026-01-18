@@ -1,138 +1,105 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIÆF – Hoofdsteden</title>
+{
+ “microstaten”: 
+{ “VN”: { “Baby”: { “Monaco”: “Monaco”, “Vaticaanstad”: “Vaticaanstad” }, “Easy”: { “Liechtenstein”: “Vaduz”, “San Marino”: “San Marino” }, “Normal”: { “Andorra”: “Andorra la Vella” }, “Hardcore”: { “Nauru”: “Yaren”, “Tuvalu”: “Funafuti” }, “Insane”: { “Palau”: “Ngerulmud”, “Kiribati”: “Tarawa” }, “Nerd”: { “Micronesië”: “Palikir”, “Marshall-eilanden”: “Majuro” } },
 
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background:#fff; color:#000; }
-    h1 { margin-bottom: 10px; }
+"Uitgebreid": {
+  "Baby": {
+    "Monaco": "Monaco",
+    "Vaticaanstad": "Vaticaanstad",
+    "Singapore": "Singapore"
+  },
+  "Easy": {
+    "Malta": "Valletta",
+    "Cyprus": "Nicosia",
+    "Bahrein": "Manama",
+    "IJsland": "Reykjavik"
+  },
+  "Normal": {
+    "Fiji": "Suva",
+    "Jamaica": "Kingston",
+    "Barbados": "Bridgetown",
+    "Trinidad en Tobago": "Port of Spain"
+  },
+  "Hardcore": {
+    "Andorra": "Andorra la Vella",
+    "Liechtenstein": "Vaduz",
+    "San Marino": "San Marino",
+    "Seychellen": "Victoria",
+    "Mauritius": "Port Louis"
+  },
+  "Insane": {
+    "Belize": "Belmopan",
+    "Guyana": "Georgetown",
+    "Suriname": "Paramaribo",
+    "Comoren": "Moroni",
+    "Tonga": "Nuku'alofa"
+  },
+  "Nerd": {
+    "Nauru": "Yaren",
+    "Tuvalu": "Funafuti",
+    "Kiribati": "Tarawa",
+    "Palau": "Ngerulmud",
+    "Micronesië": "Palikir",
+    "Marshall-eilanden": "Majuro",
+    "Dominica": "Roseau",
+    "Grenada": "Saint George's",
+    "Saint Kitts en Nevis": "Basseterre",
+    "Saint Vincent en de Grenadines": "Kingstown",
+    "Antigua en Barbuda": "Saint John's"
+  }
+},
 
-    #definitieKnoppen, #niveauKnoppen, #landenLijst {
-      margin-bottom: 15px;
-    }
+"Maximaal": {
+  "Baby": {
+    "Monaco": "Monaco",
+    "Vaticaanstad": "Vaticaanstad",
+    "Singapore": "Singapore",
+    "Luxemburg": "Luxemburg"
+  },
+  "Easy": {
+    "Malta": "Valletta",
+    "Cyprus": "Nicosia",
+    "Bahrein": "Manama",
+    "IJsland": "Reykjavik",
+    "Seychellen": "Victoria"
+  },
+  "Normal": {
+    "Fiji": "Suva",
+    "Jamaica": "Kingston",
+    "Barbados": "Bridgetown",
+    "Trinidad en Tobago": "Port of Spain",
+    "Samoa": "Apia",
+    "Tonga": "Nuku'alofa"
+  },
+  "Hardcore": {
+    "Andorra": "Andorra la Vella",
+    "Liechtenstein": "Vaduz",
+    "San Marino": "San Marino",
+    "Mauritius": "Port Louis",
+    "Comoren": "Moroni",
+    "Cabo Verde": "Praia"
+  },
+  "Insane": {
+    "Belize": "Belmopan",
+    "Guyana": "Georgetown",
+    "Suriname": "Paramaribo",
+    "Vanuatu": "Port Vila",
+    "Solomon Islands": "Honiara",
+    "Micronesië": "Palikir",
+    "Marshall-eilanden": "Majuro"
+  },
+  "Nerd": {
+    "Nauru": "Yaren",
+    "Tuvalu": "Funafuti",
+    "Kiribati": "Tarawa",
+    "Palau": "Ngerulmud",
+    "Antigua en Barbuda": "Saint John's",
+    "Saint Kitts en Nevis": "Basseterre",
+    "Saint Vincent en de Grenadines": "Kingstown",
+    "Grenada": "Saint George's",
+    "Dominica": "Roseau"
+  }
+}
 
-    .niveau-btn, .definitie-btn {
-      padding: 10px 15px;
-      margin: 5px;
-      background: #51A6E8;
-      color: white;
-      border-radius: 6px;
-      border: 1px solid #0f6f99;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.2s;
-    }
 
-    .niveau-btn:hover, .definitie-btn:hover {
-      border-width: 2px;
-      border-color: #0b4f6d;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
-      transform: translateY(-2px);
-    }
-
-    .woord {
-      padding: 10px;
-      margin: 10px 0;
-      background: #f0f0f0;
-      border-radius: 6px;
-    }
-
-    .woord small {
-      color: #555;
-    }
-  </style>
-</head>
-
-<body>
-  <h1>Hoofdsteden per Moeilijkheid</h1>
-
-  <div id="definitieKnoppen"></div>
-  <div id="niveauKnoppen">Laden...</div>
-
-  <h2 id="niveauTitel"></h2>
-  <div id="landenLijst"></div>
-
-  <script>
-    let landenData = {};
-    let microData = {};
-    let actiefType = "landen"; // of "microstaten"
-    let actieveDefinitie = "VN";
-
-    async function loadJSON() {
-      const [landenRes, microRes] = await Promise.all([
-        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json"),
-        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json")
-      ]);
-
-      const landenJson = await landenRes.json();
-      const microJson = await microRes.json();
-
-      landenData = landenJson.Landen;
-      microData = microJson.microstaten;
-
-      toonDefinitieKnoppen();
-      toonNiveauKnoppen();
-    }
-
-    function toonDefinitieKnoppen() {
-      const wrapper = document.getElementById("definitieKnoppen");
-      wrapper.innerHTML = "";
-
-      ["Landen", "VN", "Uitgebreid", "Maximaal"].forEach(type => {
-        const btn = document.createElement("button");
-        btn.className = "definitie-btn";
-        btn.textContent = type;
-        btn.onclick = () => {
-          actiefType = type === "Landen" ? "landen" : "microstaten";
-          actieveDefinitie = type;
-          toonNiveauKnoppen();
-          document.getElementById("niveauTitel").textContent = "";
-          document.getElementById("landenLijst").innerHTML = "";
-        };
-        wrapper.appendChild(btn);
-      });
-    }
-
-    function toonNiveauKnoppen() {
-      const wrapper = document.getElementById("niveauKnoppen");
-      wrapper.innerHTML = "";
-
-      const niveaus = ["Baby", "Easy", "Normal", "Hardcore", "Insane", "Nerd"];
-      niveaus.forEach(niveau => {
-        const btn = document.createElement("button");
-        btn.className = "niveau-btn";
-        btn.textContent = niveau;
-        btn.onclick = () => laadNiveau(niveau);
-        wrapper.appendChild(btn);
-      });
-    }
-
-    function laadNiveau(niveau) {
-      document.getElementById("niveauTitel").textContent = `Niveau: ${niveau}`;
-      const lijst = document.getElementById("landenLijst");
-      lijst.innerHTML = "";
-
-      let data = {};
-      if (actiefType === "landen") {
-        data = landenData[niveau];
-      } else {
-        data = microData[actieveDefinitie]?.[niveau];
-      }
-
-      if (!data) return;
-
-      Object.keys(data).forEach(land => {
-        const hoofdstad = data[land];
-        const div = document.createElement("div");
-        div.className = "woord";
-        div.innerHTML = `<b>${land}</b> → ${hoofdstad}`;
-        lijst.appendChild(div);
-      });
-    }
-
-    loadJSON();
-  </script>
-</body>
-</html>
+} }
