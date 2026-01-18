@@ -57,30 +57,36 @@
   <script>
     let landenData = {};
     let microData = {};
-    let actiefType = "landen"; // of "microstaten"
+    let actiefType = "landen"; // "landen" of "microstaten"
     let actieveDefinitie = "VN";
 
     async function loadJSON() {
-      const [landenRes, microRes] = await Promise.all([
-        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json"),
-        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json")
-      ]);
+      try {
+        const [landenRes, microRes] = await Promise.all([
+          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json"),
+          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json")
+        ]);
 
-      const landenJson = await landenRes.json();
-      const microJson = await microRes.json();
+        const landenJson = await landenRes.json();
+        const microJson = await microRes.json();
 
-      landenData = landenJson.Landen;
-      microData = microJson.microstaten;
+        landenData = landenJson.Landen;
+        microData = microJson.microstaten;
 
-      toonDefinitieKnoppen();
-      toonNiveauKnoppen();
+        toonDefinitieKnoppen();
+        toonNiveauKnoppen();
+      } catch (err) {
+        document.getElementById("niveauKnoppen").textContent = "Fout bij laden van data.";
+        console.error(err);
+      }
     }
 
     function toonDefinitieKnoppen() {
       const wrapper = document.getElementById("definitieKnoppen");
       wrapper.innerHTML = "";
 
-      ["Landen", "VN", "Uitgebreid", "Maximaal"].forEach(type => {
+      const definities = ["Landen", "VN", "Uitgebreid", "Maximaal"];
+      definities.forEach(type => {
         const btn = document.createElement("button");
         btn.className = "definitie-btn";
         btn.textContent = type;
@@ -121,10 +127,12 @@
         data = microData[actieveDefinitie]?.[niveau];
       }
 
-      if (!data) return;
+      if (!data) {
+        lijst.innerHTML = "<div class='woord'>Geen data beschikbaar voor dit niveau.</div>";
+        return;
+      }
 
-      Object.keys(data).forEach(land => {
-        const hoofdstad = data[land];
+      Object.entries(data).forEach(([land, hoofdstad]) => {
         const div = document.createElement("div");
         div.className = "woord";
         div.innerHTML = `<b>${land}</b> → ${hoofdstad}`;
