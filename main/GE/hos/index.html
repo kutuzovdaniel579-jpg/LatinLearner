@@ -9,11 +9,11 @@
     body { font-family: Arial, sans-serif; padding: 20px; background:#fff; color:#000; }
     h1 { margin-bottom: 10px; }
 
-    #niveauKnoppen, #landenLijst {
+    #definitieKnoppen, #niveauKnoppen, #landenLijst {
       margin-bottom: 15px;
     }
 
-    .niveau-btn {
+    .niveau-btn, .definitie-btn {
       padding: 10px 15px;
       margin: 5px;
       background: #51A6E8;
@@ -25,7 +25,7 @@
       transition: 0.2s;
     }
 
-    .niveau-btn:hover {
+    .niveau-btn:hover, .definitie-btn:hover {
       border-width: 2px;
       border-color: #0b4f6d;
       box-shadow: 0 0 6px rgba(0,0,0,0.2);
@@ -48,6 +48,7 @@
 <body>
   <h1>Hoofdsteden per Moeilijkheid</h1>
 
+  <div id="definitieKnoppen"></div>
   <div id="niveauKnoppen">Laden...</div>
 
   <h2 id="niveauTitel"></h2>
@@ -55,32 +56,75 @@
 
   <script>
     let landenData = {};
+    let microData = {};
+    let actiefType = "landen"; // of "microstaten"
+    let actieveDefinitie = "VN";
 
     async function loadJSON() {
-      const res = await fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json");
-      const json = await res.json();
-      landenData = json.Landen;
+      const [landenRes, microRes] = await Promise.all([
+        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json"),
+        fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json")
+      ]);
 
-      const knoppenDiv = document.getElementById("niveauKnoppen");
-      knoppenDiv.innerHTML = "";
+      const landenJson = await landenRes.json();
+      const microJson = await microRes.json();
 
-      Object.keys(landenData).forEach(niveau => {
+      landenData = landenJson.Landen;
+      microData = microJson.microstaten;
+
+      toonDefinitieKnoppen();
+      toonNiveauKnoppen();
+    }
+
+    function toonDefinitieKnoppen() {
+      const wrapper = document.getElementById("definitieKnoppen");
+      wrapper.innerHTML = "";
+
+      ["Landen", "VN", "Uitgebreid", "Maximaal"].forEach(type => {
+        const btn = document.createElement("button");
+        btn.className = "definitie-btn";
+        btn.textContent = type;
+        btn.onclick = () => {
+          actiefType = type === "Landen" ? "landen" : "microstaten";
+          actieveDefinitie = type;
+          toonNiveauKnoppen();
+          document.getElementById("niveauTitel").textContent = "";
+          document.getElementById("landenLijst").innerHTML = "";
+        };
+        wrapper.appendChild(btn);
+      });
+    }
+
+    function toonNiveauKnoppen() {
+      const wrapper = document.getElementById("niveauKnoppen");
+      wrapper.innerHTML = "";
+
+      const niveaus = ["Baby", "Easy", "Normal", "Hardcore", "Insane", "Nerd"];
+      niveaus.forEach(niveau => {
         const btn = document.createElement("button");
         btn.className = "niveau-btn";
         btn.textContent = niveau;
         btn.onclick = () => laadNiveau(niveau);
-        knoppenDiv.appendChild(btn);
+        wrapper.appendChild(btn);
       });
     }
 
     function laadNiveau(niveau) {
-      document.getElementById("niveauTitel").textContent = "Niveau: " + niveau;
+      document.getElementById("niveauTitel").textContent = `Niveau: ${niveau}`;
       const lijst = document.getElementById("landenLijst");
       lijst.innerHTML = "";
 
-      const landen = landenData[niveau];
-      Object.keys(landen).forEach(land => {
-        const hoofdstad = landen[land];
+      let data = {};
+      if (actiefType === "landen") {
+        data = landenData[niveau];
+      } else {
+        data = microData[actieveDefinitie]?.[niveau];
+      }
+
+      if (!data) return;
+
+      Object.keys(data).forEach(land => {
+        const hoofdstad = data[land];
         const div = document.createElement("div");
         div.className = "woord";
         div.innerHTML = `<b>${land}</b> → ${hoofdstad}`;
