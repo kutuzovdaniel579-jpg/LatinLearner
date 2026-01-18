@@ -63,8 +63,8 @@
     async function loadJSON() {
       try {
         const [landenRes, microRes] = await Promise.all([
-          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json"),
-          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json")
+          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/main/GE/landen.json")
+          fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/main/GE/Microstaten.json")
         ]);
 
         const landenJson = await landenRes.json();
