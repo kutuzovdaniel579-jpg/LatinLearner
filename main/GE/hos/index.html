@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIÆF – Aardrijkskunde</title>
+  <title>VIÆF – Hoofdsteden</title>
 
   <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      padding: 20px; 
-      background: #ffffff;
-      color: #000;
-    }
-
+    body { font-family: Arial, sans-serif; padding: 20px; background:#fff; color:#000; }
     h1 { margin-bottom: 10px; }
 
-    /* Algemene knopstijl */
-    .hoofdstuk-btn,
-    .subhoofdstuk-btn,
-    .geo-btn {
+    #niveauKnoppen, #landenLijst {
+      margin-bottom: 15px;
+    }
+
+    .niveau-btn {
       padding: 10px 15px;
       margin: 5px;
       background: #51A6E8;
@@ -30,30 +25,13 @@
       transition: 0.2s;
     }
 
-    /* Hover animatie */
-    .hoofdstuk-btn:hover,
-    .subhoofdstuk-btn:hover:not(.quiz-btn),
-    .geo-btn:hover:not(.quiz-btn) {
+    .niveau-btn:hover {
       border-width: 2px;
       border-color: #0b4f6d;
       box-shadow: 0 0 6px rgba(0,0,0,0.2);
       transform: translateY(-2px);
     }
 
-    /* Quiz-knop stijl */
-    .quiz-btn {
-      background: #BF0D0D;
-      border-color: #8a0909;
-    }
-
-    .quiz-btn:hover {
-      border-width: 2px;
-      border-color: #5c0606;
-      box-shadow: 0 0 6px rgba(0,0,0,0.25);
-      transform: translateY(-2px);
-    }
-
-    /* Vraag/antwoord kaart */
     .woord {
       padding: 10px;
       margin: 10px 0;
@@ -64,123 +42,53 @@
     .woord small {
       color: #555;
     }
-
-    select {
-      padding: 8px 12px;
-      margin: 5px;
-      border-radius: 6px;
-      border: 1px solid #0f6f99;
-      font-size: 16px;
-    }
   </style>
 </head>
 
 <body>
-  <h1>Aardrijkskunde – Hoofdsteden</h1>
+  <h1>Hoofdsteden per Moeilijkheid</h1>
 
-  <div>
-    <label><strong>Dataset:</strong></label>
-    <select id="datasetSelect">
-      <option value="landen">Landen</option>
-      <option value="microstaten">Microstaten</option>
-    </select>
+  <div id="niveauKnoppen">Laden...</div>
 
-    <label><strong>Moeilijkheid:</strong></label>
-    <select id="difficultySelect">
-      <option>Baby</option>
-      <option>Easy</option>
-      <option>Normal</option>
-      <option>Hardcore</option>
-      <option>Insane</option>
-      <option>Nerd</option>
-    </select>
-
-    <span id="microDefWrapper" style="display:none;">
-      <label><strong>Definitie:</strong></label>
-      <select id="microDefSelect">
-        <option value="VN">VN</option>
-        <option value="Uitgebreid">Uitgebreid</option>
-        <option value="Maximaal">Maximaal</option>
-      </select>
-    </span>
-
-    <button id="newQuestionBtn" class="geo-btn">Nieuwe vraag</button>
-  </div>
-
-  <div id="questionCard" class="woord" style="display:none;">
-    <div id="questionText" style="font-size:18px; font-weight:bold;"></div>
-    <button id="showAnswerBtn" class="geo-btn" style="margin-top:10px;">Toon antwoord</button>
-    <div id="answerText" style="margin-top:8px; font-weight:bold; display:none;"></div>
-  </div>
+  <h2 id="niveauTitel"></h2>
+  <div id="landenLijst"></div>
 
   <script>
-    const LANDEN_URL = "https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json";
-    const MICRO_URL  = "https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/Microstaten.json";
+    let landenData = {};
 
-    let landenData = null;
-    let microData  = null;
+    async function loadJSON() {
+      const res = await fetch("https://kutuzovdaniel579-jpg.github.io/VIAEF/GE/landen.json");
+      const json = await res.json();
+      landenData = json.Landen;
 
-    async function loadData() {
-      const [landenRes, microRes] = await Promise.all([
-        fetch(LANDEN_URL),
-        fetch(MICRO_URL)
-      ]);
-      landenData = await landenRes.json();
-      microData  = await microRes.json();
+      const knoppenDiv = document.getElementById("niveauKnoppen");
+      knoppenDiv.innerHTML = "";
+
+      Object.keys(landenData).forEach(niveau => {
+        const btn = document.createElement("button");
+        btn.className = "niveau-btn";
+        btn.textContent = niveau;
+        btn.onclick = () => laadNiveau(niveau);
+        knoppenDiv.appendChild(btn);
+      });
     }
 
-    function getRandomEntry(obj) {
-      const keys = Object.keys(obj);
-      if (keys.length === 0) return null;
-      const land = keys[Math.floor(Math.random() * keys.length)];
-      return { land, hoofdstad: obj[land] };
+    function laadNiveau(niveau) {
+      document.getElementById("niveauTitel").textContent = "Niveau: " + niveau;
+      const lijst = document.getElementById("landenLijst");
+      lijst.innerHTML = "";
+
+      const landen = landenData[niveau];
+      Object.keys(landen).forEach(land => {
+        const hoofdstad = landen[land];
+        const div = document.createElement("div");
+        div.className = "woord";
+        div.innerHTML = `<b>${land}</b> → ${hoofdstad}`;
+        lijst.appendChild(div);
+      });
     }
 
-    function newQuestion() {
-      const dataset = document.getElementById("datasetSelect").value;
-      const diff    = document.getElementById("difficultySelect").value;
-
-      let entry = null;
-
-      if (dataset === "landen") {
-        const pool = landenData?.[diff];
-        if (!pool) return;
-        entry = getRandomEntry(pool);
-      } else {
-        const def = document.getElementById("microDefSelect").value;
-        const pool = microData?.[def]?.[diff];
-        if (!pool) return;
-        entry = getRandomEntry(pool);
-      }
-
-      if (!entry) return;
-
-      const qCard   = document.getElementById("questionCard");
-      const qText   = document.getElementById("questionText");
-      const aText   = document.getElementById("answerText");
-      const aButton = document.getElementById("showAnswerBtn");
-
-      qText.textContent = `Wat is de hoofdstad van ${entry.land}?`;
-      aText.textContent = entry.hoofdstad;
-      aText.style.display = "none";
-      qCard.style.display = "block";
-
-      aButton.onclick = () => {
-        aText.style.display = "block";
-      };
-    }
-
-    document.getElementById("datasetSelect").addEventListener("change", (e) => {
-      const isMicro = e.target.value === "microstaten";
-      document.getElementById("microDefWrapper").style.display = isMicro ? "inline-block" : "none";
-    });
-
-    document.getElementById("newQuestionBtn").addEventListener("click", () => {
-      if (!landenData || !microData) return;
-      newQuestion();
-    });
-
-    loadData().catch(console.error);
+    loadJSON();
   </script>
 </body>
 </html>
