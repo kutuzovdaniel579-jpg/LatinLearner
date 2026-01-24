@@ -1,0 +1,29 @@
+{
+  "nl": {
+    "choose_category": "Kies een categorie",
+    "choose_language": "Kies een taal",
+    "geography": "Aardrijkskunde",
+    "history": "Geschiedenis",
+    "languages": "Talen",
+    "latin": "Latijn",
+    "greek": "Grieks",
+    "russian": "Russisch",
+    "french": "Frans",
+    "english": "Engels",
+    "dutch": "Nederlands"
+  },
+
+  "en": {
+    "choose_category": "Choose a category",
+    "choose_language": "Choose a language",
+    "geography": "Geography",
+    "history": "History",
+    "languages": "Languages",
+    "latin": "Latin",
+    "greek": "Greek",
+    "russian": "Russian",
+    "french": "French",
+    "english": "English",
+    "dutch": "Dutch"
+  }
+}
