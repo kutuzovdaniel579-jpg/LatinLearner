@@ -6,15 +6,12 @@
   <title>Kefálio — Woorden</title>
 
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
+    body { font-family: Arial, sans-serif; padding: 20px; background:black; color:white; }
     h1 { margin-bottom: 10px; }
 
-    #hoofdstukken, #subHoofdstukken {
-      margin-bottom: 15px;
-    }
+    #hoofdstukken, #subHoofdstukken { margin-bottom: 15px; }
 
-    .hoofdstuk-btn,
-    .subhoofdstuk-btn {
+    .hoofdstuk-btn, .subhoofdstuk-btn {
       padding: 10px 15px;
       margin: 5px;
       background: #51A6E8;
@@ -51,11 +48,10 @@
       margin: 10px 0;
       background: #f0f0f0;
       border-radius: 6px;
+      color:black;
     }
 
-    .woord small {
-      color: #555;
-    }
+    .woord small { color: #555; }
 
     .tts-btn {
       margin-left: 8px;
@@ -68,23 +64,45 @@
       transition: 0.2s;
     }
 
-    .tts-btn:hover {
-      background: #FFCA28;
-      transform: translateY(-1px);
+    .tts-btn:hover { background: #FFCA28; transform: translateY(-1px); }
+
+    .latin { color: #333; font-style: italic; margin-left: 5px; }
+
+    .lang-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 6px;
     }
 
-    .latin {
-      color: #333;
-      font-style: italic;
-      margin-left: 5px;
+    .lang-switch button {
+      padding: 4px 8px;
+      font-size: 12px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .lang-switch button.active {
+      background: #51A6E8;
+      border-color: #0f6f99;
     }
   </style>
 </head>
 
 <body>
-  <h1>Woorden per Kefálio</h1>
 
-  <div id="hoofdstukken">Hoofdstukken laden...</div>
+  <div class="lang-switch">
+    <button id="btn-nl">NL</button>
+    <button id="btn-en">EN</button>
+  </div>
+
+  <h1 data-i18n="gr_words_title"></h1>
+
+  <div id="hoofdstukken" data-i18n="gr_loading_chapters"></div>
   <div id="subHoofdstukken"></div>
 
   <h2 id="caputTitel"></h2>
@@ -92,135 +110,182 @@
   <div id="woordenLijst"></div>
 
 <script>
-  let woordenData = {};
-  let huidigCaput = null;
-  let huidigSub = null;
+/* ------------------------------
+   TAALENGINE
+------------------------------ */
 
-  function translit(gr) {
-    const map = {
-      "α":"a","ά":"a","ὰ":"a","ᾶ":"a","ἀ":"a","ἁ":"ha","ἄ":"a","ἂ":"a","ἆ":"a","ἅ":"ha","ἃ":"ha","ἇ":"ha",
-      "β":"b","γ":"g","δ":"d",
-      "ε":"e","έ":"e","ὲ":"e","ἐ":"e","ἑ":"he","ἔ":"e","ἒ":"e","ἕ":"he","ἓ":"he",
-      "ζ":"z",
-      "η":"ē","ή":"ē","ὴ":"ē","ῆ":"ē","ἠ":"ē","ἡ":"hē","ἤ":"ē","ἢ":"ē","ἦ":"ē","ἥ":"hē","ἣ":"hē","ἧ":"hē",
-      "θ":"th","ι":"i","ί":"i","ὶ":"i","ῖ":"i","ἰ":"i","ἱ":"hi","ἴ":"i","ἲ":"i","ἶ":"i","ἵ":"hi","ἳ":"hi","ἷ":"hi",
-      "κ":"k","λ":"l","μ":"m","ν":"n","ξ":"x",
-      "ο":"o","ό":"o","ὸ":"o","ὀ":"o","ὁ":"ho","ὄ":"o","ὂ":"o","ὅ":"ho","ὃ":"ho",
-      "π":"p","ρ":"r","ῥ":"hr","σ":"s","ς":"s","τ":"t",
-      "υ":"y","ύ":"y","ὺ":"y","ῦ":"y","ὐ":"y","ὑ":"hy","ὔ":"y","ὒ":"y","ὖ":"y","ὕ":"hy","ὓ":"hy","ὗ":"hy",
-      "φ":"ph","χ":"ch","ψ":"ps",
-      "ω":"ō","ώ":"ō","ὼ":"ō","ῶ":"ō","ὠ":"ō","ὡ":"hō","ὤ":"ō","ὢ":"ō","ὦ":"ō","ὥ":"hō","ὣ":"hō","ὧ":"hō"
-    };
-    return gr.split("").map(ch => map[ch] ?? ch).join("");
+let currentLang = "nl";
+let translationsCache = null;
+
+async function loadTranslations() {
+  if (translationsCache) return translationsCache;
+  const res = await fetch("../../../languages/languages.json");
+  translationsCache = await res.json();
+  return translationsCache;
+}
+
+async function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("language", lang);
+
+  const translations = await loadTranslations();
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  document.getElementById("btn-nl").classList.toggle("active", lang === "nl");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  let saved = localStorage.getItem("language");
+
+  if (!saved) {
+    const browserLang = navigator.language.toLowerCase();
+    if (browserLang.startsWith("nl")) saved = "nl";
+    else if (browserLang.startsWith("en")) saved = "en";
+    else saved = "nl";
   }
 
-  async function loadJSON() {
-    const res = await fetch("kefálio.json");
-    woordenData = await res.json();
+  await applyLanguage(saved);
 
-    const hoofdstukkenDiv = document.getElementById("hoofdstukken");
-    hoofdstukkenDiv.innerHTML = "";
+  document.getElementById("btn-nl").addEventListener("click", () => applyLanguage("nl"));
+  document.getElementById("btn-en").addEventListener("click", () => applyLanguage("en"));
+});
 
-    Object.keys(woordenData).forEach(caput => {
-      const btn = document.createElement("button");
-      btn.className = "hoofdstuk-btn";
-      btn.textContent = caput;
-      btn.onclick = () => laadCaput(caput);
-      hoofdstukkenDiv.appendChild(btn);
-    });
-  }
+/* ------------------------------
+   KEFÁLIO FUNCTIONALITEIT
+------------------------------ */
 
-  function laadCaput(caput) {
-    huidigCaput = caput;
-    huidigSub = null;
+let woordenData = {};
+let alfabetMap = {};
+let huidigCaput = null;
+let huidigSub = null;
 
-    document.getElementById("caputTitel").textContent = "Kefálio " + caput;
-    document.getElementById("subTitel").textContent = "";
-    document.getElementById("woordenLijst").innerHTML = "";
+async function loadAlfabet() {
+  const res = await fetch("alfabet.json");
+  alfabetMap = await res.json();
+}
 
-    const subHoofdstukkenDiv = document.getElementById("subHoofdstukken");
-    subHoofdstukkenDiv.innerHTML = "";
+function translit(gr) {
+  return gr.split("").map(ch => alfabetMap[ch] ?? ch).join("");
+}
 
-    const subhoofdstukken = woordenData[caput];
+async function loadJSON() {
+  const res = await fetch("kefálio.json");
+  woordenData = await res.json();
 
-    // ⭐ THEMA-KNOP TOEVOEGEN
-    const themaBtn = document.createElement("button");
-    themaBtn.className = "subhoofdstuk-btn";
-    themaBtn.textContent = "thema";
-    themaBtn.onclick = () => toonThema(caput);
-    subHoofdstukkenDiv.appendChild(themaBtn);
+  const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+  hoofdstukkenDiv.innerHTML = "";
 
-    // ⭐ SUBHOOFDSTUKKEN
-    Object.keys(subhoofdstukken).forEach(sub => {
-      if (sub === "thema") return; // thema overslaan
-      const btn = document.createElement("button");
-      btn.className = "subhoofdstuk-btn";
-      btn.textContent = sub;
-      btn.onclick = () => laadSubHoofdstuk(caput, sub);
-      subHoofdstukkenDiv.appendChild(btn);
-    });
+  Object.keys(woordenData).forEach(caput => {
+    const btn = document.createElement("button");
+    btn.className = "hoofdstuk-btn";
+    btn.textContent = caput;
+    btn.onclick = () => laadCaput(caput);
+    hoofdstukkenDiv.appendChild(btn);
+  });
+}
 
-    // ⭐ QUIZ-KNOP
-    const quizBtn = document.createElement("button");
-    quizBtn.className = "subhoofdstuk-btn quiz-btn";
-    quizBtn.textContent = "🎯 Quiz";
-    quizBtn.onclick = () => {
-      window.location.href = `quiz.html?caput=${huidigCaput}`;
-    };
-    subHoofdstukkenDiv.appendChild(quizBtn);
-  }
+function laadCaput(caput) {
+  huidigCaput = caput;
+  huidigSub = null;
 
-  function toonThema(caput) {
-    const thema = woordenData[caput]?.thema;
+  document.getElementById("caputTitel").textContent =
+    `${translationsCache[currentLang]["gr_chapter"]} ${caput}`;
 
-    document.getElementById("subTitel").textContent = "Subhoofdstuk thema";
+  document.getElementById("subTitel").textContent = "";
+  document.getElementById("woordenLijst").innerHTML = "";
 
-    const lijst = document.getElementById("woordenLijst");
-    lijst.innerHTML = "";
+  const subHoofdstukkenDiv = document.getElementById("subHoofdstukken");
+  subHoofdstukkenDiv.innerHTML = "";
+
+  const subhoofdstukken = woordenData[caput];
+
+  const themaBtn = document.createElement("button");
+  themaBtn.className = "subhoofdstuk-btn";
+  themaBtn.textContent = translationsCache[currentLang]["gr_theme"];
+  themaBtn.onclick = () => toonThema(caput);
+  subHoofdstukkenDiv.appendChild(themaBtn);
+
+  Object.keys(subhoofdstukken).forEach(sub => {
+    if (sub === "thema") return;
+    const btn = document.createElement("button");
+    btn.className = "subhoofdstuk-btn";
+    btn.textContent = sub;
+    btn.onclick = () => laadSubHoofdstuk(caput, sub);
+    subHoofdstukkenDiv.appendChild(btn);
+  });
+
+  const quizBtn = document.createElement("button");
+  quizBtn.className = "subhoofdstuk-btn quiz-btn";
+  quizBtn.textContent = translationsCache[currentLang]["gr_quiz"];
+  quizBtn.onclick = () => {
+    window.location.href = `quiz.html?caput=${huidigCaput}`;
+  };
+  subHoofdstukkenDiv.appendChild(quizBtn);
+}
+
+function toonThema(caput) {
+  const thema = woordenData[caput]?.thema;
+
+  document.getElementById("subTitel").textContent =
+    translationsCache[currentLang]["gr_theme_title"];
+
+  const lijst = document.getElementById("woordenLijst");
+  lijst.innerHTML = "";
+
+  const div = document.createElement("div");
+  div.className = "woord";
+  div.innerHTML = `<b>Thema:</b> ${thema ?? translationsCache[currentLang]["gr_no_theme"]}`;
+
+  lijst.appendChild(div);
+}
+
+function laadSubHoofdstuk(caput, sub) {
+  huidigSub = sub;
+
+  const lijst = document.getElementById("woordenLijst");
+  lijst.innerHTML = "";
+
+  document.getElementById("subTitel").textContent =
+    `${translationsCache[currentLang]["gr_subchapter"]} ${sub}`;
+
+  const woorden = woordenData[caput][sub];
+
+  Object.keys(woorden).forEach(key => {
+    const item = woorden[key];
+    const lat = translit(item.GR);
 
     const div = document.createElement("div");
     div.className = "woord";
-    div.innerHTML = `<b>Thema:</b> ${thema ?? "Geen thema gevonden."}`;
+
+    div.innerHTML = `
+      <b>${item.NL}</b> → ${item.GR}
+      <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
+      <span class="latin">${lat}</span><br>
+      <small>${item.Gen ?? ""}</small>
+    `;
 
     lijst.appendChild(div);
-  }
+  });
+}
 
-  function laadSubHoofdstuk(caput, sub) {
-    huidigSub = sub;
+function spreek(tekst) {
+  const utter = new SpeechSynthesisUtterance(tekst);
+  utter.lang = "el-GR";
+  utter.rate = 0.9;
+  speechSynthesis.speak(utter);
+}
 
-    const lijst = document.getElementById("woordenLijst");
-    lijst.innerHTML = "";
-
-    document.getElementById("subTitel").textContent = "Subhoofdstuk " + sub;
-
-    const woorden = woordenData[caput][sub];
-
-    Object.keys(woorden).forEach(key => {
-      const item = woorden[key];
-      const lat = translit(item.GR);
-
-      const div = document.createElement("div");
-      div.className = "woord";
-
-      div.innerHTML = `
-        <b>${item.NL}</b> → ${item.GR}
-        <button class="tts-btn" onclick="spreek('${item.GR}')">🔊</button><br>
-        <span class="latin">${lat}</span><br>
-        <small>${item.Gen ?? ""}</small>
-      `;
-
-      lijst.appendChild(div);
-    });
-  }
-
-  function spreek(tekst) {
-    const utter = new SpeechSynthesisUtterance(tekst);
-    utter.lang = "el-GR";
-    utter.rate = 0.9;
-    speechSynthesis.speak(utter);
-  }
-
-  loadJSON();
+(async () => {
+  await loadAlfabet();
+  await loadJSON();
+})();
 </script>
 
 </body>
