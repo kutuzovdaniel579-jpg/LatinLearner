@@ -1,49 +1,93 @@
-# Updates
+-----------------------
+# 📝 Updates
 ---
-- [![Status](https://img.shields.io/badge/v0.1.4.0.0-gray)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v01400---17012026) 
+# 🕒 VIÆF Timeline
 
-- [![Status](https://img.shields.io/badge/v0.1.5.0.0-darkgreen)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v01500---17012026) 
+![](https://img.shields.io/badge/v0.1.4.0.0_•_17/01/2026-gray)
+→
+![](https://img.shields.io/badge/v0.1.5.0.0_•_17/01/2026-darkgreen)
+→
+![](https://img.shields.io/badge/v0.1.6.0.0_•_18/01/2026-blue)
+→
+![](https://img.shields.io/badge/v0.1.7.0.0--alpha_•_24/01/2026-olive)
+→
+![](https://img.shields.io/badge/v0.1.7.1.0_•_24/01/2026-darkcyan)
+→
+![](https://img.shields.io/badge/v0.2.7.1.0_•_25/01/2026-darkred)
+25/01/2026
 
-- [![Status](https://img.shields.io/badge/v0.1.6.0.0-blue)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v01600---18012026) 
 
-- [![Status](https://img.shields.io/badge/v0.1.7.0.0--alpha-darkred)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v01700--alpha---24012026) 
+## 📌 Versie-overzicht
+- [![v0.1.4.0.0](https://img.shields.io/badge/v0.1.4.0.0-gray)](#v01400---17012026)
+- [![v0.1.5.0.0](https://img.shields.io/badge/v0.1.5.0.0-darkgreen)](#v01500---17012026)
+- [![v0.1.6.0.0](https://img.shields.io/badge/v0.1.6.0.0-blue)](#v01600---18012026)
+- [![v0.1.7.0.0-alpha](https://img.shields.io/badge/v0.1.7.0.0--alpha-olive)](#v01700--alpha---24012026)
+- [![v0.1.7.1.0](https://img.shields.io/badge/v0.1.7.1.0-darkcyan)](#v01710---24012026)
+- [![v0.2.7.1.0](https://img.shields.io/badge/v0.2.7.1.0-darkred)](#v02710---25012026)
 
-- [![Status](https://img.shields.io/badge/v0.1.7.1.0-darkred)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v01710---24012026) 
+---
 
-- [![Status](https://img.shields.io/badge/v0.2.7.1.0-darkred)](https://github.com/kutuzovdaniel579-jpg/VIAEF/blob/main/docs/UPDATES.md#v02710---25012026)
+## 📘 v0.1.4.0.0 — 17/01/2026
+- Greek support  
+- TTS (Greek only)  
+- Revamp main menu  
 
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.1.4.0.0-blue) | 17/01/2026 | Greek support<br>TTS (Greek only)<br>Revamp main menu |
 
+---
+
+## 📗 v0.1.5.0.0 — 17/01/2026
+- Revamp main menu  
+
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.1.5.0.0-darkgreen) | 17/01/2026 | Revamp main menu |
 
 ---
-## v0.1.4.0.0 - 17/01/2026
-- Greek support
-- TTS (greek only)
-- Revamp main menu
+
+## 📘 v0.1.6.0.0 — 18/01/2026
+- Geography button works  
+- Geography page  
+
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.1.6.0.0-blue) | 18/01/2026 | Geography button works<br>Geography page |
+
 ---
+
+## 🔴 v0.1.7.0.0-alpha — 24/01/2026
+- English web support  
+
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.1.7.0.0--alpha-olive) | 24/01/2026 | English web support |
+
 ---
-## v0.1.5.0.0 - 17/01/2026
-- Revamp main menu
+
+# 🔮 Upcoming
 ---
+
+## 🛠️ v0.1.7.1.0 — 24/01/2026
+- Website fix  
+
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.1.7.1.0-darkcyan) | 24/01/2026 | Website fix |
+
 ---
-## v0.1.6.0.0 - 18/01/2026
-- Geography button works
-- Geography page
----
----
-## v0.1.7.0.0-alpha - 24/01/2026
-- English web support
----
-# Upcomming
----
-## v0.1.7.1.0 - 24/01/2026
-- website fix
----
----
-## v0.2.7.1.0 - 25/01/2026
-- french learning
-- Dutch learning
-- English learning
-- Russian learning
-- History learning
-- fully developed Geography
+
+## 🌍 v0.2.7.1.0 — 25/01/2026
+- French learning  
+- Dutch learning  
+- English learning  
+- Russian learning  
+- History learning  
+- Fully developed Geography  
+
+| Version | Date | Changes |
+|--------|------|---------|
+| ![](https://img.shields.io/badge/v0.2.7.1.0-darkred) | 25/01/2026 | French learning<br>Dutch learning<br>English learning<br>Russian learning<br>History learning<br>Fully developed Geography |
+
 ---
