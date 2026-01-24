@@ -1,7 +1,7 @@
 # 🔮 Upcoming
 ---
 
-## 🛠️ v0.1.7.1.0 — 24/01/2026
+## 🛠️ v0.1.7.1.0 — 25/01/2026
 - Website fix  
 
 | Version | Date | Changes |
@@ -10,7 +10,7 @@
 
 ---
 
-## 🌍 v0.2.7.1.0 — 25/01/2026
+## 🌍 v0.2.7.1.0 — 28/01/2026
 - French learning  
 - Dutch learning  
 - English learning  
