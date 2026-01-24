@@ -2,28 +2,78 @@
   "nl": {
     "choose_category": "Kies een categorie",
     "choose_language": "Kies een taal",
+
     "geography": "Aardrijkskunde",
     "history": "Geschiedenis",
     "languages": "Talen",
+
     "latin": "Latijn",
     "greek": "Grieks",
     "russian": "Russisch",
     "french": "Frans",
     "english": "Engels",
-    "dutch": "Nederlands"
+    "dutch": "Nederlands",
+
+    /* LATIJN MAIN MENU */
+    "la_main_menu": "Latijn Hoofdmenu",
+    "la_camera": "📸 Camera Vertaler",
+    "la_words": "📚 Woorden Leren",
+    "la_grammar": "📖 Grammatica Leren",
+    "la_culture": "🏛️ Cultuur Leren",
+
+    /* GRIEKS MAIN MENU */
+    "gr_main_menu": "Grieks Hoofdmenu",
+    "gr_camera": "📸 Camera Vertaler [Binnenkort]",
+    "gr_words": "📚 Woorden Leren",
+    "gr_grammar": "🏛️ Grammatica [Binnenkort]",
+
+    /* KEFÁLIO – WOORDENBOEK */
+    "gr_words_title": "Woorden per Kefálio",
+    "gr_loading_chapters": "Hoofdstukken laden...",
+    "gr_chapter": "Kefálio",
+    "gr_subchapter": "Subhoofdstuk",
+    "gr_theme": "thema",
+    "gr_theme_title": "Subhoofdstuk thema",
+    "gr_no_theme": "Geen thema gevonden.",
+    "gr_quiz": "🎯 Quiz"
   },
 
   "en": {
     "choose_category": "Choose a category",
     "choose_language": "Choose a language",
+
     "geography": "Geography",
     "history": "History",
     "languages": "Languages",
+
     "latin": "Latin",
     "greek": "Greek",
     "russian": "Russian",
     "french": "French",
     "english": "English",
-    "dutch": "Dutch"
+    "dutch": "Dutch",
+
+    /* LATIN MAIN MENU */
+    "la_main_menu": "Latin Main Menu",
+    "la_camera": "📸 Camera Translator",
+    "la_words": "📚 Learn Words",
+    "la_grammar": "📖 Learn Grammar",
+    "la_culture": "🏛️ Learn Culture",
+
+    /* GREEK MAIN MENU */
+    "gr_main_menu": "Greek Main Menu",
+    "gr_camera": "📸 Camera Translator [Coming Soon]",
+    "gr_words": "📚 Learn Words",
+    "gr_grammar": "🏛️ Grammar [Coming Soon]",
+
+    /* KEFÁLIO – WORD LIST */
+    "gr_words_title": "Words per Kefálio",
+    "gr_loading_chapters": "Loading chapters...",
+    "gr_chapter": "Kefálio",
+    "gr_subchapter": "Subchapter",
+    "gr_theme": "theme",
+    "gr_theme_title": "Subchapter theme",
+    "gr_no_theme": "No theme found.",
+    "gr_quiz": "🎯 Quiz"
   }
 }
