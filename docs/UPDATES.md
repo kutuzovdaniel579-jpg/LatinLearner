@@ -1,21 +1,6 @@
 -----------------------
 # 📝 Updates
 ---
-# 🕒 VIÆF Timeline
-
-![](https://img.shields.io/badge/v0.1.4.0.0_•_17/01/2026-gray)
-→
-![](https://img.shields.io/badge/v0.1.5.0.0_•_17/01/2026-darkgreen)
-→
-![](https://img.shields.io/badge/v0.1.6.0.0_•_18/01/2026-blue)
-→
-![](https://img.shields.io/badge/v0.1.7.0.0--alpha_•_24/01/2026-olive)
-→
-![](https://img.shields.io/badge/v0.1.7.1.0_•_24/01/2026-darkcyan)
-→
-![](https://img.shields.io/badge/v0.2.7.1.0_•_25/01/2026-darkred)
-
-
 ## 📌 Versie-overzicht
 - [![v0.1.4.0.0](https://img.shields.io/badge/v0.1.4.0.0-gray)](#v01400---17012026)
 - [![v0.1.5.0.0](https://img.shields.io/badge/v0.1.5.0.0-darkgreen)](#v01500---17012026)
