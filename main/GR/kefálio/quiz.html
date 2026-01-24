@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz</title>
+  <title data-i18n="quiz_title">Quiz</title>
 
   <style>
-    body { font-family: Arial; padding: 20px; }
+    body { font-family: Arial; padding: 20px; background:black; color:white; }
 
     #subSelect button,
     #translateSelect button {
@@ -88,28 +88,57 @@
       margin-top: 20px;
       font-size: 18px;
     }
+
+    .lang-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-switch button {
+      padding: 4px 8px;
+      font-size: 12px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .lang-switch button.active {
+      background: #51A6E8;
+      border-color: #0f6f99;
+    }
   </style>
 </head>
 
 <body>
-  <h1>Quiz</h1>
 
-  <div id="subSelect">
-    <p>Kies een subhoofdstuk:</p>
-    <div id="subButtons">Laden...</div>
+  <!-- Taalkeuze -->
+  <div class="lang-switch">
+    <button id="btn-nl">NL</button>
+    <button id="btn-en">EN</button>
   </div>
 
-  <!-- VERTAALRICHTING -->
+  <h1 data-i18n="quiz_title"></h1>
+
+  <div id="subSelect">
+    <p data-i18n="quiz_choose_sub"></p>
+    <div id="subButtons" data-i18n="quiz_loading"></div>
+  </div>
+
   <div id="translateSelect" style="display:none;">
-    <p>Kies vertaalrichting:</p>
+    <p data-i18n="quiz_choose_direction"></p>
     <button onclick="setTranslateMode('NL-GR')">NL → GR</button>
     <button onclick="setTranslateMode('GR-NL')">GR → NL</button>
   </div>
 
   <div id="modeSelect" style="display:none;">
-    <p>Kies een modus:</p>
-    <button onclick="startQuiz('Normal')">Normal</button>
-    <button onclick="startQuiz('Hard')">Hard</button>
+    <p data-i18n="quiz_choose_mode"></p>
+    <button onclick="startQuiz('Normal')" data-i18n="quiz_normal"></button>
+    <button onclick="startQuiz('Hard')" data-i18n="quiz_hard"></button>
   </div>
 
   <div id="quiz" style="display:none;">
@@ -129,137 +158,189 @@
     <p id="scoreDisplay"></p>
   </div>
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const caput = urlParams.get("caput");
+<script>
+/* ------------------------------
+   TAALENGINE
+------------------------------ */
 
-    let woorden = {};
-    let keys = [];
-    let index = 0;
-    let score = 0;
-    let mode = "Normal";
-    let translateMode = "NL-GR"; // standaard
-    let timerInterval;
-    let timeLeft = 10;
+let currentLang = "nl";
+let translationsCache = null;
 
-    async function loadWords() {
-      const res = await fetch("kefálio.json"); // jouw GR JSON
-      const data = await res.json();
+async function loadTranslations() {
+  if (translationsCache) return translationsCache;
+  const res = await fetch("../../../languages/languages.json");
+  translationsCache = await res.json();
+  return translationsCache;
+}
 
-      const subhoofdstukken = data[caput];
-      const subButtons = document.getElementById("subButtons");
-      subButtons.innerHTML = "";
+async function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("language", lang);
 
-      Object.keys(subhoofdstukken).forEach(sub => {
-        const btn = document.createElement("button");
-        btn.textContent = sub;
-        btn.onclick = () => selectSub(sub, subhoofdstukken[sub]);
-        subButtons.appendChild(btn);
-      });
-    }
+  const t = await loadTranslations();
 
-    function selectSub(sub, woordenSet) {
-      woorden = woordenSet;
-      keys = Object.keys(woorden);
-      document.getElementById("subSelect").style.display = "none";
-      document.getElementById("translateSelect").style.display = "block";
-    }
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[lang] && t[lang][key]) el.textContent = t[lang][key];
+  });
 
-    function setTranslateMode(mode) {
-      translateMode = mode;
-      document.getElementById("translateSelect").style.display = "none";
-      document.getElementById("modeSelect").style.display = "block";
-    }
+  document.getElementById("btn-nl").classList.toggle("active", lang === "nl");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
 
-    function startQuiz(selectedMode) {
-      mode = selectedMode;
-      document.getElementById("modeSelect").style.display = "none";
-      document.getElementById("quiz").style.display = "block";
-      nextQuestion();
-    }
+document.addEventListener("DOMContentLoaded", async () => {
+  let saved = localStorage.getItem("language");
 
-    function nextQuestion() {
-      if (index >= keys.length) {
-        endQuiz();
-        return;
-      }
+  if (!saved) {
+    const browserLang = navigator.language.toLowerCase();
+    saved = browserLang.startsWith("nl") ? "nl" : "en";
+  }
 
-      const item = woorden[keys[index]];
-      const vraag = translateMode === "NL-GR" ? item.NL : item.GR;
+  await applyLanguage(saved);
 
-      document.getElementById("vraag").textContent = `Vertaal: ${vraag}`;
-      document.getElementById("antwoord").value = "";
-      document.getElementById("result").textContent = "";
+  document.getElementById("btn-nl").onclick = () => applyLanguage("nl");
+  document.getElementById("btn-en").onclick = () => applyLanguage("en");
+});
 
-      updateProgress();
+/* ------------------------------
+   QUIZ LOGICA
+------------------------------ */
 
-      if (mode === "Hard") startTimer();
-    }
+const urlParams = new URLSearchParams(window.location.search);
+const caput = urlParams.get("caput");
 
-    function startTimer() {
-      timeLeft = 10;
-      const timer = document.getElementById("timer");
-      timer.style.display = "block";
-      timer.textContent = `⏳ ${timeLeft}`;
+let woorden = {};
+let keys = [];
+let index = 0;
+let score = 0;
+let mode = "Normal";
+let translateMode = "NL-GR";
+let timerInterval;
+let timeLeft = 10;
 
+async function loadWords() {
+  const res = await fetch("kefálio.json");
+  const data = await res.json();
+
+  const subhoofdstukken = data[caput];
+  const subButtons = document.getElementById("subButtons");
+  subButtons.innerHTML = "";
+
+  Object.keys(subhoofdstukken).forEach(sub => {
+    const btn = document.createElement("button");
+    btn.textContent = sub;
+    btn.onclick = () => selectSub(sub, subhoofdstukken[sub]);
+    subButtons.appendChild(btn);
+  });
+}
+
+function selectSub(sub, woordenSet) {
+  woorden = woordenSet;
+  keys = Object.keys(woorden);
+  document.getElementById("subSelect").style.display = "none";
+  document.getElementById("translateSelect").style.display = "block";
+}
+
+function setTranslateMode(mode) {
+  translateMode = mode;
+  document.getElementById("translateSelect").style.display = "none";
+  document.getElementById("modeSelect").style.display = "block";
+}
+
+function startQuiz(selectedMode) {
+  mode = selectedMode;
+  document.getElementById("modeSelect").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+  nextQuestion();
+}
+
+function nextQuestion() {
+  if (index >= keys.length) {
+    endQuiz();
+    return;
+  }
+
+  const item = woorden[keys[index]];
+  const vraag = translateMode === "NL-GR" ? item.NL : item.GR;
+
+  document.getElementById("vraag").textContent =
+    `${translationsCache[currentLang]["quiz_translate"]} ${vraag}`;
+
+  document.getElementById("antwoord").value = "";
+  document.getElementById("result").textContent = "";
+
+  updateProgress();
+
+  if (mode === "Hard") startTimer();
+}
+
+function startTimer() {
+  timeLeft = 10;
+  const timer = document.getElementById("timer");
+  timer.style.display = "block";
+  timer.textContent = `⏳ ${timeLeft}`;
+
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timer.textContent = `⏳ ${timeLeft}`;
+    if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        timer.textContent = `⏳ ${timeLeft}`;
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          fout("Tijd is op!");
-        }
-      }, 1000);
+      fout(translationsCache[currentLang]["quiz_time_up"]);
     }
+  }, 1000);
+}
 
-    function check() {
-      const user = document.getElementById("antwoord").value.trim().toLowerCase();
-      const item = woorden[keys[index]];
+function check() {
+  const user = document.getElementById("antwoord").value.trim().toLowerCase();
+  const item = woorden[keys[index]];
 
-      const correct =
-        translateMode === "NL-GR"
-          ? item.GR.trim().toLowerCase()
-          : item.NL.trim().toLowerCase();
+  const correct =
+    translateMode === "NL-GR"
+      ? item.GR.trim().toLowerCase()
+      : item.NL.trim().toLowerCase();
 
-      if (mode === "Hard") clearInterval(timerInterval);
+  if (mode === "Hard") clearInterval(timerInterval);
 
-      if (user === correct) {
-        score++;
-        juist();
-      } else {
-        fout(`Fout — juiste antwoord: ${correct}`);
-      }
-    }
+  if (user === correct) {
+    score++;
+    juist();
+  } else {
+    fout(`${translationsCache[currentLang]["quiz_wrong"]} ${correct}`);
+  }
+}
 
-    function juist() {
-      document.getElementById("result").textContent = "✔️ Correct!";
-      index++;
-      setTimeout(nextQuestion, 800);
-    }
+function juist() {
+  document.getElementById("result").textContent =
+    translationsCache[currentLang]["quiz_correct"];
+  index++;
+  setTimeout(nextQuestion, 800);
+}
 
-    function fout(msg) {
-      document.getElementById("result").textContent = msg;
-      index++;
-      setTimeout(nextQuestion, 1200);
-    }
+function fout(msg) {
+  document.getElementById("result").textContent = msg;
+  index++;
+  setTimeout(nextQuestion, 1200);
+}
 
-    function updateProgress() {
-      const bar = document.getElementById("progressBar");
-      const percentage = (index / keys.length) * 100;
-      bar.style.width = percentage + "%";
-      document.getElementById("scoreDisplay").textContent = `Score: ${score} / ${keys.length}`;
-    }
+function updateProgress() {
+  const bar = document.getElementById("progressBar");
+  const percentage = (index / keys.length) * 100;
+  bar.style.width = percentage + "%";
+  document.getElementById("scoreDisplay").textContent =
+    `${translationsCache[currentLang]["quiz_score"]} ${score} / ${keys.length}`;
+}
 
-    function endQuiz() {
-      document.getElementById("quiz").innerHTML = `
-        <h2>Klaar!</h2>
-        <p>Je score: ${score} / ${keys.length}</p>
-        <button onclick="location.href='index.html'">Terug</button>
-      `;
-    }
+function endQuiz() {
+  document.getElementById("quiz").innerHTML = `
+    <h2>${translationsCache[currentLang]["quiz_done"]}</h2>
+    <p>${translationsCache[currentLang]["quiz_score"]} ${score} / ${keys.length}</p>
+    <button onclick="location.href='index.html'">${translationsCache[currentLang]["quiz_back"]}</button>
+  `;
+}
 
-    loadWords();
-  </script>
+loadWords();
+</script>
+
 </body>
 </html>
