@@ -3,10 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Main Menu</title>
+  <title>VIÆF • Latin</title>
 
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
+    body { 
+      font-family: Arial, sans-serif; 
+      padding: 20px; 
+      background: black;
+      color: white;
+    }
+
     h1 { margin-bottom: 20px; }
 
     a {
@@ -28,15 +34,90 @@
       box-shadow: 0 0 6px rgba(0,0,0,0.2);
       transform: translateY(-2px);
     }
+
+    .lang-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-switch button {
+      padding: 4px 8px;
+      font-size: 12px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .lang-switch button.active {
+      background: #51A6E8;
+      border-color: #0f6f99;
+    }
   </style>
 </head>
 
 <body>
-  <h1>Main Menu</h1>
 
-  <a href="camera/">📸 Camera Vertaler</a>
-  <a href="caput/">📚 Woorden Leren</a>
-  <a href="gram/">📖 grammair Leren</a>
-  <a href="culture/">🏛️ Cultuur Leren</a>
+  <div class="lang-switch">
+    <button id="btn-nl">NL</button>
+    <button id="btn-en">EN</button>
+  </div>
+
+  <h1 data-i18n="la_main_menu"></h1>
+
+  <a href="camera/" data-i18n="la_camera"></a>
+  <a href="caput/" data-i18n="la_words"></a>
+  <a href="gram/" data-i18n="la_grammar"></a>
+  <a href="culture/" data-i18n="la_culture"></a>
+
+<script>
+let currentLang = "nl";
+let translationsCache = null;
+
+async function loadTranslations() {
+  if (translationsCache) return translationsCache;
+  const res = await fetch("../../languages/languages.json");
+  translationsCache = await res.json();
+  return translationsCache;
+}
+
+async function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("language", lang);
+
+  const translations = await loadTranslations();
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  document.getElementById("btn-nl").classList.toggle("active", lang === "nl");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  let saved = localStorage.getItem("language");
+
+  if (!saved) {
+    const browserLang = navigator.language.toLowerCase();
+    if (browserLang.startsWith("nl")) saved = "nl";
+    else if (browserLang.startsWith("en")) saved = "en";
+    else saved = "nl";
+  }
+
+  await applyLanguage(saved);
+
+  document.getElementById("btn-nl").addEventListener("click", () => applyLanguage("nl"));
+  document.getElementById("btn-en").addEventListener("click", () => applyLanguage("en"));
+});
+</script>
+
 </body>
 </html>
