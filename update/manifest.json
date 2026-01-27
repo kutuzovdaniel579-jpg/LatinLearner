@@ -1,5 +1,5 @@
 {
   "files": [
-    { "source": "update/file1.json", "target": "https://github.com/kutuzovdaniel579-jpg/VIAEF/tree/main/main" }
+    { "source": "https://github.com/kutuzovdaniel579-jpg/VIAEF/tree/main/update/file1.json", "target": "https://github.com/kutuzovdaniel579-jpg/VIAEF/tree/main/main" }
   ]
 }
