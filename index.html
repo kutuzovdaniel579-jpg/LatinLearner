@@ -57,96 +57,32 @@
       box-shadow: 0 0 6px rgba(255,255,255,0.25);
       transform: translateY(-2px);
     }
-
-    /* Taalkeuze rechtsboven */
-    .lang-switch {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 6px;
-      z-index: 1000;
-    }
-
-    .lang-switch button {
-      padding: 4px 8px;
-      font-size: 12px;
-      background: #222;
-      color: #fff;
-      border: 1px solid #555;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .lang-switch button.active {
-      background: #51A6E8;
-      border-color: #0f6f99;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Taalkeuze -->
-  <div class="lang-switch">
-    <button id="btn-nl">NL</button>
-    <button id="btn-en">EN</button>
-  </div>
-
   <!-- CATEGORIE KEUZE -->
   <div id="keuzeScherm">
-    <h1 data-i18n="choose_category"></h1>
+    <h1>Kies een categorie</h1>
     <div id="categorieKnoppen"></div>
   </div>
 
   <!-- TAAL KEUZE -->
   <div id="taalKeuze">
-    <h1 data-i18n="choose_language"></h1>
+    <h1>Kies een taal</h1>
     <div id="taalKnoppen"></div>
   </div>
 
 <script>
 /* ------------------------------
-   TAALENGINE
------------------------------- */
-
-let currentLang = "nl";
-let translationsCache = null;
-
-async function loadTranslations() {
-  if (translationsCache) return translationsCache;
-  // BELANGRIJK: relatieve path, geen leading slash op GitHub Pages
-  const res = await fetch("languages/languages.json");
-  translationsCache = await res.json();
-  return translationsCache;
-}
-
-async function applyLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem("language", lang);
-
-  const translations = await loadTranslations();
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-
-  // buttons highlight
-  document.getElementById("btn-nl").classList.toggle("active", lang === "nl");
-  document.getElementById("btn-en").classList.toggle("active", lang === "en");
-}
-
-/* ------------------------------
    CATEGORIEËN
 ------------------------------ */
 
 const categorieën = [
-  { naam: "geography", link: "https://kutuzovdaniel579-jpg.github.io/VIAEF/main/GE" },
-  { naam: "history", link: "https://kutuzovdaniel579-jpg.github.io/VIAEF/main/HS" },
-  { naam: "languages", type: "talen" }
+  { naam: "Aardrijkskunde", link: "https://kutuzovdaniel579-jpg.github.io/VIAEF/main/GE" },
+  { naam: "Geschiedenis", link: "https://kutuzovdaniel579-jpg.github.io/VIAEF/main/HS" },
+  { naam: "Talen", type: "talen" }
 ];
 
 /* ------------------------------
@@ -154,31 +90,19 @@ const categorieën = [
 ------------------------------ */
 
 const talen = [
-  { naam: "latin", link: "main/LA/index.html" },
-  { naam: "greek", link: "main/GR/index.html" },
-  { naam: "russian", link: "main/RU/index.html" },
-  { naam: "french", link: "main/FR/index.html" },
-  { naam: "english", link: "main/EN/index.html" },
-  { naam: "dutch", link: "main/NL/index.html" }
+  { naam: "Latijn", link: "main/LA/index.html" },
+  { naam: "Grieks", link: "main/GR/index.html" },
+  { naam: "Russisch", link: "main/RU/index.html" },
+  { naam: "Frans", link: "main/FR/index.html" },
+  { naam: "Engels", link: "main/EN/index.html" },
+  { naam: "Nederlands", link: "main/NL/index.html" }
 ];
 
 /* ------------------------------
    APP START
 ------------------------------ */
 
-async function startApp() {
-  // taal bepalen
-  let saved = localStorage.getItem("language");
-  if (!saved) {
-    const browserLang = navigator.language.toLowerCase();
-    if (browserLang.startsWith("nl")) saved = "nl";
-    else if (browserLang.startsWith("en")) saved = "en";
-    else saved = "nl";
-  }
-
-  await applyLanguage(saved);
-
-  // categorie‑scherm tonen
+function startApp() {
   document.getElementById("keuzeScherm").style.display = "flex";
 
   const container = document.getElementById("categorieKnoppen");
@@ -187,7 +111,7 @@ async function startApp() {
   categorieën.forEach(c => {
     const btn = document.createElement("button");
     btn.className = "taal-btn";
-    btn.setAttribute("data-i18n", c.naam);
+    btn.textContent = c.naam;
 
     btn.onclick = () => {
       if (c.type === "talen") {
@@ -200,12 +124,11 @@ async function startApp() {
         talen.forEach(t => {
           const tbtn = document.createElement("button");
           tbtn.className = "taal-btn";
-          tbtn.setAttribute("data-i18n", t.naam);
+          tbtn.textContent = t.naam;
           tbtn.onclick = () => window.location.href = t.link;
           taalContainer.appendChild(tbtn);
         });
 
-        applyLanguage(currentLang);
       } else {
         window.location.href = c.link;
       }
@@ -213,21 +136,9 @@ async function startApp() {
 
     container.appendChild(btn);
   });
-
-  // na dynamische knoppen: taal opnieuw toepassen
-  applyLanguage(saved);
 }
 
-/* ------------------------------
-   EVENT LISTENERS
------------------------------- */
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("btn-nl").addEventListener("click", () => applyLanguage("nl"));
-  document.getElementById("btn-en").addEventListener("click", () => applyLanguage("en"));
-
-  startApp().catch(err => console.error("Taalengine fout:", err));
-});
+document.addEventListener("DOMContentLoaded", startApp);
 </script>
 
 </body>
