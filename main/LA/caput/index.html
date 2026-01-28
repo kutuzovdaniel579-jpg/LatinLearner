@@ -98,7 +98,7 @@
 
 <script>
 /* ------------------------------
-   TAALENGINE
+   TAALENGINE (ROBUST)
 ------------------------------ */
 
 let currentLang = "nl";
@@ -106,9 +106,17 @@ let translationsCache = null;
 
 async function loadTranslations() {
   if (translationsCache) return translationsCache;
-  const res = await fetch("../../../languages/languages.json");
-  translationsCache = await res.json();
-  return translationsCache;
+
+  try {
+    const res = await fetch("../../../languages/languages.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Kon languages.json niet laden");
+    translationsCache = await res.json();
+    return translationsCache;
+  } catch (err) {
+    console.error("TAAL FOUT:", err);
+    translationsCache = { nl: {}, en: {} }; // Fallback
+    return translationsCache;
+  }
 }
 
 async function applyLanguage(lang) {
@@ -119,7 +127,9 @@ async function applyLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (t[lang] && t[lang][key]) el.textContent = t[lang][key];
+    if (t[lang] && t[lang][key]) {
+      el.textContent = t[lang][key];
+    }
   });
 
   document.getElementById("btn-nl").classList.toggle("active", lang === "nl");
@@ -141,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 /* ------------------------------
-   CAPUT FUNCTIONALITEIT
+   CAPUT FUNCTIONALITEIT (ROBUST)
 ------------------------------ */
 
 let woordenData = {};
@@ -149,27 +159,48 @@ let huidigCaput = null;
 let huidigSub = null;
 
 async function loadJSON() {
-  const res = await fetch("caput.json");
-  woordenData = await res.json();
-
   const hoofdstukkenDiv = document.getElementById("hoofdstukken");
-  hoofdstukkenDiv.innerHTML = "";
+  hoofdstukkenDiv.textContent = "Loading…";
 
-  Object.keys(woordenData).forEach(caput => {
-    const btn = document.createElement("button");
-    btn.className = "hoofdstuk-btn";
-    btn.textContent = caput;
-    btn.onclick = () => laadCaput(caput);
-    hoofdstukkenDiv.appendChild(btn);
-  });
+  try {
+    const res = await fetch("caput.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Kon caput.json niet laden");
+
+    woordenData = await res.json();
+
+    if (!woordenData || typeof woordenData !== "object") {
+      throw new Error("caput.json heeft geen geldige structuur");
+    }
+
+    hoofdstukkenDiv.innerHTML = "";
+
+    Object.keys(woordenData).forEach(caput => {
+      const btn = document.createElement("button");
+      btn.className = "hoofdstuk-btn";
+      btn.textContent = caput;
+      btn.onclick = () => laadCaput(caput);
+      hoofdstukkenDiv.appendChild(btn);
+    });
+
+  } catch (err) {
+    console.error("LOADJSON FOUT:", err);
+    hoofdstukkenDiv.innerHTML = `
+      <div style="color:red;">
+        Fout bij laden van hoofdstukken.<br>
+        ${err.message}
+      </div>
+    `;
+  }
 }
 
 function laadCaput(caput) {
   huidigCaput = caput;
   huidigSub = null;
 
+  const t = translationsCache?.[currentLang] ?? {};
+
   document.getElementById("caputTitel").textContent =
-    `${translationsCache[currentLang]["la_chapter"]} ${caput}`;
+    `${t["la_chapter"] ?? "Caput"} ${caput}`;
 
   document.getElementById("subTitel").textContent = "";
   document.getElementById("woordenLijst").innerHTML = "";
@@ -178,6 +209,11 @@ function laadCaput(caput) {
   subHoofdstukkenDiv.innerHTML = "";
 
   const subhoofdstukken = woordenData[caput];
+
+  if (!subhoofdstukken) {
+    subHoofdstukkenDiv.innerHTML = `<div style="color:red;">Geen subhoofdstukken gevonden.</div>`;
+    return;
+  }
 
   Object.keys(subhoofdstukken).forEach(sub => {
     const btn = document.createElement("button");
@@ -189,7 +225,7 @@ function laadCaput(caput) {
 
   const quizBtn = document.createElement("button");
   quizBtn.className = "subhoofdstuk-btn quiz-btn";
-  quizBtn.textContent = translationsCache[currentLang]["la_quiz"];
+  quizBtn.textContent = t["la_quiz"] ?? "Quiz";
   quizBtn.onclick = () => {
     window.location.href = `quiz.html?caput=${huidigCaput}`;
   };
@@ -202,10 +238,17 @@ function laadSubHoofdstuk(caput, sub) {
   const lijst = document.getElementById("woordenLijst");
   lijst.innerHTML = "";
 
-  document.getElementById("subTitel").textContent =
-    `${translationsCache[currentLang]["la_subchapter"]} ${sub}`;
+  const t = translationsCache?.[currentLang] ?? {};
 
-  const woorden = woordenData[caput][sub];
+  document.getElementById("subTitel").textContent =
+    `${t["la_subchapter"] ?? "Subhoofdstuk"} ${sub}`;
+
+  const woorden = woordenData[caput]?.[sub];
+
+  if (!woorden) {
+    lijst.innerHTML = `<div style="color:red;">Geen woorden gevonden.</div>`;
+    return;
+  }
 
   Object.keys(woorden).forEach(key => {
     const item = woorden[key];
@@ -214,7 +257,7 @@ function laadSubHoofdstuk(caput, sub) {
     div.className = "woord";
 
     div.innerHTML = `
-      <b>${item.NL}</b> → ${item.LA}<br>
+      <b>${item.NL ?? ""}</b> → ${item.LA ?? ""}<br>
       <small>${item.Gen ?? ""} ${item.Tel ?? ""}</small>
     `;
 
