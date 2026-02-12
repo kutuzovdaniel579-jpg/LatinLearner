@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tijdlijnen — Geschiedenis</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background:black; color:white; }
+    h1 { margin-bottom: 10px; }
+
+    #categorieën { margin-bottom: 20px; }
+
+    .cat-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      background: #51A6E8;
+      color: white;
+      border-radius: 6px;
+      border: 1px solid #0f6f99;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .cat-btn:hover {
+      border-width: 2px;
+      border-color: #0b4f6d;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    .tijdlijn-item {
+      background: #f0f0f0;
+      color:black;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+    }
+
+    .jaar { font-weight: bold; }
+  </style>
+</head>
+
+<body>
+
+  <h1>Tijdlijnen — Geschiedenis</h1>
+
+  <div id="categorieën">Categorieën laden…</div>
+
+  <h2 id="catTitel"></h2>
+  <div id="tijdlijn"></div>
+
+<script>
+let data = {};
+let huidigeCategorie = null;
+
+async function loadJSON() {
+  const div = document.getElementById("categorieën");
+  div.textContent = "Categorieën laden…";
+
+  try {
+    const res = await fetch("tijdlijnen.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Kon tijdlijnen.json niet laden");
+
+    data = await res.json();
+
+    div.innerHTML = "";
+    Object.keys(data).forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "cat-btn";
+      btn.textContent = cat;
+      btn.onclick = () => laadCategorie(cat);
+      div.appendChild(btn);
+    });
+
+  } catch (err) {
+    div.innerHTML = `<div style="color:red;">${err.message}</div>`;
+  }
+}
+
+function laadCategorie(cat) {
+  huidigeCategorie = cat;
+
+  document.getElementById("catTitel").textContent = cat;
+  const container = document.getElementById("tijdlijn");
+  container.innerHTML = "";
+
+  const items = data[cat];
+
+  items.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "tijdlijn-item";
+
+    div.innerHTML = `
+      <div class="jaar">${item.jaar}</div>
+      <div>${item.beschrijving}</div>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+loadJSON();
+</script>
+
+</body>
+</html>
