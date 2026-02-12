@@ -1,0 +1,77 @@
+{
+  "Materialen in het Nabije Oosten": [
+    { "jaar": "tot ±5500 v.C.", "beschrijving": "Steentijd — gebruik van steen als hoofdgrondstof." },
+    { "jaar": "±5500–3300 v.C.", "beschrijving": "Kopertijd — eerste gebruik van koper." },
+    { "jaar": "±3300–1200 v.C.", "beschrijving": "Bronstijd — legering van koper en tin." },
+    { "jaar": "vanaf ±1200 v.C.", "beschrijving": "Ijzertijd — opkomst van ijzerbewerking." }
+  ],
+
+  "Neanderthaler — Onderzoeksgeschiedenis": [
+    { "jaar": "1908", "beschrijving": "Opgraving van Neanderthalerresten." },
+    { "jaar": "1909", "beschrijving": "Tekening van Kupka." },
+    { "jaar": "1957", "beschrijving": "Nieuw onderzoek." },
+    { "jaar": "1985", "beschrijving": "Nieuw onderzoek." },
+    { "jaar": "2011", "beschrijving": "Reconstructie door Alfons en Adrie Kennis." },
+    { "jaar": "2016", "beschrijving": "Televisieserie 'Neanderthaler'." }
+  ],
+
+  "Nomadisch → Sedentair": [
+    { "jaar": "±10.000 v.C.", "beschrijving": "Overgang van nomadische naar sedentaire samenleving." }
+  ],
+
+  "Prehistorie → Geschiedenis": [
+    { "jaar": "±3500 v.C.", "beschrijving": "Uitvinding van het schrift — begin van de geschiedenis." }
+  ],
+
+  "Neolithicum in Europa": [
+    { "jaar": "±6000 v.C.", "beschrijving": "Begin van het Neolithicum in Europa." },
+    { "jaar": "±2500/2000 v.C.", "beschrijving": "Einde van het Neolithicum." }
+  ],
+
+  "Ontstaan van het Schrift": [
+    { "jaar": "±3500 v.C.", "beschrijving": "Sumerië ontwikkelt het eerste schrift." },
+    { "jaar": "±3000 v.C.", "beschrijving": "Schrift in Egypte en India." },
+    { "jaar": "±1400 v.C.", "beschrijving": "Schrift in China." },
+    { "jaar": "±51 v.C.", "beschrijving": "Schrift in onze gewesten." },
+    { "jaar": "1", "beschrijving": "Schrift volledig aanwezig in onze gewesten." },
+    { "jaar": "±862", "beschrijving": "Schrift in Rusland." },
+    { "jaar": "±1788", "beschrijving": "Schrift in Australië." }
+  ],
+
+  "Evolutie — Zoogdieren tot Mens": [
+    { "jaar": "±200 miljoen jaar geleden", "beschrijving": "Ontstaan van de zoogdieren." },
+    { "jaar": "±8 miljoen jaar geleden", "beschrijving": "Eerste mensachtigen." },
+    { "jaar": "±2.5 miljoen jaar geleden", "beschrijving": "Eerste mens (Homo)." }
+  ],
+
+  "Kelten": [
+    { "jaar": "±700 v.C.", "beschrijving": "Begin van de Keltische periode." },
+    { "jaar": "±50 v.C.", "beschrijving": "Einde van de Keltische periode." }
+  ],
+
+  "Begin van de Landbouw": [
+    { "jaar": "±10.000 v.C.", "beschrijving": "Vruchtbare Sikkel — eerste landbouw." },
+    { "jaar": "±8000 v.C.", "beschrijving": "China en Amazonegebied." },
+    { "jaar": "±7000 v.C.", "beschrijving": "Midden-Amerika." },
+    { "jaar": "±6500 v.C.", "beschrijving": "Egypte en Zuidoost-Europa." },
+    { "jaar": "±5000 v.C.", "beschrijving": "Papoea-Nieuw-Guinea." },
+    { "jaar": "±3000 v.C.", "beschrijving": "Zuidoost-Azië." }
+  ],
+
+  "Wereldgeschiedenis — Tijdvakken": [
+    { "jaar": "tot ±3500 v.C.", "beschrijving": "Prehistorie." },
+    { "jaar": "±3500 v.C.", "beschrijving": "Oude Nabije Oosten." },
+    { "jaar": "±800 v.C.", "beschrijving": "Klassieke Oudheid." },
+    { "jaar": "±500", "beschrijving": "Middeleeuwen." },
+    { "jaar": "±1450", "beschrijving": "Vroegmoderne Tijd." },
+    { "jaar": "±1750", "beschrijving": "Moderne Tijd." },
+    { "jaar": "1945", "beschrijving": "Hedendaagse Tijd." }
+  ],
+
+  "Evolutie van de Mens": [
+    { "jaar": "±7 miljoen jaar geleden", "beschrijving": "Eerste mensachtigen." },
+    { "jaar": "±4.5 miljoen jaar geleden", "beschrijving": "Australopithecus." },
+    { "jaar": "±2.5 miljoen jaar geleden", "beschrijving": "Vroege Homo." },
+    { "jaar": "±320.000 jaar geleden", "beschrijving": "Homo sapiens." }
+  ]
+}
