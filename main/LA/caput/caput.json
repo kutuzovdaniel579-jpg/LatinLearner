@@ -2416,4 +2416,124 @@
   }
 
 }
+
+  "C6.2": {
+  "copia": {
+    "NL": "de hoeveelheid; de gelegenheid",
+    "LA": "copia",
+    "Gen": "copiae"
+  },
+  "sermo": {
+    "NL": "het gesprek; het taalgebruik",
+    "LA": "sermo",
+    "Gen": "sermonis"
+  },
+  "vates": {
+    "NL": "de waarzegger; de dichter",
+    "LA": "vates",
+    "Gen": "vatis"
+  },
+  "voluntas": {
+    "NL": "de wil",
+    "LA": "voluntas",
+    "Gen": "voluntatis"
+  },
+  "aureus": {
+    "NL": "gouden",
+    "LA": "aureus",
+    "Gen": "~a, ~um"
+  },
+  "medius": {
+    "NL": "middelste; het midden van",
+    "LA": "medius",
+    "Gen": "~a, ~um"
+  },
+  "obscurus": {
+    "NL": "duister; onbeduidend",
+    "LA": "obscurus",
+    "Gen": "~a, ~um"
+  },
+  "brevis": {
+    "NL": "kort",
+    "LA": "brevis",
+    "Gen": "~, breve; brevis"
+  },
+  "mortalis": {
+    "NL": "sterfelijk",
+    "LA": "mortalis",
+    "Gen": "~, mortale; mortal-is"
+  },
+  "nobilis": {
+    "NL": "adellijk; beroemd",
+    "LA": "nobilis",
+    "Gen": "~, nobile; nobil-is"
+  },
+  "omnis": {
+    "NL": "geheel; elk",
+    "LA": "omnis",
+    "Gen": "~, omne; omn-is"
+  },
+  "omnes": {
+    "NL": "alle",
+    "LA": "omnes",
+    "Gen": "~, omnia; omnium"
+  },
+  "tristis": {
+    "NL": "droevig",
+    "LA": "tristis",
+    "Gen": "~, triste; trist-is"
+  },
+  "audax": {
+    "NL": "moedig; overmoedig",
+    "LA": "audax",
+    "Gen": "~, ~; audac-is"
+  },
+  "dives": {
+    "NL": "rijk",
+    "LA": "dives",
+    "Gen": "~, ~; divit-is"
+  },
+  "ferox": {
+    "NL": "woest; uitdagend",
+    "LA": "ferox",
+    "Gen": "~, ~; feroc-is"
+  },
+  "ingens": {
+    "NL": "reusachtig",
+    "LA": "ingens",
+    "Gen": "~, ~; ingent-is"
+  },
+  "sapiens": {
+    "NL": "wijs; verstandig",
+    "LA": "sapiens",
+    "Gen": "~, ~; sapient-is"
+  },
+  "celer": {
+    "NL": "snel",
+    "LA": "celer",
+    "Gen": "celeris, celere; celer-is"
+  },
+  "incitare": {
+    "NL": "aanvuren",
+    "LA": "incitare",
+    "Gen": "incito"
+  },
+  "complere": {
+    "NL": "vullen",
+    "LA": "complere",
+    "Gen": "compleo"
+  },
+  "adhuc": {
+    "NL": "tot nu toe; nog altijd",
+    "LA": "adhuc",
+    "Gen": "bijwoord"
+  },
+  "diu": {
+    "NL": "lange tijd",
+    "LA": "diu",
+    "Gen": "bijwoord"
+  }
 }
+
+}
+
