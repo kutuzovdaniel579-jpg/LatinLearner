@@ -65,7 +65,7 @@ async function loadJSON() {
   hoofdstukkenDiv.textContent = "Hoofdstukken laden…";
 
   try {
-    const res = await fetch("main/UZ/Bolim.json", { cache: "no-store" });
+    const res = await fetch("https://raw.githubusercontent.com/kutuzovdaniel579-jpg/VIAEF/refs/heads/main/main/UZ/Bolim.json", { cache: "no-store" });
     if (!res.ok) throw new Error("Kon Bolim.json niet laden");
 
     woordenData = await res.json();
