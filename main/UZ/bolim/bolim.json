@@ -740,7 +740,7 @@
         "informeel": "ro‘yxatdan o‘tish"
       }
     }
-  }
+  },
 
   "3B": {
   "Thema": "begroeten_ontmoeten_afscheid",
@@ -878,146 +878,168 @@
       "formeel": "muammo yo‘q",
       "informeel": "muammo yo‘q"
     }
+  },
+
+    "4B": {
+  "Thema": "emoties_en_gevoelens",
+
+  "4.1B": {
+    "Subthema": "positief",
+    "blij": {
+      "uz": "хурсанд",
+      "uzn": "xursand",
+      "uitspraak": "choersand",
+      "formeel": "xursand",
+      "informeel": "xursand"
+    },
+    "tevreden": {
+      "uz": "мамнун",
+      "uzn": "mamnun",
+      "uitspraak": "mamnoen",
+      "formeel": "mamnun",
+      "informeel": "mamnun"
+    },
+    "enthousiast": {
+      "uz": "ҳайажонли",
+      "uzn": "hayajonli",
+      "uitspraak": "hajadzjonli",
+      "formeel": "hayajonli",
+      "informeel": "hayajonli"
+    }
+  },
+
+  "4.2B": {
+    "Subthema": "negatief",
+    "verdrietig": {
+      "uz": "хўнгин",
+      "uzn": "xo‘ngin",
+      "uitspraak": "choengin",
+      "formeel": "xo‘ngin",
+      "informeel": "xo‘ngin"
+    },
+    "boos": {
+      "uz": "жахлдор",
+      "uzn": "jaxldor",
+      "uitspraak": "djahldor",
+      "formeel": "jaxldor",
+      "informeel": "jaxldor"
+    },
+    "bang": {
+      "uz": "қўрққан",
+      "uzn": "qo‘rqqan",
+      "uitspraak": "koerkkan",
+      "formeel": "qo‘rqqan",
+      "informeel": "qo‘rqqan"
+    }
+  },
+
+  "4.3B": {
+    "Subthema": "neutraal",
+    "moe": {
+      "uz": "чарчаган",
+      "uzn": "charchagan",
+      "uitspraak": "tsjartsjagan",
+      "formeel": "charchagan",
+      "informeel": "charchagan"
+    },
+    "verveeld": {
+      "uz": "зериккан",
+      "uzn": "zerikkan",
+      "uitspraak": "zerikkan",
+      "formeel": "zerikkan",
+      "informeel": "zerikkan"
+    },
+    "rustig": {
+      "uz": "тинч",
+      "uzn": "tinch",
+      "uitspraak": "tintsj",
+      "formeel": "tinch",
+      "informeel": "tinch"
+    }
   }
-  }
+      "5B": {
+  "Thema": "dagelijks_leven",
 
-  "3B": {
-  "Thema": "begroeten_ontmoeten_afscheid",
-
-  "3.1B": {
-    "Subthema": "begroeten",
-    "hallo": {
-      "uz": "салом",
-      "uzn": "salom",
-      "uitspraak": "salom",
-      "formeel": "salom",
-      "informeel": "salom"
+  "5.1B": {
+    "Subthema": "basisacties",
+    "eten": {
+      "uz": "ейиш",
+      "uzn": "eyish",
+      "uitspraak": "ejisj",
+      "formeel": "eyish",
+      "informeel": "eyish"
     },
-    "goede_dag": {
-      "uz": "хайрли кун",
-      "uzn": "xayrli kun",
-      "uitspraak": "chajrli koen",
-      "formeel": "xayrli kun",
-      "informeel": "xayrli kun"
+    "drinken": {
+      "uz": "ичиш",
+      "uzn": "ichish",
+      "uitspraak": "itsjisj",
+      "formeel": "ichish",
+      "informeel": "ichish"
     },
-    "goedemorgen": {
-      "uz": "хайрли тонг",
-      "uzn": "xayrli tong",
-      "uitspraak": "chajrli tong",
-      "formeel": "xayrli tong",
-      "informeel": "xayrli tong"
-    },
-    "goedenavond": {
-      "uz": "хайрли кеч",
-      "uzn": "xayrli kech",
-      "uitspraak": "chajrli ketsj",
-      "formeel": "xayrli kech",
-      "informeel": "xayrli kech"
-    },
-    "hoe_gaat_het": {
-      "uz": "қалейсиз",
-      "uzn": "qalaysiz",
-      "uitspraak": "kalajsiz",
-      "formeel": "qalaysiz",
-      "informeel": "qalaysan"
+    "slapen": {
+      "uz": "ухлаш",
+      "uzn": "uxlash",
+      "uitspraak": "oechlash",
+      "formeel": "uxlash",
+      "informeel": "uxlash"
     }
   },
 
-  "3.2B": {
-    "Subthema": "ontmoeten",
-    "aangenaam": {
-      "uz": "танишганимдан хурсандман",
-      "uzn": "tanishganimdan xursandman",
-      "uitspraak": "tanishganimdan choersandman",
-      "formeel": "tanishganimdan xursandman",
-      "informeel": "tanishganimdan xursandman"
+  "5.2B": {
+    "Subthema": "dagelijkse_routine",
+    "opstaan": {
+      "uz": "туриш",
+      "uzn": "turish",
+      "uitspraak": "toerish",
+      "formeel": "turish",
+      "informeel": "turish"
     },
-    "mijn_naam_is": {
-      "uz": "менинг исмим ...",
-      "uzn": "mening ismim ...",
-      "uitspraak": "mening ismim",
-      "formeel": "mening ismim ...",
-      "informeel": "ismim ..."
+    "wassen": {
+      "uz": "ювиниш",
+      "uzn": "yuvinish",
+      "uitspraak": "joevinisj",
+      "formeel": "yuvinish",
+      "informeel": "yuvinish"
     },
-    "hoe_heet_jij": {
-      "uz": "исмингиз ким",
-      "uzn": "ismingiz kim",
-      "uitspraak": "ismingiz kim",
-      "formeel": "ismingiz kim",
-      "informeel": "isming kim"
-    },
-    "waar_kom_je_vandaan": {
-      "uz": "қаердансиз",
-      "uzn": "qayerdansiz",
-      "uitspraak": "kajerdansiz",
-      "formeel": "qayerdansiz",
-      "informeel": "qayerdansan"
+    "aankleden": {
+      "uz": "кийиниш",
+      "uzn": "kiyinish",
+      "uitspraak": "kijinisj",
+      "formeel": "kiyinish",
+      "informeel": "kiyinish"
     }
   },
 
-  "3.3B": {
-    "Subthema": "afscheid_nemen",
-    "tot_ziens": {
-      "uz": "хайр",
-      "uzn": "xayr",
-      "uitspraak": "chajr",
-      "formeel": "xayr",
-      "informeel": "xayr"
+  "5.3B": {
+    "Subthema": "bewegen",
+    "lopen": {
+      "uz": "юриш",
+      "uzn": "yurish",
+      "uitspraak": "joerish",
+      "formeel": "yurish",
+      "informeel": "yurish"
     },
-    "dag": {
-      "uz": "саломат бўлинг",
-      "uzn": "salomat bo‘ling",
-      "uitspraak": "salomat boeling",
-      "formeel": "salomat bo‘ling",
-      "informeel": "salomat bo‘l"
+    "rennen": {
+      "uz": "югуриш",
+      "uzn": "yugurish",
+      "uitspraak": "joegoerish",
+      "formeel": "yugurish",
+      "informeel": "yugurish"
     },
-    "tot_later": {
-      "uz": "кейин кўришамиз",
-      "uzn": "keyin ko‘rishamiz",
-      "uitspraak": "kejin koerishamiz",
-      "formeel": "keyin ko‘rishamiz",
-      "informeel": "ko‘rishamiz"
-    },
-    "goedenacht": {
-      "uz": "хайрли тун",
-      "uzn": "xayrli tun",
-      "uitspraak": "chajrli toewn",
-      "formeel": "xayrli tun",
-      "informeel": "xayrli tun"
-    }
-  },
-
-  "3.4B": {
-    "Subthema": "sociale_basiszinnen",
-    "dankjewel": {
-      "uz": "рахмат",
-      "uzn": "rahmat",
-      "uitspraak": "rahmat",
-      "formeel": "rahmat",
-      "informeel": "rahmat"
-    },
-    "alstublieft": {
-      "uz": "илтимос",
-      "uzn": "iltimos",
-      "uitspraak": "iltimos",
-      "formeel": "iltimos",
-      "informeel": "iltimos"
-    },
-    "sorry": {
-      "uz": "кечирасиз",
-      "uzn": "kechirasiz",
-      "uitspraak": "ketsjirasiz",
-      "formeel": "kechirasiz",
-      "informeel": "kechir"
-    },
-    "geen_probleem": {
-      "uz": "муаммо йўқ",
-      "uzn": "muammo yo‘q",
-      "uitspraak": "moeammo jok",
-      "formeel": "muammo yo‘q",
-      "informeel": "muammo yo‘q"
+    "zitten": {
+      "uz": "ўтириш",
+      "uzn": "o‘tirish",
+      "uitspraak": "oetirish",
+      "formeel": "o‘tirish",
+      "informeel": "o‘tirish"
     }
   }
 }
+
+}
+
+  
+
+ 
 
 }
