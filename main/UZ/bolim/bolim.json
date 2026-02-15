@@ -1,4 +1,143 @@
 {
+  "0B": {
+    "Thema": "begroeten_ontmoeten_afscheid",
+
+    "0.1B": {
+      "Subthema": "begroeten",
+      "hallo": {
+        "uz": "салом",
+        "uzn": "salom",
+        "uitspraak": "salom",
+        "formeel": "salom",
+        "informeel": "salom"
+      },
+      "goede_dag": {
+        "uz": "хайрли кун",
+        "uzn": "xayrli kun",
+        "uitspraak": "chajrli koen",
+        "formeel": "xayrli kun",
+        "informeel": "xayrli kun"
+      },
+      "goedemorgen": {
+        "uz": "хайрли тонг",
+        "uzn": "xayrli tong",
+        "uitspraak": "chajrli tong",
+        "formeel": "xayrli tong",
+        "informeel": "xayrli tong"
+      },
+      "goedenavond": {
+        "uz": "хайрли кеч",
+        "uzn": "xayrli kech",
+        "uitspraak": "chajrli ketsj",
+        "formeel": "xayrli kech",
+        "informeel": "xayrli kech"
+      },
+      "hoe_gaat_het": {
+        "uz": "қалейсиз",
+        "uzn": "qalaysiz",
+        "uitspraak": "kalajsiz",
+        "formeel": "qalaysiz",
+        "informeel": "qalaysan"
+      }
+    },
+
+    "0.2B": {
+      "Subthema": "ontmoeten",
+      "aangenaam": {
+        "uz": "танишганимдан хурсандман",
+        "uzn": "tanishganimdan xursandman",
+        "uitspraak": "tanishganimdan choersandman",
+        "formeel": "tanishganimdan xursandman",
+        "informeel": "tanishganimdan xursandman"
+      },
+      "mijn_naam_is": {
+        "uz": "менинг исмим ...",
+        "uzn": "mening ismim ...",
+        "uitspraak": "mening ismim",
+        "formeel": "mening ismim ...",
+        "informeel": "ismim ..."
+      },
+      "hoe_heet_jij": {
+        "uz": "исмингиз ким",
+        "uzn": "ismingiz kim",
+        "uitspraak": "ismingiz kim",
+        "formeel": "ismingiz kim",
+        "informeel": "isming kim"
+      },
+      "waar_kom_je_vandaan": {
+        "uz": "қаердансиз",
+        "uzn": "qayerdansiz",
+        "uitspraak": "kajerdansiz",
+        "formeel": "qayerdansiz",
+        "informeel": "qayerdansan"
+      }
+    },
+
+    "0.3B": {
+      "Subthema": "afscheid_nemen",
+      "tot_ziens": {
+        "uz": "хайр",
+        "uzn": "xayr",
+        "uitspraak": "chajr",
+        "formeel": "xayr",
+        "informeel": "xayr"
+      },
+      "dag": {
+        "uz": "саломат бўлинг",
+        "uzn": "salomat bo‘ling",
+        "uitspraak": "salomat boeling",
+        "formeel": "salomat bo‘ling",
+        "informeel": "salomat bo‘l"
+      },
+      "tot_later": {
+        "uz": "кейин кўришамиз",
+        "uzn": "keyin ko‘rishamiz",
+        "uitspraak": "kejin koerishamiz",
+        "formeel": "keyin ko‘rishamiz",
+        "informeel": "ko‘rishamiz"
+      },
+      "goedenacht": {
+        "uz": "хайрли тун",
+        "uzn": "xayrli tun",
+        "uitspraak": "chajrli toewn",
+        "formeel": "xayrli tun",
+        "informeel": "xayrli tun"
+      }
+    },
+
+    "0.4B": {
+      "Subthema": "sociale_basiszinnen",
+      "dankjewel": {
+        "uz": "рахмат",
+        "uzn": "rahmat",
+        "uitspraak": "rahmat",
+        "formeel": "rahmat",
+        "informeel": "rahmat"
+      },
+      "alstublieft": {
+        "uz": "илтимос",
+        "uzn": "iltimos",
+        "uitspraak": "iltimos",
+        "formeel": "iltimos",
+        "informeel": "iltimos"
+      },
+      "sorry": {
+        "uz": "кечирасиз",
+        "uzn": "kechirasiz",
+        "uitspraak": "ketsjirasiz",
+        "formeel": "kechirasiz",
+        "informeel": "kechir"
+      },
+      "geen_probleem": {
+        "uz": "муаммо йўқ",
+        "uzn": "muammo yo‘q",
+        "uitspraak": "moeammo jok",
+        "formeel": "muammo yo‘q",
+        "informeel": "muammo yo‘q"
+      }
+    }
+  },
+  
   "1B": {
     "Thema": "familie",
 
@@ -348,5 +487,537 @@
         "informeel": "jiyan"
       }
     }
+  },
+
+  "2B": {
+    "Thema": "school",
+
+    "2.1B": {
+      "Subthema": "schooltypen",
+      "school": {
+        "uz": "мактаб",
+        "uzn": "maktab",
+        "uitspraak": "maktab",
+        "formeel": "maktab",
+        "informeel": "maktab"
+      },
+      "basisschool": {
+        "uz": "бошланғич мактаб",
+        "uzn": "boshlang‘ich maktab",
+        "uitspraak": "boshlang-gitsj maktab",
+        "formeel": "boshlang‘ich maktab",
+        "informeel": "boshlang‘ich maktab"
+      },
+      "middelbare_school": {
+        "uz": "ўрта мактаб",
+        "uzn": "o‘rta maktab",
+        "uitspraak": "oerta maktab",
+        "formeel": "o‘rta maktab",
+        "informeel": "o‘rta maktab"
+      },
+      "universiteit": {
+        "uz": "университет",
+        "uzn": "universitet",
+        "uitspraak": "universitet",
+        "formeel": "universitet",
+        "informeel": "universitet"
+      }
+    },
+
+    "2.2B": {
+      "Subthema": "schoolruimtes",
+      "klaslokaal": {
+        "uz": "синф хонаси",
+        "uzn": "sinfxonasi",
+        "uitspraak": "sinf-cho-nasi",
+        "formeel": "sinfxonasi",
+        "informeel": "sinfxonasi"
+      },
+      "bibliotheek": {
+        "uz": "кутубхона",
+        "uzn": "kutubxona",
+        "uitspraak": "koetoe-bchona",
+        "formeel": "kutubxona",
+        "informeel": "kutubxona"
+      },
+      "kantine": {
+        "uz": "ошхона",
+        "uzn": "oshxona",
+        "uitspraak": "osj-chona",
+        "formeel": "oshxona",
+        "informeel": "oshxona"
+      },
+      "gymzaal": {
+        "uz": "спорт зали",
+        "uzn": "sport zali",
+        "uitspraak": "sport zali",
+        "formeel": "sport zali",
+        "informeel": "sport zali"
+      }
+    },
+
+    "2.3B": {
+      "Subthema": "schoolmateriaal",
+      "boek": {
+        "uz": "китоб",
+        "uzn": "kitob",
+        "uitspraak": "kitob",
+        "formeel": "kitob",
+        "informeel": "kitob"
+      },
+      "schrift": {
+        "uz": "дафтар",
+        "uzn": "daftar",
+        "uitspraak": "daftar",
+        "formeel": "daftar",
+        "informeel": "daftar"
+      },
+      "pen": {
+        "uz": "ручка",
+        "uzn": "ruchka",
+        "uitspraak": "roetsjka",
+        "formeel": "ruchka",
+        "informeel": "ruchka"
+      },
+      "potlood": {
+        "uz": "қалам",
+        "uzn": "qalam",
+        "uitspraak": "kalam",
+        "formeel": "qalam",
+        "informeel": "qalam"
+      },
+      "rugzak": {
+        "uz": "рюкзак",
+        "uzn": "ryukzak",
+        "uitspraak": "rjoekzak",
+        "formeel": "ryukzak",
+        "informeel": "ryukzak"
+      }
+    },
+
+    "2.4B": {
+      "Subthema": "personeel",
+      "leraar": {
+        "uz": "ўқитувчи",
+        "uzn": "o‘qituvchi",
+        "uitspraak": "oekitoev-tsji",
+        "formeel": "o‘qituvchi",
+        "informeel": "o‘qituvchi"
+      },
+      "directeur": {
+        "uz": "директор",
+        "uzn": "direktor",
+        "uitspraak": "direktor",
+        "formeel": "direktor",
+        "informeel": "direktor"
+      },
+      "conciërge": {
+        "uz": "хозим",
+        "uzn": "xozim",
+        "uitspraak": "chozim",
+        "formeel": "xozim",
+        "informeel": "xozim"
+      },
+      "assistent": {
+        "uz": "ёрдамчи",
+        "uzn": "yordamchi",
+        "uitspraak": "jordam-tsji",
+        "formeel": "yordamchi",
+        "informeel": "yordamchi"
+      }
+    },
+
+    "2.5B": {
+      "Subthema": "leerlingen",
+      "leerling": {
+        "uz": "ўқувчи",
+        "uzn": "o‘quvchi",
+        "uitspraak": "oekoew-tsji",
+        "formeel": "o‘quvchi",
+        "informeel": "o‘quvchi"
+      },
+      "klasgenoot": {
+        "uz": "синфдош",
+        "uzn": "sinfdoshl",
+        "uitspraak": "sinf-dosj",
+        "formeel": "sinfdosh",
+        "informeel": "sinfdosh"
+      },
+      "nieuweling": {
+        "uz": "янги ўқувчи",
+        "uzn": "yangi o‘quvchi",
+        "uitspraak": "jangi oekoew-tsji",
+        "formeel": "yangi o‘quvchi",
+        "informeel": "yangi o‘quvchi"
+      }
+    },
+
+    "2.6B": {
+      "Subthema": "vakken",
+      "wiskunde": {
+        "uz": "математика",
+        "uzn": "matematika",
+        "uitspraak": "matematika",
+        "formeel": "matematika",
+        "informeel": "matematika"
+      },
+      "taal": {
+        "uz": "тил",
+        "uzn": "til",
+        "uitspraak": "til",
+        "formeel": "til",
+        "informeel": "til"
+      },
+      "geschiedenis": {
+        "uz": "тарих",
+        "uzn": "tarix",
+        "uitspraak": "tarich",
+        "formeel": "tarix",
+        "informeel": "tarix"
+      },
+      "biologie": {
+        "uz": "биология",
+        "uzn": "biologiya",
+        "uitspraak": "biologija",
+        "formeel": "biologiya",
+        "informeel": "biologiya"
+      }
+    },
+
+    "2.7B": {
+      "Subthema": "activiteiten",
+      "huiswerk": {
+        "uz": "уй вазифаси",
+        "uzn": "uy vazifasi",
+        "uitspraak": "oej vazifasi",
+        "formeel": "uy vazifasi",
+        "informeel": "uy vazifasi"
+      },
+      "studeren": {
+        "uz": "ўқиш",
+        "uzn": "o‘qish",
+        "uitspraak": "oekisj",
+        "formeel": "o‘qish",
+        "informeel": "o‘qish"
+      },
+      "presenteren": {
+        "uz": "тақдим қилиш",
+        "uzn": "taqdim qilish",
+        "uitspraak": "takdim kilisj",
+        "formeel": "taqdim qilish",
+        "informeel": "taqdim qilish"
+      },
+      "sporten": {
+        "uz": "спорт билан шуғулланиш",
+        "uzn": "sport bilan shug‘ullanish",
+        "uitspraak": "sport bilan sjoegoellanish",
+        "formeel": "sport bilan shug‘ullanish",
+        "informeel": "sport bilan shug‘ullanish"
+      }
+    },
+
+    "2.8B": {
+      "Subthema": "administratie",
+      "rapport": {
+        "uz": "баҳо қоғози",
+        "uzn": "baho qog‘ozi",
+        "uitspraak": "baho kog-ozi",
+        "formeel": "baho qog‘ozi",
+        "informeel": "baho qog‘ozi"
+      },
+      "agenda": {
+        "uz": "кун тартиби",
+        "uzn": "kun tartibi",
+        "uitspraak": "koen tartibi",
+        "formeel": "kun tartibi",
+        "informeel": "kun tartibi"
+      },
+      "inschrijving": {
+        "uz": "рўйхатдан ўтиш",
+        "uzn": "ro‘yxatdan o‘tish",
+        "uitspraak": "roej-chatdan oetisj",
+        "formeel": "ro‘yxatdan o‘tish",
+        "informeel": "ro‘yxatdan o‘tish"
+      }
+    }
   }
+
+  "3B": {
+  "Thema": "begroeten_ontmoeten_afscheid",
+
+  "3.1B": {
+    "Subthema": "begroeten",
+    "hallo": {
+      "uz": "салом",
+      "uzn": "salom",
+      "uitspraak": "salom",
+      "formeel": "salom",
+      "informeel": "salom"
+    },
+    "goede_dag": {
+      "uz": "хайрли кун",
+      "uzn": "xayrli kun",
+      "uitspraak": "chajrli koen",
+      "formeel": "xayrli kun",
+      "informeel": "xayrli kun"
+    },
+    "goedemorgen": {
+      "uz": "хайрли тонг",
+      "uzn": "xayrli tong",
+      "uitspraak": "chajrli tong",
+      "formeel": "xayrli tong",
+      "informeel": "xayrli tong"
+    },
+    "goedenavond": {
+      "uz": "хайрли кеч",
+      "uzn": "xayrli kech",
+      "uitspraak": "chajrli ketsj",
+      "formeel": "xayrli kech",
+      "informeel": "xayrli kech"
+    },
+    "hoe_gaat_het": {
+      "uz": "қалейсиз",
+      "uzn": "qalaysiz",
+      "uitspraak": "kalajsiz",
+      "formeel": "qalaysiz",
+      "informeel": "qalaysan"
+    }
+  },
+
+  "3.2B": {
+    "Subthema": "ontmoeten",
+    "aangenaam": {
+      "uz": "танишганимдан хурсандман",
+      "uzn": "tanishganimdan xursandman",
+      "uitspraak": "tanishganimdan choersandman",
+      "formeel": "tanishganimdan xursandman",
+      "informeel": "tanishganimdan xursandman"
+    },
+    "mijn_naam_is": {
+      "uz": "менинг исмим ...",
+      "uzn": "mening ismim ...",
+      "uitspraak": "mening ismim",
+      "formeel": "mening ismim ...",
+      "informeel": "ismim ..."
+    },
+    "hoe_heet_jij": {
+      "uz": "исмингиз ким",
+      "uzn": "ismingiz kim",
+      "uitspraak": "ismingiz kim",
+      "formeel": "ismingiz kim",
+      "informeel": "isming kim"
+    },
+    "waar_kom_je_vandaan": {
+      "uz": "қаердансиз",
+      "uzn": "qayerdansiz",
+      "uitspraak": "kajerdansiz",
+      "formeel": "qayerdansiz",
+      "informeel": "qayerdansan"
+    }
+  },
+
+  "3.3B": {
+    "Subthema": "afscheid_nemen",
+    "tot_ziens": {
+      "uz": "хайр",
+      "uzn": "xayr",
+      "uitspraak": "chajr",
+      "formeel": "xayr",
+      "informeel": "xayr"
+    },
+    "dag": {
+      "uz": "саломат бўлинг",
+      "uzn": "salomat bo‘ling",
+      "uitspraak": "salomat boeling",
+      "formeel": "salomat bo‘ling",
+      "informeel": "salomat bo‘l"
+    },
+    "tot_later": {
+      "uz": "кейин кўришамиз",
+      "uzn": "keyin ko‘rishamiz",
+      "uitspraak": "kejin koerishamiz",
+      "formeel": "keyin ko‘rishamiz",
+      "informeel": "ko‘rishamiz"
+    },
+    "goedenacht": {
+      "uz": "хайрли тун",
+      "uzn": "xayrli tun",
+      "uitspraak": "chajrli toewn",
+      "formeel": "xayrli tun",
+      "informeel": "xayrli tun"
+    }
+  },
+
+  "3.4B": {
+    "Subthema": "sociale_basiszinnen",
+    "dankjewel": {
+      "uz": "рахмат",
+      "uzn": "rahmat",
+      "uitspraak": "rahmat",
+      "formeel": "rahmat",
+      "informeel": "rahmat"
+    },
+    "alstublieft": {
+      "uz": "илтимос",
+      "uzn": "iltimos",
+      "uitspraak": "iltimos",
+      "formeel": "iltimos",
+      "informeel": "iltimos"
+    },
+    "sorry": {
+      "uz": "кечирасиз",
+      "uzn": "kechirasiz",
+      "uitspraak": "ketsjirasiz",
+      "formeel": "kechirasiz",
+      "informeel": "kechir"
+    },
+    "geen_probleem": {
+      "uz": "муаммо йўқ",
+      "uzn": "muammo yo‘q",
+      "uitspraak": "moeammo jok",
+      "formeel": "muammo yo‘q",
+      "informeel": "muammo yo‘q"
+    }
+  }
+  }
+
+  "3B": {
+  "Thema": "begroeten_ontmoeten_afscheid",
+
+  "3.1B": {
+    "Subthema": "begroeten",
+    "hallo": {
+      "uz": "салом",
+      "uzn": "salom",
+      "uitspraak": "salom",
+      "formeel": "salom",
+      "informeel": "salom"
+    },
+    "goede_dag": {
+      "uz": "хайрли кун",
+      "uzn": "xayrli kun",
+      "uitspraak": "chajrli koen",
+      "formeel": "xayrli kun",
+      "informeel": "xayrli kun"
+    },
+    "goedemorgen": {
+      "uz": "хайрли тонг",
+      "uzn": "xayrli tong",
+      "uitspraak": "chajrli tong",
+      "formeel": "xayrli tong",
+      "informeel": "xayrli tong"
+    },
+    "goedenavond": {
+      "uz": "хайрли кеч",
+      "uzn": "xayrli kech",
+      "uitspraak": "chajrli ketsj",
+      "formeel": "xayrli kech",
+      "informeel": "xayrli kech"
+    },
+    "hoe_gaat_het": {
+      "uz": "қалейсиз",
+      "uzn": "qalaysiz",
+      "uitspraak": "kalajsiz",
+      "formeel": "qalaysiz",
+      "informeel": "qalaysan"
+    }
+  },
+
+  "3.2B": {
+    "Subthema": "ontmoeten",
+    "aangenaam": {
+      "uz": "танишганимдан хурсандман",
+      "uzn": "tanishganimdan xursandman",
+      "uitspraak": "tanishganimdan choersandman",
+      "formeel": "tanishganimdan xursandman",
+      "informeel": "tanishganimdan xursandman"
+    },
+    "mijn_naam_is": {
+      "uz": "менинг исмим ...",
+      "uzn": "mening ismim ...",
+      "uitspraak": "mening ismim",
+      "formeel": "mening ismim ...",
+      "informeel": "ismim ..."
+    },
+    "hoe_heet_jij": {
+      "uz": "исмингиз ким",
+      "uzn": "ismingiz kim",
+      "uitspraak": "ismingiz kim",
+      "formeel": "ismingiz kim",
+      "informeel": "isming kim"
+    },
+    "waar_kom_je_vandaan": {
+      "uz": "қаердансиз",
+      "uzn": "qayerdansiz",
+      "uitspraak": "kajerdansiz",
+      "formeel": "qayerdansiz",
+      "informeel": "qayerdansan"
+    }
+  },
+
+  "3.3B": {
+    "Subthema": "afscheid_nemen",
+    "tot_ziens": {
+      "uz": "хайр",
+      "uzn": "xayr",
+      "uitspraak": "chajr",
+      "formeel": "xayr",
+      "informeel": "xayr"
+    },
+    "dag": {
+      "uz": "саломат бўлинг",
+      "uzn": "salomat bo‘ling",
+      "uitspraak": "salomat boeling",
+      "formeel": "salomat bo‘ling",
+      "informeel": "salomat bo‘l"
+    },
+    "tot_later": {
+      "uz": "кейин кўришамиз",
+      "uzn": "keyin ko‘rishamiz",
+      "uitspraak": "kejin koerishamiz",
+      "formeel": "keyin ko‘rishamiz",
+      "informeel": "ko‘rishamiz"
+    },
+    "goedenacht": {
+      "uz": "хайрли тун",
+      "uzn": "xayrli tun",
+      "uitspraak": "chajrli toewn",
+      "formeel": "xayrli tun",
+      "informeel": "xayrli tun"
+    }
+  },
+
+  "3.4B": {
+    "Subthema": "sociale_basiszinnen",
+    "dankjewel": {
+      "uz": "рахмат",
+      "uzn": "rahmat",
+      "uitspraak": "rahmat",
+      "formeel": "rahmat",
+      "informeel": "rahmat"
+    },
+    "alstublieft": {
+      "uz": "илтимос",
+      "uzn": "iltimos",
+      "uitspraak": "iltimos",
+      "formeel": "iltimos",
+      "informeel": "iltimos"
+    },
+    "sorry": {
+      "uz": "кечирасиз",
+      "uzn": "kechirasiz",
+      "uitspraak": "ketsjirasiz",
+      "formeel": "kechirasiz",
+      "informeel": "kechir"
+    },
+    "geen_probleem": {
+      "uz": "муаммо йўқ",
+      "uzn": "muammo yo‘q",
+      "uitspraak": "moeammo jok",
+      "formeel": "muammo yo‘q",
+      "informeel": "muammo yo‘q"
+    }
+  }
+}
+
 }
