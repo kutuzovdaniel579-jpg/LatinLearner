@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bolim — Woorden</title>
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      padding: 20px; 
+      background:black; 
+      color:white; 
+    }
+
+    h1 { margin-bottom: 10px; }
+
+    #hoofdstukken, #subHoofdstukken { margin-bottom: 15px; }
+
+    .hoofdstuk-btn,
+    .subhoofdstuk-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      background: #51A6E8;
+      color: white;
+      border-radius: 6px;
+      border: 1px solid #0f6f99;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .hoofdstuk-btn:hover,
+    .subhoofdstuk-btn:hover {
+      border-width: 2px;
+      border-color: #0b4f6d;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    .woord {
+      padding: 10px;
+      margin: 10px 0;
+      background: #f0f0f0;
+      border-radius: 6px;
+      color:black;
+    }
+
+    .woord small { color: #555; }
+  </style>
+</head>
+
+<body>
+
+  <h1>Bolim — Woorden</h1>
+
+  <div id="hoofdstukken">Hoofdstukken laden…</div>
+  <div id="subHoofdstukken"></div>
+
+  <h2 id="caputTitel"></h2>
+  <h3 id="subTitel"></h3>
+  <div id="woordenLijst"></div>
+
+<script>
+let woordenData = {};
+let huidigCaput = null;
+let huidigSub = null;
+
+async function loadJSON() {
+  const hoofdstukkenDiv = document.getElementById("hoofdstukken");
+  hoofdstukkenDiv.textContent = "Hoofdstukken laden…";
+
+  try {
+    const res = await fetch("https://raw.githubusercontent.com/kutuzovdaniel579-jpg/VIAEF/main/main/UZ/bolim.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Kon bolim.json niet laden");
+
+    woordenData = await res.json();
+
+    hoofdstukkenDiv.innerHTML = "";
+
+    Object.keys(woordenData).forEach(caput => {
+      const btn = document.createElement("button");
+      btn.className = "hoofdstuk-btn";
+      btn.textContent = caput;
+      btn.onclick = () => laadCaput(caput);
+      hoofdstukkenDiv.appendChild(btn);
+    });
+
+  } catch (err) {
+    hoofdstukkenDiv.innerHTML = `
+      <div style="color:red;">
+        Fout bij laden van hoofdstukken.<br>
+        ${err.message}
+      </div>
+    `;
+  }
+}
+
+function laadCaput(caput) {
+  huidigCaput = caput;
+  huidigSub = null;
+
+  document.getElementById("caputTitel").textContent = `Hoofdstuk ${caput}`;
+  document.getElementById("subTitel").textContent = "";
+  document.getElementById("woordenLijst").innerHTML = "";
+
+  const subDiv = document.getElementById("subHoofdstukken");
+  subDiv.innerHTML = "";
+
+  const subhoofdstukken = woordenData[caput];
+
+  Object.keys(subhoofdstukken).forEach(key => {
+    if (key === "Thema") return;
+
+    const btn = document.createElement("button");
+    btn.className = "subhoofdstuk-btn";
+    btn.textContent = key;
+    btn.onclick = () => laadSubHoofdstuk(caput, key);
+    subDiv.appendChild(btn);
+  });
+}
+
+function laadSubHoofdstuk(caput, sub) {
+  huidigSub = sub;
+
+  const lijst = document.getElementById("woordenLijst");
+  lijst.innerHTML = "";
+
+  const data = woordenData[caput][sub];
+
+  document.getElementById("subTitel").textContent =
+    `Subhoofdstuk ${sub} — ${data.Subthema ?? ""}`;
+
+  Object.keys(data).forEach(key => {
+    if (key === "Subthema") return;
+
+    const item = data[key];
+
+    const div = document.createElement("div");
+    div.className = "woord";
+
+    div.innerHTML = `
+      <b>${key}</b><br>
+      <small>UZ (Cyrillisch):</small> ${item.uz}<br>
+      <small>UZ (Latijns):</small> ${item.uzn}<br>
+      <small>Uitspraak:</small> ${item.uitspraak}<br>
+      <small>Formeel:</small> ${item.formeel}<br>
+      <small>Informeel:</small> ${item.informeel}
+    `;
+
+    lijst.appendChild(div);
+  });
+}
+
+loadJSON();
+</script>
+
+</body>
+</html>
